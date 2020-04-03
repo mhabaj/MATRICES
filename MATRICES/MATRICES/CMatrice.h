@@ -20,11 +20,14 @@ public:
 	CMatrice(string sPath);
 	CMatrice(int iLigne, int iColonne);
 	CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems);
-	CMatrice(Type** paramMat);
-	void MatModifierElem(Type elem, int ligne, int colonne);
-	void MatAjoutLigne();
-	void MatAjoutColonne();
-
+	CMatrice(Type** MATParam);
+	CMatrice operator *(CMatrice& MATParam);
+	CMatrice operator /(CMatrice& MATParam);
+	void MATModifierElem(Type elem, int ligne, int colonne);
+	void MATAjoutLigne();
+	void MATAjoutColonne();
+	void MATAfficherMatrice();
+	
 
 
 
