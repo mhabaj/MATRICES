@@ -9,21 +9,65 @@ class CMatrice
 {
 
 private:
-	int iMATnbCol;
-	int iMATnbLig;
+	int iMATNbCol;
+	int iMATNbLig;
 	Type** ppTYPEMATMatrice;
 
 public:
-	CMatrice();
+	CMatrice();//c fé
 	CMatrice(string sPath);
-	CMatrice(int iLigne, int iColonne);
-	CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems);//Pre condition : taille de pTypeTableauElems = a iLigne*iColonne
-	CMatrice(Type** MATParam);
-	CMatrice operator *(CMatrice& MATParam);
-	CMatrice operator /(CMatrice& MATParam);
-	void MATModifierElem(Type elem, int ligne, int colonne);
-	void MATAjoutLigne();
-	void MATAjoutColonne();
-	void MATAfficherMatrice();
+	CMatrice(int iLigne, int iColonne);//c fé
+	CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems);//Pre condition : taille de pTypeTableauElems = a iLigne*iColonne // c fé
+	CMatrice(const Type& MATParam);//c fé
+
+	CMatrice& operator =(const CMatrice& MATParam)//c fé
+	{
+		iMATNbCol = MATParam.iMATNbCol;
+		iMATNbLig = MATParam.iMATNbLig;
+
+		ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+
+		for (int iloop = 0; iloop < iMATNbCol; iloop++) {
+			ppTYPEMATMatrice[iloop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		}
+
+		for (int iloopLig = 0; iloopLig < iMATNbLig; iloopLig++)
+		{
+			for (int iloopCol = 0; iloopCol < iMATNbCol; iloopCol++)
+			{
+				*ppTYPEMATMatrice[iloopCol][iloopLig] = *MATParam.ppTYPEMATMatrice[iloopCol][iloopLig];
+			}
+		}
+		
+		return *this;
+	}
+
+	CMatrice operator *(const int iScalaire)
+	{
+		iMATNbCol = MATParam.iMATNbCol;
+		iMATNbLig = MATParam.iMATNbLig;
+
+		ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+
+		for (int iloop = 0; iloop < iMATNbCol; iloop++) {
+			ppTYPEMATMatrice[iloop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		}
+
+		for (int iloopLig = 0; iloopLig < iMATNbLig; iloopLig++)
+		{
+			for (int iloopCol = 0; iloopCol < iMATNbCol; iloopCol++)
+			{
+				*ppTYPEMATMatrice[iloopCol][iloopLig] = iScalaire*(*MATParam.ppTYPEMATMatrice[iloopCol][iloopLig]);
+			}
+		}
+
+		return *this;
+	}
+
+	CMatrice operator /(const int iScalaire);
+	void MATModifierElem(Type elem, int ligne, int colonne);//c fé
+	void MATAjoutLigne();//c fé
+	void MATAjoutColonne();//c fé
+	void MATAfficherMatrice();//c fé
 
 };
