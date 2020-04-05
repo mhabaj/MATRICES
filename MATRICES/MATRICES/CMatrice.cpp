@@ -49,24 +49,41 @@ CMatrice<Type>::CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems)
 }
 
 template<typename Type>
-CMatrice<Type>::CMatrice(const Type& MATParam)
+CMatrice<Type>::CMatrice(const CMatrice<Type>& MATParam)
 {
-	iMATNbCol = MATParam.iMATNbCol;
-	iMATNbLig = MATParam.iMATNbLig;
+	if (MATParam.ppTYPEMATMatrice) {
 
-	ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+		iMATNbCol = MATParam.iMATNbCol;
+		iMATNbLig = MATParam.iMATNbLig;
 
-	for (int iloop = 0; iloop < iMATNbCol; iloop++) {
-		ppTYPEMATMatrice[iloop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
-	}
+		ppTYPEMATMatrice = new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
-	for (int iloopLig = 0; iloopLig < iMATNbLig; iloopLig++)
-	{
-		for (int iloopCol = 0; iloopCol < iMATNbCol; iloopCol++)
+		for (int iloop = 0; iloop < iMATNbCol; iloop++) {
+			ppTYPEMATMatrice[iloop] = new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		}
+
+		for (int iloop = 0; iloop < iMATNbCol; iloop++)
 		{
-			*ppTYPEMATMatrice[iloopCol][iloopLig] = *(MATParam.ppTYPEMATMatrice[iloopCol][iloopLig]);
+			for (int iloopLig = 0; iloopLig < iMATNbLig; iloopLig++)
+			{
+				ppTYPEMATMatrice[iloop][iloopLig] = MATParam.ppTYPEMATMatrice[iloop][iloopLig];
+			}
 		}
 	}
+}
+
+template<typename Type>
+CMatrice<Type>::~CMatrice()
+{
+	if (ppTYPEMATMatrice) {
+		for (int i = 0; i < iMATNbCol; i++) {
+			delete[] ppTYPEMATMatrice[i];
+		}
+
+			delete[] ppTYPEMATMatrice;
+	}
+  
+    
 }
 
 template<typename Type>
@@ -220,9 +237,25 @@ CMatrice<Type> operator /(const CMatrice<Type>& MATmat, int iScalaire)
 
 int main()
 {
+	
 	double tab1[4] = { 1, 2, 3, 4 };
 	CMatrice<double> m1(2, 2, tab1);
 	m1.MATAfficherMatrice();
+	CMatrice<double> m2(m1);
+	printf("-------------------------------------\n");
+	m2.MATAfficherMatrice();
+
+	m1.~CMatrice();
+	printf("-----------------APRES DELETE--------------------\n");
+	printf("M2:\n");
+
+	m2.MATAfficherMatrice();
+
+
+
+
+
+	/*
 	m1.MATAjoutColonne();
 	m1.MATModifierElem(5, 0, 2);
 	m1.MATModifierElem(7, 1, 2);
@@ -240,5 +273,14 @@ int main()
 	(m1*7).MATAfficherMatrice();
 	std::cout << "-----------\n";
 	(m1/2).MATAfficherMatrice();
+	*/
+
+
+
+
+
+	
+	
+	
 	return 0;
 }

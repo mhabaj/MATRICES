@@ -3,9 +3,9 @@
 #include <string>   
 using namespace std;
 
-template <typename Type>
 
-class CMatrice
+
+template <typename Type> class CMatrice
 {
 
 private:
@@ -18,7 +18,8 @@ public:
 	CMatrice(string sPath);
 	CMatrice(int iLigne, int iColonne);//c fé
 	CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems);//Pre condition : taille de pTypeTableauElems = a iLigne*iColonne // c fé
-	CMatrice(const Type& MATParam);//c pa fé
+	CMatrice(const CMatrice<Type>& MATParam);//c pa fé
+	~CMatrice();
 
 	CMatrice<Type>& operator =(const CMatrice& MATParam)//c pa fé
 	{
