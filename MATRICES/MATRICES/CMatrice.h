@@ -1,9 +1,7 @@
 #pragma once
 #include <iostream> 
-#include <string>   
-using namespace std;
-
-
+#include <string>
+#include "CCalculMatrice.h"
 
 template <typename Type> class CMatrice
 {
@@ -15,13 +13,13 @@ private:
 
 public:
 	CMatrice();//c fé
-	CMatrice(string sPath);
+	CMatrice(std::string sPath);
 	CMatrice(int iLigne, int iColonne);//c fé
 	CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems);//Pre condition : taille de pTypeTableauElems = a iLigne*iColonne // c fé
-	CMatrice(const CMatrice<Type>& MATParam);//c pa fé
-	~CMatrice();
+	CMatrice(const CMatrice<Type>& MATParam);//c fé
+	~CMatrice();//c fé
 
-	CMatrice<Type>& operator =(const CMatrice& MATParam)//c pa fé
+	CMatrice<Type>& operator =(const CMatrice& MATParam)//c fé
 	{
 		iMATNbCol = MATParam.iMATNbCol;
 		iMATNbLig = MATParam.iMATNbLig;
@@ -36,15 +34,15 @@ public:
 		{
 			for (int iloopCol = 0; iloopCol < iMATNbCol; iloopCol++)
 			{
-				*ppTYPEMATMatrice[iloopCol][iloopLig] = *MATParam.ppTYPEMATMatrice[iloopCol][iloopLig];
+				ppTYPEMATMatrice[iloopCol][iloopLig] = MATParam.ppTYPEMATMatrice[iloopCol][iloopLig];
 			}
 		}
 		
 		return *this;
 	}
-	int getCol() const;
-	int getLig() const;
-	Type getElem(int iLig, int iCol) const;
+	int getCol() const;//c fé
+	int getLig() const;//c fé
+	Type getElem(int iLig, int iCol) const;//c fé
 	void MATModifierElem(Type elem, int ligne, int colonne);//c fé
 	void MATAjoutLigne();//c fé
 	void MATAjoutColonne();//c fé

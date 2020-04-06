@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CCalculMatrice.cpp" />
     <ClCompile Include="CMatrice.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CCalculMatrice.h" />
     <ClInclude Include="CMatrice.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

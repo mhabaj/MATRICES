@@ -9,7 +9,7 @@ CMatrice<Type>::CMatrice()
 }
 
 template<typename Type>
-CMatrice<Type>::CMatrice(string sPath)
+CMatrice<Type>::CMatrice(std::string sPath)
 {
 }
 
@@ -237,24 +237,25 @@ CMatrice<Type> operator /(const CMatrice<Type>& MATmat, int iScalaire)
 
 int main()
 {
-	
 	double tab1[4] = { 1, 2, 3, 4 };
 	CMatrice<double> m1(2, 2, tab1);
 	m1.MATAfficherMatrice();
+	printf("-------------------------------------\n");
 	CMatrice<double> m2(m1);
+	m2.MATAfficherMatrice();
+	m1.MATModifierElem(0, 0, 0);
+	printf("/////////////////////////////////////\n");
+	m1.MATAfficherMatrice();
 	printf("-------------------------------------\n");
 	m2.MATAfficherMatrice();
-
-	m1.~CMatrice();
-	printf("-----------------APRES DELETE--------------------\n");
-	printf("M2:\n");
-
+	printf("/////////////////////////////////////\n");
+	CMatrice<double> m3;
+	m3 = 2 * m2;
 	m2.MATAfficherMatrice();
-
-
-
-
-
+	printf("-------------------------------------\n");
+	m3.MATAfficherMatrice();
+	printf("/////////////////////////////////////\n");
+	CCalculMatrice<int>::transpose(m3).MATAfficherMatrice();
 	/*
 	m1.MATAjoutColonne();
 	m1.MATModifierElem(5, 0, 2);
@@ -274,13 +275,5 @@ int main()
 	std::cout << "-----------\n";
 	(m1/2).MATAfficherMatrice();
 	*/
-
-
-
-
-
-	
-	
-	
 	return 0;
 }

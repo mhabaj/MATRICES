@@ -1,2 +1,13 @@
-﻿  CMatrice.cpp
-  MATRICES.vcxproj -> D:\mega\MEGAsync\BACKKKKKKUPPP\backup USB 2Go noir\FAC\3eme année Polytech\2eme semestre\C++\PROJET C++\MATRICES\MATRICES\Debug\MATRICES.exe
+﻿  CCalculMatrice.cpp
+  CMatrice.cpp
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(10): error C2143: erreur de syntaxe : absence de ';' avant '<'
+  d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(11): note: voir la référence à l'instanciation de classe modèle 'CCalculMatrice<Type>' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(10): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(10): error C2238: jetons inattendus avant ';'
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(258): error C2664: 'CMatrice<Type> CCalculMatrice<Type>::transpose(CMatrice<Type>)' : impossible de convertir l'argument 1 de 'CMatrice<double>' en 'CMatrice<Type>'
+          with
+          [
+              Type=int
+          ]
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(258): note: Aucun opérateur de conversion définie par l'utilisateur disponible qui puisse effectuer cette conversion, ou l'opérateur ne peut pas être appelé
+  Génération de code en cours...
