@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream> 
+#include <fstream>
 #include <string>
 #include "CCalculMatrice.h"
 
@@ -13,7 +14,7 @@ private:
 
 public:
 	CMatrice();//c fé
-	CMatrice(std::string sPath);
+	CMatrice(const char* sPath);
 	CMatrice(int iLigne, int iColonne);//c fé
 	CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems);//Pre condition : taille de pTypeTableauElems = a iLigne*iColonne // c fé
 	CMatrice(const CMatrice<Type>& MATParam);//c fé
