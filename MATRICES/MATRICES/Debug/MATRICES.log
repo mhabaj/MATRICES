@@ -1,18 +1,30 @@
-<<<<<<< HEAD
-﻿MSVCRTD.lib(exe_main.obj) : error LNK2019: symbole externe non résolu _main référencé dans la fonction "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-D:\User\Documents\Code\git\MATRICES\MATRICES\Debug\MATRICES.exe : fatal error LNK1120: 1 externes non résolus
-=======
 ﻿  CCalculMatrice.cpp
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.cpp(1): error C2059: erreur de syntaxe : '<<'
+d:\programmes\visualstudio17\vc\tools\msvc\14.16.27023\include\sal.h(2361): error C2143: erreur de syntaxe : absence de ';' avant '{'
+d:\programmes\visualstudio17\vc\tools\msvc\14.16.27023\include\sal.h(2361): error C2447: '{' : en-tête de fonction manquant (liste formelle à l'ancien format ?)
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(74): error C2059: erreur de syntaxe : '=='
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(75): error C2065: 'Type' : identificateur non déclaré
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(75): error C2923: 'CMatrice' : 'Type' n'est pas un argument de type modèle valide pour le paramètre 'Type'
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(76): error C2059: erreur de syntaxe : '}'
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(76): error C2143: erreur de syntaxe : absence de ';' avant '}'
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(77): error C2059: erreur de syntaxe : '>>'
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.cpp(6): error C2065: 'Type' : identificateur non déclaré
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.cpp(6): error C2923: 'CMatrice' : 'Type' n'est pas un argument de type modèle valide pour le paramètre 'Type'
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.cpp(6): error C2039: 'transpose' : n'est pas membre de '`global namespace''
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.cpp(7): error C2143: erreur de syntaxe : absence de ';' avant '{'
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.cpp(7): error C2447: '{' : en-tête de fonction manquant (liste formelle à l'ancien format ?)
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.cpp(18): error C2059: erreur de syntaxe : '>>'
   CMatrice.cpp
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(10): error C2143: erreur de syntaxe : absence de ';' avant '<'
-  d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(11): note: voir la référence à l'instanciation de classe modèle 'CCalculMatrice<Type>' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(10): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(10): error C2238: jetons inattendus avant ';'
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(258): error C2664: 'CMatrice<Type> CCalculMatrice<Type>::transpose(CMatrice<Type>)' : impossible de convertir l'argument 1 de 'CMatrice<double>' en 'CMatrice<Type>'
-          with
-          [
-              Type=int
-          ]
-  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(258): note: Aucun opérateur de conversion définie par l'utilisateur disponible qui puisse effectuer cette conversion, ou l'opérateur ne peut pas être appelé
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(180): error C2059: erreur de syntaxe : '<<'
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(184): error C2065: 'Type' : identificateur non déclaré
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(184): error C2923: 'CMatrice' : 'Type' n'est pas un argument de type modèle valide pour le paramètre 'Type'
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(184): error C2903: 'CMatrice' : le symbole n'est ni un modèle de classe, ni un modèle de fonction
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(185): error C2143: erreur de syntaxe : absence de ';' avant '{'
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(185): error C2447: '{' : en-tête de fonction manquant (liste formelle à l'ancien format ?)
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(219): error C2995: 'CMatrice<Type> operator *(int,const CMatrice<Type> &)' : modèle de fonction déjà défini
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(80): note: voir la déclaration de 'operator *'
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(260): error C2065: 'CCalculMatrice' : identificateur non déclaré
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(260): error C2062: type 'int' inattendu
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(260): error C2039: 'transpose' : n'est pas membre de '`global namespace''
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.cpp(282): error C2059: erreur de syntaxe : '>>'
   Génération de code en cours...
->>>>>>> parent of c16fd76... ez constructor

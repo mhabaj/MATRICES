@@ -7,7 +7,6 @@ private:
 	CCalculMatrice() {};
 
 public:
-<<<<<<< HEAD
 	template <typename Type>
 	static CMatrice<Type>& transpose(CMatrice<Type> mat);
 };
@@ -32,21 +31,21 @@ int main()
 	double tab1[4] = { 1, 2, 3, 4 };
 	CMatrice<double> m1(2, 2, tab1);
 	m1.MATAfficherMatrice();
-	printf("-------------------------------------\n");
+	std::cout << "-------------------------------------\n";
 	CMatrice<double> m2(m1);
 	m2.MATAfficherMatrice();
 	m1.MATModifierElem(0, 0, 0);
-	printf("/////////////////////////////////////\n");
+	std::cout << "/////////////////////////////////////\n";
 	m1.MATAfficherMatrice();
-	printf("-------------------------------------\n");
+	std::cout << "-------------------------------------\n";
 	m2.MATAfficherMatrice();
-	printf("/////////////////////////////////////\n");
+	std::cout << "/////////////////////////////////////\n";
 	CMatrice<double> m3;
 	m3 = m2*2;
 	m2.MATAfficherMatrice();
-	printf("-------------------------------------\n");
+	std::cout << "-------------------------------------\n";
 	m3.MATAfficherMatrice();
-	printf("/////////////////////////////////////\n");
+	std::cout << "/////////////////////////////////////\n";
 	CMatrice<double> m12("C:/Users/belda_mjro20o/Desktop/mat.txt");
 	m12.MATAfficherMatrice();
 	//CCalculMatrice::transpose<double>(m1).MATAfficherMatrice();
