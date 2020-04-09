@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream> 
+#include <fstream>
 #include <string>
+#include "CCalculMatrice.h"
 
 template <typename Type> class CMatrice
 {
@@ -12,13 +14,13 @@ private:
 
 public:
 	CMatrice();//c fé
-	CMatrice(std::string sPath);
+	CMatrice(const char* sPath);
 	CMatrice(int iLigne, int iColonne);//c fé
 	CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems);//Pre condition : taille de pTypeTableauElems = a iLigne*iColonne // c fé
 	CMatrice(const CMatrice<Type>& MATParam);//c fé
 	~CMatrice();//c fé
 
-	CMatrice<Type>& operator =(const CMatrice<Type>& MATParam)//c fé
+	CMatrice<Type>& operator=(const CMatrice& MATParam)//c fé
 	{
 		iMATNbCol = MATParam.iMATNbCol;
 		iMATNbLig = MATParam.iMATNbLig;
@@ -46,7 +48,7 @@ public:
 	void MATAjoutLigne();//c fé
 	void MATAjoutColonne();//c fé
 	void MATAfficherMatrice();//c fé
-	CMatrice<Type> operator*(int iScalaire)
+	CMatrice<Type> operator*(double iScalaire)
 	{
 		CMatrice<Type> result(iMATNbLig, iMATNbCol);
 
@@ -60,7 +62,7 @@ public:
 
 		return result;
 	}
-	CMatrice<Type> operator /(int iScalaire)
+	CMatrice<Type> operator/(double iScalaire)
 	{
 		CMatrice<Type> result(iMATNbLig, iMATNbCol);
 
@@ -68,7 +70,7 @@ public:
 		{
 			for (int iloopCol = 0; iloopCol < iMATNbCol; iloopCol++)
 			{
-				result.MATModifierElem((getElem(iloopCol, iloopLig)) / iScalaire, iloopLig, iloopCol);
+				result.MATModifierElem((getElem(iloopLig, iloopCol)) / iScalaire, iloopLig, iloopCol);
 			}
 		}
 
@@ -77,7 +79,20 @@ public:
 };
 
 template<typename Type>
-CMatrice<Type> operator*(int iScalaire, const CMatrice<Type>& MATmat)
+CMatrice<Type> operator*(double iScalaire, const CMatrice<Type>& MATmat)
 {
-	return MATmat * iScalaire;
+	int iLig = MATmat.getLig();
+    int iCol = MATmat.getCol();
+
+    CMatrice<Type> result(iLig, iCol);
+
+    for (int iloopLig = 0; iloopLig < iLig; iloopLig++)
+    {
+        for (int iloopCol = 0; iloopCol < iCol; iloopCol++)
+        {
+            result.MATModifierElem(iScalaire * (MATmat.getElem(iloopLig, iloopCol)), iloopLig, iloopCol);
+        }
+    }
+
+    return result;
 }

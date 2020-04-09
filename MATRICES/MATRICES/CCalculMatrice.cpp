@@ -1,9 +1,7 @@
-<<<<<<< HEAD
-=======
-#include "CCalculMatrice.h"
+/*#include "CCalculMatrice.h"
 
 template<typename Type>
-CMatrice<Type> CCalculMatrice<Type>::transpose(CMatrice<Type> mat)
+CMatrice<Type>& CCalculMatrice<Type>::transpose(CMatrice<Type> mat)
 {
 	CMatrice<Type> result(mat.getCol(), mat.getLig());
 	for (int iloopLig = 0; iloopLig < result.getLig(); iloopLig++)
@@ -13,6 +11,6 @@ CMatrice<Type> CCalculMatrice<Type>::transpose(CMatrice<Type> mat)
 			result.MATModifierElem(mat.getElem(iloopCol, iloopLig), iloopLig, iloopCol);
 		}
 	}
+	result.MATAfficherMatrice();
 	return result;
-}
->>>>>>> parent of c16fd76... ez constructor
+}*/

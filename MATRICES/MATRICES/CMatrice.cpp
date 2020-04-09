@@ -9,8 +9,59 @@ CMatrice<Type>::CMatrice()
 }
 
 template<typename Type>
-CMatrice<Type>::CMatrice(std::string sPath)
+CMatrice<Type>::CMatrice(const char* sPath)
 {
+	std::ifstream IFSFlux(sPath);
+	if (IFSFlux) {
+		char cTemp = ' ';
+		while (cTemp != '=') {
+			IFSFlux.get(cTemp);
+		}
+		char type[16];
+		IFSFlux >> type;
+
+		cTemp = ' ';
+		while (cTemp != '=') {
+			IFSFlux.get(cTemp);
+		}
+		int nbLig;
+		IFSFlux >> nbLig;
+
+		cTemp = ' ';
+		while (cTemp != '=') {
+			IFSFlux.get(cTemp);
+		}
+		int nbCol;
+		IFSFlux >> nbCol;
+
+		iMATNbLig = nbLig;
+		iMATNbCol = nbCol;
+
+		ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+
+		for (int iloop = 0; iloop < iMATNbCol; iloop++) {
+			ppTYPEMATMatrice[iloop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		}
+
+		cTemp = ' ';
+		while (cTemp != '[') {
+			IFSFlux.get(cTemp);
+		}
+		IFSFlux.get(cTemp);
+
+		for (int iloopLig = 0; iloopLig < iMATNbLig; iloopLig++)
+		{
+			for (int iloopCol = 0; iloopCol < iMATNbCol; iloopCol++)
+			{
+				double temp = 0;
+				IFSFlux >> temp;
+				MATModifierElem(temp, iloopLig, iloopCol);
+			}
+		}
+	}
+	else {
+		std::cout << "ERREUR !!!! ERREUR !!!!";
+	}
 }
 
 template<typename Type>
@@ -82,8 +133,6 @@ CMatrice<Type>::~CMatrice()
 
 			delete[] ppTYPEMATMatrice;
 	}
-  
-    
 }
 
 template<typename Type>
@@ -99,7 +148,7 @@ int CMatrice<Type>::getLig() const
 }
 
 template<typename Type>
-Type CMatrice<Type>::getElem(int iCol, int iLig) const
+Type CMatrice<Type>::getElem(int iLig, int iCol) const
 {
 	return ppTYPEMATMatrice[iCol][iLig];
 }
@@ -177,65 +226,6 @@ void CMatrice<Type>::MATAfficherMatrice()
 		std::cout << "\n";
 	}
 }
-<<<<<<< HEAD
-=======
-
-template<typename Type>
-CMatrice<Type> operator*(const CMatrice<Type>& MATmat, int iScalaire)
-{
-	int iLig = MATmat.getLig();
-	int iCol = MATmat.getCol();
-
-	CMatrice<Type> result(iLig, iCol);
-
-	for (int iloopLig = 0; iloopLig < iLig; iloopLig++)
-	{
-		for (int iloopCol = 0; iloopCol < iCol; iloopCol++)
-		{
-			result.MATModifierElem(iScalaire*(MATmat.getElem(iloopCol, iloopLig)), iloopLig, iloopCol);
-		}
-	}
-
-	return result;
-}
-
-template<typename Type>
-CMatrice<Type> operator*(int iScalaire, const CMatrice<Type>& MATmat)
-{
-	int iLig = MATmat.getLig();
-	int iCol = MATmat.getCol();
-
-	CMatrice<Type> result(iLig, iCol);
-
-	for (int iloopLig = 0; iloopLig < iLig; iloopLig++)
-	{
-		for (int iloopCol = 0; iloopCol < iCol; iloopCol++)
-		{
-			result.MATModifierElem(iScalaire*(MATmat.getElem(iloopCol, iloopLig)), iloopLig, iloopCol);
-		}
-	}
-
-	return result;
-}
-
-template<typename Type>
-CMatrice<Type> operator /(const CMatrice<Type>& MATmat, int iScalaire)
-{
-	int iLig = MATmat.getLig();
-	int iCol = MATmat.getCol();
-
-	CMatrice<Type> result(iLig, iCol);
-
-	for (int iloopLig = 0; iloopLig < iLig; iloopLig++)
-	{
-		for (int iloopCol = 0; iloopCol < iCol; iloopCol++)
-		{
-			result.MATModifierElem((MATmat.getElem(iloopCol, iloopLig)) / iScalaire, iloopLig, iloopCol);
-		}
-	}
-
-	return result;
-}
 
 int main()
 {
@@ -252,12 +242,14 @@ int main()
 	m2.MATAfficherMatrice();
 	printf("/////////////////////////////////////\n");
 	CMatrice<double> m3;
-	m3 = 2 * m2;
+	m3 = m2*2.5;
 	m2.MATAfficherMatrice();
 	printf("-------------------------------------\n");
 	m3.MATAfficherMatrice();
 	printf("/////////////////////////////////////\n");
-	CCalculMatrice<int>::transpose(m3).MATAfficherMatrice();
+	//CMatrice<double> m12("C:/Users/belda_mjro20o/Desktop/mat.txt");
+	//m12.MATAfficherMatrice();
+	//CCalculMatrice<double>::transpose(m3).MATAfficherMatrice();
 	/*
 	m1.MATAjoutColonne();
 	m1.MATModifierElem(5, 0, 2);
@@ -279,4 +271,3 @@ int main()
 	*/
 	return 0;
 }
->>>>>>> parent of c16fd76... ez constructor
