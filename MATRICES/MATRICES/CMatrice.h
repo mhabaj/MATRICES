@@ -2,7 +2,6 @@
 #include <iostream> 
 #include <fstream>
 #include <string>
-#include "CCalculMatrice.h"
 
 template <typename Type> class CMatrice
 {
@@ -20,7 +19,7 @@ public:
 	CMatrice(const CMatrice<Type>& MATParam);//c fé
 	~CMatrice();//c fé
 
-	CMatrice<Type>& operator =(const CMatrice& MATParam)//c fé
+	CMatrice<Type>& operator =(const CMatrice<Type>& MATParam)//c fé
 	{
 		iMATNbCol = MATParam.iMATNbCol;
 		iMATNbLig = MATParam.iMATNbLig;
@@ -48,5 +47,38 @@ public:
 	void MATAjoutLigne();//c fé
 	void MATAjoutColonne();//c fé
 	void MATAfficherMatrice();//c fé
+	CMatrice<Type> operator*(int iScalaire)
+	{
+		CMatrice<Type> result(iMATNbLig, iMATNbCol);
 
+		for (int iloopLig = 0; iloopLig < iMATNbLig; iloopLig++)
+		{
+			for (int iloopCol = 0; iloopCol < iMATNbCol; iloopCol++)
+			{
+				result.MATModifierElem(iScalaire*(ppTYPEMATMatrice[iloopCol][iloopLig]), iloopLig, iloopCol);
+			}
+		}
+
+		return result;
+	}
+	CMatrice<Type> operator /(int iScalaire)
+	{
+		CMatrice<Type> result(iMATNbLig, iMATNbCol);
+
+		for (int iloopLig = 0; iloopLig < iMATNbLig; iloopLig++)
+		{
+			for (int iloopCol = 0; iloopCol < iMATNbCol; iloopCol++)
+			{
+				result.MATModifierElem((getElem(iloopCol, iloopLig)) / iScalaire, iloopLig, iloopCol);
+			}
+		}
+
+		return result;
+	}
 };
+
+template<typename Type>
+CMatrice<Type> operator*(int iScalaire, const CMatrice<Type>& MATmat)
+{
+	return MATmat * iScalaire;
+}
