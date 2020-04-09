@@ -3,7 +3,11 @@
 
 class CCalculMatrice
 {
+private:
+	CCalculMatrice() {};
+
 public:
+<<<<<<< HEAD
 	template <typename Type>
 	static CMatrice<Type>& transpose(CMatrice<Type> mat);
 };
@@ -68,3 +72,7 @@ int main()
 	*/
 	return 0;
 }
+=======
+	static CMatrice<Type> transpose(CMatrice<Type> mat);
+};
+>>>>>>> parent of c16fd76... ez constructor
