@@ -1,0 +1,14 @@
+﻿  CCalculMatrice.cpp
+  CMatrice.cpp
+  main.cpp
+main.obj : error LNK2001: symbole externe non résolu "public: void __thiscall CMatrice<double>::MATAfficherMatrice(void)" (?MATAfficherMatrice@?$CMatrice@N@@QAEXXZ)
+main.obj : error LNK2001: symbole externe non résolu "public: void __thiscall CMatrice<double>::MATModifierElem(double,int,int)" (?MATModifierElem@?$CMatrice@N@@QAEXNHH@Z)
+main.obj : error LNK2001: symbole externe non résolu "public: double __thiscall CMatrice<double>::getElem(int,int)const " (?getElem@?$CMatrice@N@@QBENHH@Z)
+main.obj : error LNK2001: symbole externe non résolu "public: int __thiscall CMatrice<double>::getLig(void)const " (?getLig@?$CMatrice@N@@QBEHXZ)
+main.obj : error LNK2001: symbole externe non résolu "public: int __thiscall CMatrice<double>::getCol(void)const " (?getCol@?$CMatrice@N@@QBEHXZ)
+main.obj : error LNK2001: symbole externe non résolu "public: __thiscall CMatrice<double>::~CMatrice<double>(void)" (??1?$CMatrice@N@@QAE@XZ)
+main.obj : error LNK2001: symbole externe non résolu "public: __thiscall CMatrice<double>::CMatrice<double>(char const *)" (??0?$CMatrice@N@@QAE@PBD@Z)
+main.obj : error LNK2001: symbole externe non résolu "public: __thiscall CMatrice<double>::CMatrice<double>(int,int)" (??0?$CMatrice@N@@QAE@HH@Z)
+main.obj : error LNK2001: symbole externe non résolu "public: __thiscall CMatrice<double>::CMatrice<double>(int,int,double *)" (??0?$CMatrice@N@@QAE@HHPAN@Z)
+main.obj : error LNK2001: symbole externe non résolu "public: __thiscall CMatrice<double>::CMatrice<double>(class CMatrice<double> const &)" (??0?$CMatrice@N@@QAE@ABV0@@Z)
+D:\User\Documents\Code\git\MATRICES\MATRICES\Release\MATRICES.exe : fatal error LNK1120: 10 externes non résolus

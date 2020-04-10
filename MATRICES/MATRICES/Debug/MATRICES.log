@@ -1,4 +1,8 @@
-﻿  CCalculMatrice.cpp
-  CMatrice.cpp
-  Génération de code en cours...
+﻿  main.cpp
+  LINK : 0 nouveaux modules et 1 (sur 47) modules ont changé depuis la liaison précédente
+  Génération d'une image non-SAFESEH.
+  Début de la passe 2
+       main.obj
+       MSVCRTD.lib(loadcfg.obj)
+  Fin de la passe 2
   MATRICES.vcxproj -> D:\User\Documents\Code\git\MATRICES\MATRICES\Debug\MATRICES.exe
