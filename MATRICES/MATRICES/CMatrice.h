@@ -1,25 +1,79 @@
+/**
+ * \file CMatrice.h
+ * \brief Gestion de Matrices
+ * \author Tom Belda, Mahmod Alhabaj
+ * \version 0.1
+ * \date 14 avril 2020
+ */
 #pragma once
 
 #include <iostream> 
 #include <fstream>
 #include <string>
 
+/** \class CMatrice
+ * \brief Classe de gestion de matrices.
+ *
+ * Permet la creation de matrice de n'importe quel type et fournis quelques calculs simples.
+ */
 template <typename Type> class CMatrice
 {
 
 private:
-	int iMATNbCol;
-	int iMATNbLig;
-	Type** ppTYPEMATMatrice;
+	int iMATNbCol;/**<Nombre de colonnes de la matrice */
+	int iMATNbLig;/**<Nombre de lignes de la matrice */
+	Type** ppTYPEMATMatrice;/**<Elements de la matrice */
 
 public:
-	CMatrice();//c fé
-	CMatrice(const char* sPath);
-	CMatrice(int iLigne, int iColonne);//c fé
-	CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems);//Pre condition : taille de pTypeTableauElems = a iLigne*iColonne // c fé
-	CMatrice(const CMatrice<Type>& MATParam);//c fé
-	~CMatrice();//c fé
+	/**
+	 * \fn CMatrice()
+	 * \brief Constructeur par default.
+	 */
+	CMatrice();
 
+	/**
+	 * \fn CMatrice(const char* sPath)
+	 * \brief Constructeur via fichier.
+	 *
+	 * \param sPath Fichier source de la matrice a creer.
+	 */
+	CMatrice(const char* sPath);
+
+	/**
+	 * \fn CMatrice(int iLigne, int iColonne)
+	 * \brief Constructeur avec dimensions.
+	 *
+	 * \param iLigne Nombres de lignes.
+	 * \param iColonne Nombre de collones.
+	 */
+	CMatrice(int iLigne, int iColonne);
+
+	/**
+	 * \fn CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems)
+	 * \brief Constructeur avec dimensions et contenus.
+	 *
+	 * \param iLigne Nombres de lignes.
+	 * \param iColonne Nombre de collones.
+	 * \param pTypeTableauElems tableau des éléments a mettre dans la matrice.
+	 * \pre Le nombre d'elements du tableau doit etre egale a iLigne * iColonne.
+	 */
+	CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems);
+
+	/**
+	 * \fn CMatrice(const CMatrice<Type>& MATParam)
+	 * \brief Constructeur de recopie.
+	 *
+	 * \param MATParam Matrice a recopie.
+	 */
+	CMatrice(const CMatrice<Type>& MATParam);
+
+	/**
+	 * \fn ~CMatrice()
+	 * \brief Destructeur.
+	 */
+	~CMatrice();
+
+	
 	CMatrice<Type>& operator=(const CMatrice& MATParam)//c fé
 	{
 		unsigned int uiIniLoop, uiLigLoop, uiColLoop;

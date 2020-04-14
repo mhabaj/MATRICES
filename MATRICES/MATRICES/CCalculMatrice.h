@@ -18,12 +18,15 @@ public:
 template<typename Type>
 CMatrice<Type> CCalculMatrice::transpose(CMatrice<Type> mat)
 {
+	unsigned int uiLigLoop, uiColLoop;
+
 	CMatrice<Type> result(mat.getCol(), mat.getLig());
-	for (int iloopLig = 0; iloopLig < result.getLig(); iloopLig++)
+
+	for (uiLigLoop = 0; uiLigLoop < result.getLig(); uiLigLoop++)
 	{
-		for (int iloopCol = 0; iloopCol < result.getCol(); iloopCol++)
+		for (uiColLoop = 0; uiColLoop < result.getCol(); uiColLoop++)
 		{
-			result.MATModifierElem(mat.getElem(iloopCol, iloopLig), iloopLig, iloopCol);
+			result.MATModifierElem(mat.getElem(uiColLoop, uiLigLoop), uiLigLoop, uiColLoop);
 		}
 	}
 	return result;
@@ -32,12 +35,15 @@ CMatrice<Type> CCalculMatrice::transpose(CMatrice<Type> mat)
 template<typename Type>
 static CMatrice<Type> CCalculMatrice::addition(CMatrice<Type> mat1, CMatrice<Type> mat2)
 {
+	unsigned int uiLigLoop, uiColLoop;
+
 	CMatrice<Type> result(mat1.getCol(), mat1.getLig());
-	for (int iloopLig = 0; iloopLig < mat1.getLig(); iloopLig++)
+
+	for (uiLigLoop = 0; uiLigLoop < mat1.getLig(); uiLigLoop++)
 	{
-		for (int iloopCol = 0; iloopCol < mat1.getCol(); iloopCol++)
+		for (uiColLoop = 0; uiColLoop < mat1.getCol(); uiColLoop++)
 		{
-			result.MATModifierElem(mat1.getElem(iloopLig, iloopCol) + mat2.getElem(iloopLig, iloopCol), iloopLig, iloopCol);
+			result.MATModifierElem(mat1.getElem(uiLigLoop, uiColLoop) + mat2.getElem(uiLigLoop, uiColLoop), uiLigLoop, uiColLoop);
 		}
 	}
 	return result;
@@ -46,12 +52,15 @@ static CMatrice<Type> CCalculMatrice::addition(CMatrice<Type> mat1, CMatrice<Typ
 template<typename Type>
 static CMatrice<Type> CCalculMatrice::soustraction(CMatrice<Type> mat1, CMatrice<Type> mat2)
 {
+	unsigned int uiLigLoop, uiColLoop;
+
 	CMatrice<Type> result(mat1.getCol(), mat1.getLig());
-	for (int iloopLig = 0; iloopLig < mat1.getLig(); iloopLig++)
+
+	for (uiLigLoop = 0; uiLigLoop < mat1.getLig(); uiLigLoop++)
 	{
-		for (int iloopCol = 0; iloopCol < mat1.getCol(); iloopCol++)
+		for (uiColLoop = 0; uiColLoop < mat1.getCol(); uiColLoop++)
 		{
-			result.MATModifierElem(mat1.getElem(iloopLig, iloopCol) - mat2.getElem(iloopLig, iloopCol), iloopLig, iloopCol);
+			result.MATModifierElem(mat1.getElem(uiLigLoop, uiColLoop) - mat2.getElem(uiLigLoop, uiColLoop), uiLigLoop, uiColLoop);
 		}
 	}
 	return result;
@@ -60,14 +69,17 @@ static CMatrice<Type> CCalculMatrice::soustraction(CMatrice<Type> mat1, CMatrice
 template<typename Type>
 static CMatrice<Type> CCalculMatrice::multiplication(CMatrice<Type> mat1, CMatrice<Type> mat2)
 {
+	unsigned int uiLigLoop, uiColLoop, uiCalLoop;
+
 	CMatrice<Type> result(mat1.getLig(), mat2.getCol());
-	for (int iLoopLig = 0; iLoopLig < result.getLig(); iLoopLig++)
+
+	for (uiLigLoop = 0; uiLigLoop < result.getLig(); uiLigLoop++)
 	{
-		for (int iLoopCol = 0; iLoopCol < result.getCol(); iLoopCol++)
+		for (uiColLoop = 0; uiColLoop < result.getCol(); uiColLoop++)
 		{
-			for (int iLoopCal = 0; iLoopCal < mat2.getLig(); iLoopCal++)
+			for (uiCalLoop = 0; uiCalLoop < mat2.getLig(); uiCalLoop++)
 			{
-				result.MATModifierElem(mat1.getElem(iLoopLig, iLoopCal) * mat2.getElem(iLoopCal, iLoopCol) + result.getElem(iLoopLig, iLoopCol), iLoopLig, iLoopCol);
+				result.MATModifierElem(mat1.getElem(uiLigLoop, uiCalLoop) * mat2.getElem(uiCalLoop, uiColLoop) + result.getElem(uiLigLoop, uiColLoop), uiLigLoop, uiColLoop);
 			}
 		}
 	}
