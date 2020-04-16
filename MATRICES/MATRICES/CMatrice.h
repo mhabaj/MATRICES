@@ -11,6 +11,8 @@
 #include <fstream>
 #include <string>
 
+#include "Cexception.h"
+
 /** \class CMatrice
  * \brief Classe de gestion de matrices.
  *
@@ -72,9 +74,14 @@ public:
 	 * \brief Destructeur.
 	 */
 	~CMatrice();
-
-	
-	CMatrice<Type>& operator=(const CMatrice& MATParam)//c fé
+	int getCol() const;
+	int getLig() const;
+	Type getElem(int iLig, int iCol) const;
+	void MATModifierElem(Type elem, int ligne, int colonne);
+	void MATAjoutLigne();
+	void MATAjoutColonne();
+	void MATAfficherMatrice();
+	CMatrice<Type>& operator=(const CMatrice& MATParam)
 	{
 		unsigned int uiIniLoop, uiLigLoop, uiColLoop;
 
@@ -94,16 +101,9 @@ public:
 				ppTYPEMATMatrice[uiColLoop][uiLigLoop] = MATParam.ppTYPEMATMatrice[uiColLoop][uiLigLoop];
 			}
 		}
-		
+
 		return *this;
 	}
-	int getCol() const;//c fé
-	int getLig() const;//c fé
-	Type getElem(int iLig, int iCol) const;//c fé
-	void MATModifierElem(Type elem, int ligne, int colonne);//c fé
-	void MATAjoutLigne();//c fé
-	void MATAjoutColonne();//c fé
-	void MATAfficherMatrice();//c fé
 	CMatrice<Type> operator*(double iScalaire)
 	{
 		unsigned int uiLigLoop, uiColLoop;
@@ -120,21 +120,28 @@ public:
 
 		return result;
 	}
-	CMatrice<Type> operator/(double iScalaire)
+	CMatrice<Type> operator/(double iScalaire) throw(Cexception)
 	{
-		unsigned int uiLigLoop, uiColLoop;
-
-		CMatrice<Type> result(iMATNbLig, iMATNbCol);
-
-		for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
-		{
-			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
-			{
-				result.MATModifierElem((getElem(uiLigLoop, uiColLoop)) / iScalaire, uiLigLoop, uiColLoop);
-			}
+		if (iScalaire == 0) {
+			Cexception error;
+			error.EXCmodifier_valeur(DIVISION_PAR_0);
+			throw error;
 		}
+		else {
+			unsigned int uiLigLoop, uiColLoop;
 
-		return result;
+			CMatrice<Type> result(iMATNbLig, iMATNbCol);
+
+			for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
+			{
+				for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+				{
+					result.MATModifierElem((getElem(uiLigLoop, uiColLoop)) / iScalaire, uiLigLoop, uiColLoop);
+				}
+			}
+
+			return result;
+		}
 	}
 };
 

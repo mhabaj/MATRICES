@@ -1,41 +1,66 @@
-﻿  LINK : 0 nouveaux modules et 1 (sur 47) modules ont changé depuis la liaison précédente
-  
-  Appel de rc.exe :
-   /v
-   /x
-   /fo
-   "C:\Users\BELDA_~1\AppData\Local\Temp\lnk{7AB5C7A7-5131-483A-8CF9-EEB6B27EC62C}.tmp"
-   "C:\Users\BELDA_~1\AppData\Local\Temp\lnk{FB140506-F163-44CA-92C7-9B3E394A5BD8}.tmp"
-  Microsoft (R) Windows (R) Resource Compiler Version 10.0.10011.16384
-  
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  
-  Creating C:\Users\BELDA_~1\AppData\Local\Temp\lnk{7AB5C7A7-5131-483A-8CF9-EEB6B27EC62C}.tmp
-  
-  Using codepage 1252 as default
-  
-  C:\Users\BELDA_~1\AppData\Local\Temp\lnk{FB140506-F163-44CA-92C7-9B3E394A5BD8}.tmp.
-  Writing 24:1,	lang:0x409,	size 381
-  
-  Appel de cvtres.exe :
-   /machine:x86
-   /verbose
-   /out:"C:\Users\BELDA_~1\AppData\Local\Temp\lnk{972956C7-0A1C-4ABB-AF2C-E6548E53ABEC}.tmp"
-   /readonly
-   "Debug\MATRICES.res"
-   "C:\Users\BELDA_~1\AppData\Local\Temp\lnk{7AB5C7A7-5131-483A-8CF9-EEB6B27EC62C}.tmp"
-  Microsoft (R) Windows Resource To Object Converter Version 14.16.27038.0
-  Copyright (C) Microsoft Corporation. Tous droits rÚservÚs.
-  
-  ajout d'une ressource. Typeá: MANIFEST, nomá: 1, langageá: 0x0409, indicateursá: 0x30, tailleá: 381
+﻿  main.cpp
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(123): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(147): note: voir la référence à l'instanciation de classe modèle 'CMatrice<Type>' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(136): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(124): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(31): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CMatrice<double>::operator /(double) throw(Cexception)' en cours de compilation
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(7): note: voir la référence à l'instanciation de classe modèle 'CMatrice<double>' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(138): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(113): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(108): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(24): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CMatrice<double>::operator *(double)' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(115): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(299): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(289): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(11): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double>::CMatrice(const CMatrice<double> &)' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(303): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(305): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(274): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(266): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(7): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double>::CMatrice(int,int,Type *)' en cours de compilation
+          with
+          [
+              Type=double
+          ]
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(278): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(280): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(250): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(242): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(134): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double>::CMatrice(int,int)' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(254): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(256): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(216): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(180): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(38): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double>::CMatrice(const char *)' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(226): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(228): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(320): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(315): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(7): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double>::~CMatrice(void)' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(414): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(411): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(9): note: voir la référence à l'instanciation de la fonction modèle 'void CMatrice<double>::MATAfficherMatrice(void)' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(412): warning C4101: 'uiColLoop' : variable locale non référencée
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(159): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(27): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> operator *<double>(double,const CMatrice<double> &)' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(161): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(25): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(44): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CCalculMatrice::transpose<double>(CMatrice<double>)' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(27): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(42): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(47): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CCalculMatrice::addition<double>(CMatrice<double>,CMatrice<double>)' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(44): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(59): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(50): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CCalculMatrice::soustraction<double>(CMatrice<double>,CMatrice<double>)' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(61): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(76): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(53): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CCalculMatrice::multiplication<double>(CMatrice<double>,CMatrice<double>)' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(78): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(80): warning C4018: '<' : incompatibilité signed/unsigned
+  LINK : 0 nouveaux modules et 1 (sur 48) modules ont changé depuis la liaison précédente
   Génération d'une image non-SAFESEH.
   Début de la passe 2
-       MATRICES.res
        main.obj
        MSVCRTD.lib(loadcfg.obj)
   Fin de la passe 2
-  Failed to connect to VCTIP: 'CreateFile' failed with 2
-  Not launching VCTIP: it is flagged as unstable
-  Telemetry event upload failed: 'Failed to open connection to VCTIP'
   MATRICES.vcxproj -> D:\User\Documents\Code\git\MATRICES\MATRICES\Debug\MATRICES.exe

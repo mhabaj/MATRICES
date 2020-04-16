@@ -26,8 +26,13 @@ int main()
 	std::cout << "1.7 * M2 :\n";
 	(1.7*m2).MATAfficherMatrice();
 	std::cout << "-------------------------------------\n";
-	std::cout << "M2 / 3 :\n";
-	(m2 / 3).MATAfficherMatrice();
+	std::cout << "M2 / 0 :\n";
+	try {
+		(m2 / 0).MATAfficherMatrice();
+	}
+	catch (Cexception e) {
+		std::cout << "Erreur numero " << e.EXClire_valeur() << "\n";
+	}
 	std::cout << "/////////////////////////////////////\n";
 
 	CMatrice<double> m3("C:/Users/belda_mjro20o/Desktop/mat.txt");
@@ -35,7 +40,7 @@ int main()
 	m3.MATAfficherMatrice();
 	std::cout << "/////////////////////////////////////\n";
 
-	std::cout << "Transposée de M3 :\n";
+	std::cout << "Transposee de M3 :\n";
 	(CCalculMatrice::transpose(m3)).MATAfficherMatrice();
 	std::cout << "-------------------------------------\n";
 	std::cout << "M1 + M2 :\n";

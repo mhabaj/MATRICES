@@ -22,6 +22,11 @@ lors de la levée d'exception dans votre programme.
 
 // Définition de la valeur initiale d'une exception
 #define FAUX 0
+#define FICHIER_INTROUVABLE 1
+#define MANQUE_ELEMS 2
+#define MATRICE_NULLE 3
+#define HORS_DIMENSIONS 4
+#define DIVISION_PAR_0 5
 
 class Cexception
 {
