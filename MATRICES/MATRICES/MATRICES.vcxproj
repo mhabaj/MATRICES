@@ -26,6 +26,7 @@
     <ClInclude Include="CCalculMatrice.h" />
     <ClInclude Include="Cexception.h" />
     <ClInclude Include="CMatrice.h" />
+    <ClInclude Include="CFichier.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MATRICES.rc" />

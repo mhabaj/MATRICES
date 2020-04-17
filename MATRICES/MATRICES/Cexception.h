@@ -24,9 +24,10 @@ lors de la levée d'exception dans votre programme.
 #define FAUX 0
 #define FICHIER_INTROUVABLE 1
 #define MANQUE_ELEMS 2
-#define MATRICE_NULLE 3
-#define HORS_DIMENSIONS 4
-#define DIVISION_PAR_0 5
+#define HORS_DIMENSIONS 3
+#define DIVISION_PAR_0 4
+#define ERREUR_FICHIER 5
+#define ERREUR_FORMAT_FICHIER 6
 
 class Cexception
 {

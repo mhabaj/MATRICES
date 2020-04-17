@@ -7,11 +7,8 @@
  */
 #pragma once
 
-#include <iostream> 
-#include <fstream>
-#include <string>
-
 #include "Cexception.h"
+#include "CFichier.h"
 
 /** \class CMatrice
  * \brief Classe de gestion de matrices.
@@ -104,7 +101,7 @@ public:
 
 		return *this;
 	}
-	CMatrice<Type> operator*(double iScalaire)
+	CMatrice<Type> operator*(const double iScalaire)//Justifier choix multiplication
 	{
 		unsigned int uiLigLoop, uiColLoop;
 
@@ -120,7 +117,7 @@ public:
 
 		return result;
 	}
-	CMatrice<Type> operator/(double iScalaire) throw(Cexception)
+	CMatrice<Type> operator/(const double iScalaire) throw(Cexception)
 	{
 		if (iScalaire == 0) {
 			Cexception error;
@@ -146,7 +143,7 @@ public:
 };
 
 template<typename Type>
-CMatrice<Type> operator*(double iScalaire, const CMatrice<Type>& MATmat)
+CMatrice<Type> operator*(const double iScalaire, const CMatrice<Type>& MATmat)
 {
 	unsigned int uiLigLoop, uiColLoop;
 
@@ -174,65 +171,45 @@ CMatrice<Type>::CMatrice()
 	ppTYPEMATMatrice = NULL;
 }
 
-template<typename Type>
-CMatrice<Type>::CMatrice(const char* sPath)
+
+CMatrice<double>::CMatrice(const char* sPath) throw(Cexception)//la matrice doit etre une matrice de double
 {
 	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
 
-	char cTempSep = ' ';
-
-	char cType[16];
-	unsigned int uiNbLig;
-	unsigned int uiNbCol;
+	char* cType;
+	unsigned int uiNbLig, uiNbCol;
 
 	double dValue;
 
-	std::ifstream IFSFlux(sPath);
+	CFichier f(sPath);
 
-	if (IFSFlux) {
-		while (cTempSep != '=') {
-			IFSFlux.get(cTempSep);
-		}
-		IFSFlux >> cType;
+	f.nextSep('=');
+	cType = f.getString();
 
-		cTempSep = ' ';
-		while (cTempSep != '=') {
-			IFSFlux.get(cTempSep);
-		}
-		IFSFlux >> uiNbLig;
+	f.nextSep('=');
+	uiNbLig = f.getInt();
 
-		cTempSep = ' ';
-		while (cTempSep != '=') {
-			IFSFlux.get(cTempSep);
-		}
-		IFSFlux >> uiNbCol;
+	f.nextSep('=');
+	uiNbCol = f.getInt();
 
-		iMATNbLig = uiNbLig;
-		iMATNbCol = uiNbCol;
+	iMATNbLig = uiNbLig;
+	iMATNbCol = uiNbCol;
 
-		ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+	ppTYPEMATMatrice = new double*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
-		for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
-			ppTYPEMATMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
-		}
-
-		cTempSep = ' ';
-		while (cTempSep != '[') {
-			IFSFlux.get(cTempSep);
-		}
-		IFSFlux.get(cTempSep);
-
-		for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
-		{
-			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
-			{
-				IFSFlux >> dValue;
-				MATModifierElem(dValue, uiLigLoop, uiColLoop);
-			}
-		}
+	for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
+		ppTYPEMATMatrice[uiIniLoop] = new double[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
 	}
-	else {
-		std::cout << "ERREUR !!!! ERREUR !!!!";
+
+	f.nextSep('[');
+	f.next();
+			
+	for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
+	{
+		for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+		{
+			MATModifierElem(f.getDouble(), uiLigLoop, uiColLoop);
+		}
 	}
 }
 
