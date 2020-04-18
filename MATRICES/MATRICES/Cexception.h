@@ -20,6 +20,8 @@ Cette classe permet de créer des objets qui sont remontés
 lors de la levée d'exception dans votre programme.
 ***********************************************************/
 
+#pragma once
+
 // Définition de la valeur initiale d'une exception
 #define FAUX 0
 #define FICHIER_INTROUVABLE 1
@@ -27,7 +29,8 @@ lors de la levée d'exception dans votre programme.
 #define HORS_DIMENSIONS 3
 #define DIVISION_PAR_0 4
 #define ERREUR_FICHIER 5
-#define ERREUR_FORMAT_FICHIER 6
+#define ERREUR_LECTURE 6
+#define FIN_FICHIER 7
 
 class Cexception
 {

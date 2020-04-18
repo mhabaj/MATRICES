@@ -27,6 +27,8 @@ public:
 	/**
 	 * \fn CMatrice()
 	 * \brief Constructeur par default.
+	 *
+	 * Alloue en mémoire l'espace d'un matrice de dimension 1,1.
 	 */
 	CMatrice();
 
@@ -166,9 +168,10 @@ CMatrice<Type> operator*(const double iScalaire, const CMatrice<Type>& MATmat)
 template<typename Type>
 CMatrice<Type>::CMatrice()
 {
-	iMATNbCol = 0;
-	iMATNbLig = 0;
-	ppTYPEMATMatrice = NULL;
+	iMATNbCol = 1;
+	iMATNbLig = 1;
+	ppTYPEMATMatrice = (Type**) new Type*[1];
+	ppTYPEMATMatrice[0] = (Type*)new Type[1];
 }
 
 
@@ -333,25 +336,25 @@ void CMatrice<Type>::MATAjoutLigne()
 	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
 	int iTempNbLig = iMATNbLig + 1;
 
-	Type** ppTypeTempMatrice;
+	Type** ppTYPETempMatrice;
 
-	ppTypeTempMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+	ppTYPETempMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
 	for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
-		ppTypeTempMatrice[uiIniLoop] = (Type*)new Type[iTempNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		ppTYPETempMatrice[uiIniLoop] = (Type*)new Type[iTempNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
 	}
 
 	for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
 	{
 		for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
 		{
-			ppTypeTempMatrice[uiColLoop][uiLigLoop] = ppTYPEMATMatrice[uiColLoop][uiLigLoop];
+			ppTYPETempMatrice[uiColLoop][uiLigLoop] = ppTYPEMATMatrice[uiColLoop][uiLigLoop];
 		}
 	}
 
 	delete(ppTYPEMATMatrice);
 
-	ppTYPEMATMatrice = ppTypeTempMatrice;
+	ppTYPEMATMatrice = ppTYPETempMatrice;
 
 	iMATNbLig++;
 }
