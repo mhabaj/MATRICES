@@ -66,3 +66,29 @@ void Cexception::EXCmodifier_valeur(unsigned int val)
  //l'exception est modifiée
 }
 
+void Cexception::EXCaffiche_erreur()
+{
+	switch (uiEXCvaleur) {
+	case 1:
+		std::cout << "Erreur : Fichier introuvable\n";
+		break;
+	case 3:
+		std::cout << "Erreur : Indices hors dimension\n";
+		break;
+	case 4:
+		std::cout << "Erreur : Division par 0\n";
+		break;
+	case 5:
+		std::cout << "Erreur : Fichier inutilisable\n";
+		break;
+	case 6:
+		std::cout << "Erreur : Lecture impossible\n";
+		break;
+	case 7:
+		std::cout << "Erreur : Fin du fichier\n";
+		break;
+	case 8:
+		std::cout << "Erreur : Dimensions non conformes\n";
+		break;
+	}
+}

@@ -38,7 +38,7 @@ public:
 	 *
 	 * \param sPath Fichier source de la matrice a creer.
 	 */
-	CMatrice(const char* sPath);
+	CMatrice(const char* sPath) throw(Cexception);
 
 	/**
 	 * \fn CMatrice(int iLigne, int iColonne)
@@ -47,7 +47,7 @@ public:
 	 * \param iLigne Nombres de lignes.
 	 * \param iColonne Nombre de collones.
 	 */
-	CMatrice(int iLigne, int iColonne);
+	CMatrice(int iLigne, int iColonne) throw(Cexception);
 
 	/**
 	 * \fn CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems)
@@ -58,7 +58,7 @@ public:
 	 * \param pTypeTableauElems tableau des éléments a mettre dans la matrice.
 	 * \pre Le nombre d'elements du tableau doit etre egale a iLigne * iColonne.
 	 */
-	CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems);
+	CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems) throw(Cexception);
 
 	/**
 	 * \fn CMatrice(const CMatrice<Type>& MATParam)
@@ -185,80 +185,106 @@ CMatrice<double>::CMatrice(const char* sPath) throw(Cexception)//la matrice doit
 	double dValue;
 
 	CFichier f(sPath);
+	std::cout << "ain't nothing gonna break my stride\n";
 
-	f.nextSep('=');
-	cType = f.getString();
-
-	f.nextSep('=');
-	uiNbLig = f.getInt();
-
-	f.nextSep('=');
-	uiNbCol = f.getInt();
-
-	iMATNbLig = uiNbLig;
-	iMATNbCol = uiNbCol;
-
-	ppTYPEMATMatrice = new double*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
-
-	for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
-		ppTYPEMATMatrice[uiIniLoop] = new double[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+	if (&f == NULL) {
+		std::cout << "nobody gonna slow me down\n";
+		Cexception error;
+		error.EXCmodifier_valeur(ERREUR_FICHIER);
+		throw error;
 	}
+	else {
+		std::cout << "oh no, I gotta keep on moving\n";
+		f.nextSep('=');
+		cType = f.getString();
 
-	f.nextSep('[');
-	f.next();
-			
-	for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
-	{
-		for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+		f.nextSep('=');
+		uiNbLig = f.getInt();
+
+		f.nextSep('=');
+		uiNbCol = f.getInt();
+
+		iMATNbLig = uiNbLig;
+		iMATNbCol = uiNbCol;
+
+		ppTYPEMATMatrice = new double*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+
+		for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
+			ppTYPEMATMatrice[uiIniLoop] = new double[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		}
+
+		f.nextSep('[');
+		f.next();
+
+		for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
 		{
-			MATModifierElem(f.getDouble(), uiLigLoop, uiColLoop);
+			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+			{
+				MATModifierElem(f.getDouble(), uiLigLoop, uiColLoop);
+			}
 		}
 	}
 }
 
 template<typename Type>
-CMatrice<Type>::CMatrice(int iLigne, int iColonne)
+CMatrice<Type>::CMatrice(int iLigne, int iColonne) throw(Cexception) //nombre de lignes et de colonnes plus grand ou égale a 1.
 {
-	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
-
-	iMATNbCol = iColonne;
-	iMATNbLig = iLigne;
-
-	ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
-
-	for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
-		ppTYPEMATMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+	if (iLigne < 1 || iColonne < 1) {
+		Cexception error;
+		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);
+		throw error;
+		delete this;
 	}
+	else {
+		unsigned int uiIniLoop, uiLigLoop, uiColLoop;
 
-	for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
-	{
-		for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+		iMATNbCol = iColonne;
+		iMATNbLig = iLigne;
+
+		ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+
+		for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
+			ppTYPEMATMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		}
+
+		for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
 		{
-			ppTYPEMATMatrice[uiColLoop][uiLigLoop] = 0;
+			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+			{
+				ppTYPEMATMatrice[uiColLoop][uiLigLoop] = 0;
+			}
 		}
 	}
 }
 
 
 template<typename Type>
-CMatrice<Type>::CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems)
+CMatrice<Type>::CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems) throw(Cexception) //le tableau doit pouvoir remplir la matrice
 {
-	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
-
-	iMATNbCol = iColonne;
-	iMATNbLig = iLigne;
-
-	ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
-
-	for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
-		ppTYPEMATMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+	if (iLigne < 1 || iColonne < 1) {
+		Cexception error;
+		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);
+		throw error;
+		delete this;
 	}
+	else {
+		unsigned int uiIniLoop, uiLigLoop, uiColLoop;
 
-	for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
-	{
-		for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+		iMATNbCol = iColonne;
+		iMATNbLig = iLigne;
+
+		ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+
+		for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
+			ppTYPEMATMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		}
+
+		for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
 		{
-			ppTYPEMATMatrice[uiColLoop][uiLigLoop] = pTypeTableauElems[uiLigLoop*iMATNbCol + uiColLoop];
+			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+			{
+				ppTYPEMATMatrice[uiColLoop][uiLigLoop] = pTypeTableauElems[uiLigLoop*iMATNbCol + uiColLoop];
+			}
 		}
 	}
 }
@@ -319,15 +345,23 @@ int CMatrice<Type>::getLig() const
 template<typename Type>
 Type CMatrice<Type>::getElem(int iLig, int iCol) const
 {
+	if (iLig < 0 || iLig >= iMATNbLig || iCol < 0 || iCol >= iMATNbCol) {
+		Cexception error;
+		error.EXCmodifier_valeur(HORS_DIMENSIONS);
+		throw error;
+	}
 	return ppTYPEMATMatrice[iCol][iLig];
 }
 
 template<typename Type>
-void CMatrice<Type>::MATModifierElem(Type elem, int ligne, int colonne)
+void CMatrice<Type>::MATModifierElem(Type TYPEElem, int iLig, int iCol)
 {
-	if (ligne < iMATNbLig && colonne < iMATNbCol) {
-		ppTYPEMATMatrice[colonne][ligne] = elem;
+	if (iLig < 0 || iLig >= iMATNbLig || iCol < 0 || iCol >= iMATNbCol) {
+		Cexception error;
+		error.EXCmodifier_valeur(HORS_DIMENSIONS);
+		throw error;
 	}
+	ppTYPEMATMatrice[iCol][iLig] = TYPEElem;
 }
 
 template<typename Type>

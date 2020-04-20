@@ -28,21 +28,21 @@ int main()
 	std::cout << "-------------------------------------\n";
 	std::cout << "M2 / 0 :\n";
 	try {
-		(m2 / 0).MATAfficherMatrice();
+		m2 / 0;
 	}
 	catch (Cexception e) {
-		std::cout << "Erreur numero " << e.EXClire_valeur() << "\n";
+		e.EXCaffiche_erreur();
 	}
 	std::cout << "/////////////////////////////////////\n";
 
 	try {
-		CMatrice<double> m3("C:/Users/belda_mjro20o/Desktop/mat.txt");
+		CMatrice<double> m3("C:/Users/belda_mijro20o/Desktop/mat.txt");
 		std::cout << "M3 importe de C:/Users/belda_mjro20o/Desktop/mat.txt :\n";
 		m3.MATAfficherMatrice();
 		std::cout << "/////////////////////////////////////\n";
 	}
 	catch (Cexception e) {
-		std::cout << "Erreur numero " << e.EXClire_valeur() << "\n";
+		e.EXCaffiche_erreur();
 	}
 
 	std::cout << "Transposee de M1 :\n";
@@ -62,6 +62,13 @@ int main()
 	CMatrice<int> m4(2, 2, tab2);
 	m4 = m4 * 1.5;
 	m4.MATAfficherMatrice();
+
+	try {
+		CMatrice<double> m5(0, 0);
+	}
+	catch (Cexception e) {
+		e.EXCaffiche_erreur();
+	}
 
 	return 0;
 }

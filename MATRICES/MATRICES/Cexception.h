@@ -22,15 +22,17 @@ lors de la levée d'exception dans votre programme.
 
 #pragma once
 
+#include <iostream>
+
 // Définition de la valeur initiale d'une exception
 #define FAUX 0
 #define FICHIER_INTROUVABLE 1
-#define MANQUE_ELEMS 2
 #define HORS_DIMENSIONS 3
 #define DIVISION_PAR_0 4
 #define ERREUR_FICHIER 5
 #define ERREUR_LECTURE 6
 #define FIN_FICHIER 7
+#define ERREUR_DIMENSIONS 8
 
 class Cexception
 {
@@ -70,6 +72,7 @@ class Cexception
 	nécessite : néant
 	S : valeur de l'exception
 	entraîne : la valeur de l'exception est retournée*/
+   void EXCaffiche_erreur();
  //MODULES EXTERNES
 };
 
