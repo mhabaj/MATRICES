@@ -78,7 +78,9 @@ public:
 	Type getElem(int iLig, int iCol) const;
 	void MATModifierElem(Type elem, int ligne, int colonne);
 	void MATAjoutLigne();
+	void MATAjoutLigne(const Type* TypeLigne);
 	void MATAjoutColonne();
+	void MATAjoutColonne(const Type* TypeColonne);
 	void MATAfficherMatrice();
 	CMatrice<Type>& operator=(const CMatrice& MATParam)
 	{
@@ -174,7 +176,6 @@ CMatrice<Type>::CMatrice()
 	ppTYPEMATMatrice[0] = (Type*)new Type[1];
 }
 
-
 CMatrice<double>::CMatrice(const char* sPath) throw(Cexception)//la matrice doit etre une matrice de double
 {
 	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
@@ -185,16 +186,13 @@ CMatrice<double>::CMatrice(const char* sPath) throw(Cexception)//la matrice doit
 	double dValue;
 
 	CFichier f(sPath);
-	std::cout << "ain't nothing gonna break my stride\n";
 
-	if (&f == NULL) {
-		std::cout << "nobody gonna slow me down\n";
+	if (!f.utilisable()) {
 		Cexception error;
 		error.EXCmodifier_valeur(ERREUR_FICHIER);
 		throw error;
 	}
 	else {
-		std::cout << "oh no, I gotta keep on moving\n";
 		f.nextSep('=');
 		cType = f.getString();
 
@@ -394,6 +392,41 @@ void CMatrice<Type>::MATAjoutLigne()
 }
 
 template<typename Type>
+void CMatrice<Type>::MATAjoutLigne(const Type* TypeLigne)//tableau de la meme taille que le nombre de colonne
+{
+	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
+	int iTempNbLig = iMATNbLig + 1;
+
+	Type** ppTYPETempMatrice;
+
+	ppTYPETempMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+
+	for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
+		ppTYPETempMatrice[uiIniLoop] = (Type*)new Type[iTempNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+	}
+
+	for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
+	{
+		for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+		{
+			ppTYPETempMatrice[uiColLoop][uiLigLoop] = ppTYPEMATMatrice[uiColLoop][uiLigLoop];
+
+		}
+	}
+
+	for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+	{
+		ppTYPETempMatrice[uiColLoop][iTempNbLig-1] = TypeLigne[uiColLoop];
+	}
+
+	delete(ppTYPEMATMatrice);
+
+	ppTYPEMATMatrice = ppTYPETempMatrice;
+
+	iMATNbLig++;
+}
+
+template<typename Type>
 void CMatrice<Type>::MATAjoutColonne()
 {
 	unsigned int uiIniLoop, uiColLoop;
@@ -410,6 +443,37 @@ void CMatrice<Type>::MATAjoutColonne()
 	for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
 	{
 		ppTypeTempMatrice[uiColLoop] = ppTYPEMATMatrice[uiColLoop];
+	}
+
+	delete(ppTYPEMATMatrice);
+
+	ppTYPEMATMatrice = ppTypeTempMatrice;
+
+	iMATNbCol++;
+}
+
+template<typename Type>
+void CMatrice<Type>::MATAjoutColonne(const Type* TypeColonne)//taille du tableau egale au nombre de lignes
+{
+	unsigned int uiIniLoop, uiColLoop, uiLigLoop;
+	int iTempNbCol = iMATNbCol + 1;
+
+	Type** ppTypeTempMatrice;
+
+	ppTypeTempMatrice = (Type**) new Type*[iTempNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+
+	for (uiIniLoop = 0; uiIniLoop < iTempNbCol; uiIniLoop++) {
+		ppTypeTempMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+	}
+
+	for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+	{
+		ppTypeTempMatrice[uiColLoop] = ppTYPEMATMatrice[uiColLoop];
+	}
+
+	for (uiLigLoop = 0; uiLigLoop < iTempNbCol; uiLigLoop++)
+	{
+		ppTypeTempMatrice[iTempNbCol - 1][uiLigLoop] = TypeColonne[uiLigLoop];
 	}
 
 	delete(ppTYPEMATMatrice);

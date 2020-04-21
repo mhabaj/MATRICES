@@ -8,6 +8,7 @@
 class CFichier {
 private:
 	std::ifstream* IFSFlux;
+	bool bUtilisable;
 public:
 	CFichier(const char* sPath) throw(Cexception);
 	void nextSep(char sep) throw(Cexception);
@@ -15,16 +16,16 @@ public:
 	double getDouble() throw(Cexception);
 	char* getString();
 	char next();
+	bool utilisable();
 };
 
-CFichier::CFichier(const char* sPath) throw(Cexception)
+CFichier::CFichier(const char* sPath)
 {
 	IFSFlux = new std::ifstream(sPath);
-	if (IFSFlux == NULL) {
-		Cexception error;
-		error.EXCmodifier_valeur(ERREUR_FICHIER);
-		throw error;
-	}
+	if (IFSFlux->is_open())
+		bUtilisable = true;
+	else
+		bUtilisable = false;
 }
 
 int CFichier::getInt() throw(Cexception)
@@ -78,4 +79,9 @@ void CFichier::nextSep(char cSep) throw(Cexception)
 		}
 	}
 	while (cTempSep != '=');
+}
+
+bool CFichier::utilisable()
+{
+	return bUtilisable;
 }

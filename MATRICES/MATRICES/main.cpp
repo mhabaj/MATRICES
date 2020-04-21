@@ -37,8 +37,6 @@ int main()
 
 	try {
 		CMatrice<double> m3("C:/Users/belda_mijro20o/Desktop/mat.txt");
-		std::cout << "M3 importe de C:/Users/belda_mjro20o/Desktop/mat.txt :\n";
-		m3.MATAfficherMatrice();
 		std::cout << "/////////////////////////////////////\n";
 	}
 	catch (Cexception e) {
@@ -62,6 +60,15 @@ int main()
 	CMatrice<int> m4(2, 2, tab2);
 	m4 = m4 * 1.5;
 	m4.MATAfficherMatrice();
+	std::cout << "-------------------------------------\n";
+	int tab3[2] = { 5, 1 };
+	m4.MATAjoutLigne(tab3);
+	m4.MATAfficherMatrice();
+	std::cout << "-------------------------------------\n";
+	int tab4[3] = {11, 6, 4};
+	m4.MATAjoutColonne(tab4);
+	m4.MATAfficherMatrice();
+	std::cout << "-------------------------------------\n";
 
 	try {
 		CMatrice<double> m5(0, 0);
