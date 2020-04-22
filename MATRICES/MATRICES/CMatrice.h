@@ -72,6 +72,32 @@ public:
 	 */
 	CMatrice(const CMatrice<Type>& MATParam);
 
+
+	/**
+	 * \fn operator=(const CMatrice& MATParam)
+	 * \brief surcharge de l'operateur =
+	 * \param MATParam Matrice a recopie
+	 * \return objet CMatrice<Type>&
+	 */
+	CMatrice<Type>& operator=(const CMatrice& MATParam); // T'es sur qu'il faut return un & ?
+
+	/**
+	 * \fn operator*(const double iScalaire)
+	 * \brief surcharge de l'operateur * (Multiplication par un scalaire)
+	 * \param iScalaire Scalaire a multiplier
+	 * \return objet CMatrice<Type> resultat de la multiplication
+	 */
+	CMatrice<Type> operator*(const double iScalaire);
+
+	/**
+	 * \fn operator/(const double iScalaire)
+	 * \brief surcharge de l'operateur / (Division par un scalaire)
+	 * \param iScalaire Scalaire divisant la CMatrice
+	 * \return objet CMatrice<Type> resultat de la multiplication
+	 */
+	CMatrice<Type> operator/(const double iScalaire);
+
+
 	/**
 	 * \fn ~CMatrice()
 	 * \brief Destructeur.
@@ -141,71 +167,11 @@ public:
 	* \brief Permet d'afficher le contenu des matrices affichables
 	*/
 	void MATAfficherMatrice();
+	
 
 
 
-	CMatrice<Type>& operator=(const CMatrice& MATParam)
-	{
-		unsigned int uiIniLoop, uiLigLoop, uiColLoop;
-
-		iMATNbCol = MATParam.iMATNbCol;
-		iMATNbLig = MATParam.iMATNbLig;
-
-		ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
-
-		for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
-			ppTYPEMATMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
-		}
-
-		for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
-		{
-			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
-			{
-				ppTYPEMATMatrice[uiColLoop][uiLigLoop] = MATParam.ppTYPEMATMatrice[uiColLoop][uiLigLoop];
-			}
-		}
-
-		return *this;
-	}
-	CMatrice<Type> operator*(const double iScalaire)//Justifier choix multiplication
-	{
-		unsigned int uiLigLoop, uiColLoop;
-
-		CMatrice<Type> result(iMATNbLig, iMATNbCol);
-
-		for (uiLigLoop  = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
-		{
-			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
-			{
-				result.MATModifierElem((ppTYPEMATMatrice[uiColLoop][uiLigLoop]) * iScalaire, uiLigLoop, uiColLoop);
-			}
-		}
-
-		return result;
-	}
-	CMatrice<Type> operator/(const double iScalaire) throw(Cexception)
-	{
-		if (iScalaire == 0) {
-			Cexception error;
-			error.EXCmodifier_valeur(DIVISION_PAR_0);
-			throw error;
-		}
-		else {
-			unsigned int uiLigLoop, uiColLoop;
-
-			CMatrice<Type> result(iMATNbLig, iMATNbCol);
-
-			for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
-			{
-				for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
-				{
-					result.MATModifierElem((getElem(uiLigLoop, uiColLoop)) / iScalaire, uiLigLoop, uiColLoop);
-				}
-			}
-
-			return result;
-		}
-	}
+	
 };
 
 template<typename Type>
@@ -374,6 +340,76 @@ CMatrice<Type>::CMatrice(const CMatrice<Type>& MATParam)
 		}
 	}
 }
+
+template<typename Type>
+CMatrice<Type>& CMatrice<Type>::operator=(const CMatrice& MATParam)
+{
+	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
+
+	iMATNbCol = MATParam.iMATNbCol;
+	iMATNbLig = MATParam.iMATNbLig;
+
+	ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+
+	for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
+		ppTYPEMATMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+	}
+
+	for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
+	{
+		for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+		{
+			ppTYPEMATMatrice[uiColLoop][uiLigLoop] = MATParam.ppTYPEMATMatrice[uiColLoop][uiLigLoop];
+		}
+	}
+
+	return *this;
+}
+
+template<typename Type>
+CMatrice<Type> CMatrice<Type>::operator*(const double iScalaire)//Justifier choix multiplication
+{
+	unsigned int uiLigLoop, uiColLoop;
+
+	CMatrice<Type> result(iMATNbLig, iMATNbCol);
+
+	for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
+	{
+		for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+		{
+			result.MATModifierElem((ppTYPEMATMatrice[uiColLoop][uiLigLoop]) * iScalaire, uiLigLoop, uiColLoop);
+		}
+	}
+
+	return result;
+}
+
+
+template<typename Type>
+CMatrice<Type> CMatrice<Type>::operator/(const double iScalaire) throw(Cexception)
+{
+	if (iScalaire == 0) {
+		Cexception error;
+		error.EXCmodifier_valeur(DIVISION_PAR_0);
+		throw error;
+	}
+	else {
+		unsigned int uiLigLoop, uiColLoop;
+
+		CMatrice<Type> result(iMATNbLig, iMATNbCol);
+
+		for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
+		{
+			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+			{
+				result.MATModifierElem((getElem(uiLigLoop, uiColLoop)) / iScalaire, uiLigLoop, uiColLoop);
+			}
+		}
+
+		return result;
+	}
+}
+
 
 template<typename Type>
 CMatrice<Type>::~CMatrice()
@@ -559,3 +595,4 @@ void CMatrice<Type>::MATAfficherMatrice()
 		std::cout << "\n";
 	}
 }
+

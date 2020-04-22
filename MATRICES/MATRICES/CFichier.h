@@ -21,29 +21,61 @@
 class CFichier {
 private:
 	std::ifstream* IFSFlux; /**             */
-	bool bUtilisable; /**                   */
+	bool bUtilisable; /** Etat du fichier */
 public:
 	/**
 	 * \fn CFichier(const char* sPath)
 	 * \brief Constructeur par default.
 	 * \param sPath chaine de caractères representant le chemin vers le fichier a manipuler 
-	 * 
+	 * \exception Cexception LAAAAAAAAAAAAAAAAAAAAAAAA
 	 * Ouvre et prepare le fichier a etre manipulé
 	 */
-	CFichier(const char* sPath) throw(Cexception);
+	CFichier(const char* sPath) throw(Cexception); ////// OU EST LEXCEPTION LA DEDANS?????
 
 	/**
-	 * \fn CFichier()
-	 * \brief Constructeur par default.
-	 * \param sPath chaine de caractères representant le chemin vers le fichier a manipuler
-	 *
+	 * \fn nextSep(char sep)
+	 * \brief LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	 * \param sep caractere representant LAAAAAAAAAAAAAAA
+	 * \exception Cexception LAAAAAAAAAAAAAAAAAAAAAAAA
 	 * Ouvre et prepare le fichier a etre manipulé
 	 */
 	void nextSep(char sep) throw(Cexception);
+
+	/**
+	 * \fn getInt()
+	 * \brief Recupere le prochain int dans le fichier
+	 * \return entier l'element recupere
+	 * \exception Cexception LAAAAAAAAAAAAAAAAAAAAAAAA
+	 */
 	int getInt() throw(Cexception);
+
+	/**
+	 * \fn getDouble()
+	 * \brief Recupere le prochain Double dans le fichier
+	 * \return double l'element recupere
+	 * \exception Cexception LAAAAAAAAAAAAAAAAAAAAAAAA
+	 */
 	double getDouble() throw(Cexception);
-	char* getString();
+
+	/**
+	 * \fn getString()
+	 * \brief LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	 * \return chaine de caracteres char* representant LAAAAAAAAAAAAAAAAA
+	 */
+	char* getString();  //POURQUOI PAS DE EXCEPTION ICI?
+
+	/**
+	 * \fn next()
+	 * \brief LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	 * \return caractere representant LAAAAAAAAAAAAAAAAA
+	 */
 	char next();
+
+	/**
+	 * \fn utilisable()
+	 * \brief Verifie si le fichier est utilisable
+	 * \return boolean representant l'etat du fichier
+	 */
 	bool utilisable();
 };
 

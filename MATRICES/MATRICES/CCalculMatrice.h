@@ -9,21 +9,61 @@
 
 #include "CMatrice.h"
 
+ /** \class CCalculMatrice
+  *  \brief Classe de gestion d'operations de calcules complexes sur Matrices
+  * 
+  * Permet d'effectuer des operations complexes sur des objets CMatrice
+  */
 class CCalculMatrice
 {
 public:
+
+	/**
+	 * \fn transpose(CMatrice<Type> mat)
+	 * \brief Calculer la transpose de la matrice
+	 * \tparam <Type> 
+	 * \param mat CMatrice<Type> sujet de l'operation
+	 * \return objet CMatrice<Type> representant le resultat de l'operation
+	 */
 	template<typename Type>
-	static CMatrice<Type> transpose(CMatrice<Type> mat);
+	static CMatrice<Type> transpose(const CMatrice<Type> mat);
+
+	/**
+	 * \fn addition(const CMatrice<Type> mat1, const CMatrice<Type> mat2)
+	 * \brief Additionner deux CMatrices
+	 * \tparam <Type>
+	 * \param mat1 CMatrice
+	 * \param mat2 CMatrice
+	 * \return objet CMatrice<Type> representant le resultat de l'addition
+	 */
 	template<typename Type>
-	static CMatrice<Type> addition(CMatrice<Type> mat1, CMatrice<Type> mat2);
+	static CMatrice<Type> addition(const CMatrice<Type> mat1, const CMatrice<Type> mat2);
+
+	/**
+	 * \fn soustraction(const CMatrice<Type> mat1, const CMatrice<Type> mat2)
+	 * \brief soustraire deux CMatrices
+	 * \tparam <Type>
+	 * \param mat1 CMatrice
+	 * \param mat2 CMatrice
+	 * \return objet CMatrice<Type> representant le resultat de la soustraction
+	 */
 	template<typename Type>
-	static CMatrice<Type> soustraction(CMatrice<Type> mat1, CMatrice<Type> mat2);
+	static CMatrice<Type> soustraction(const CMatrice<Type> mat1, const CMatrice<Type> mat2);
+
+	/**
+	 * \fn multiplication(const CMatrice<Type> mat1, const CMatrice<Type> mat2)
+	 * \brief multiplier deux CMatrices
+	 * \tparam <Type>
+	 * \param mat1 CMatrice
+	 * \param mat2 CMatrice
+	 * \return objet CMatrice<Type> representant le resultat de la multiplication
+	 */
 	template<typename Type>
-	static CMatrice<Type> multiplication(CMatrice<Type> mat1, CMatrice<Type> mat2);
+	static CMatrice<Type> multiplication(const CMatrice<Type> mat1, const CMatrice<Type> mat2);
 };
 
 template<typename Type>
-CMatrice<Type> CCalculMatrice::transpose(CMatrice<Type> mat)
+CMatrice<Type> CCalculMatrice::transpose(const CMatrice<Type> mat)
 {
 	unsigned int uiLigLoop, uiColLoop;
 
@@ -40,7 +80,7 @@ CMatrice<Type> CCalculMatrice::transpose(CMatrice<Type> mat)
 }
 
 template<typename Type>
-static CMatrice<Type> CCalculMatrice::addition(CMatrice<Type> mat1, CMatrice<Type> mat2)
+static CMatrice<Type> CCalculMatrice::addition(const CMatrice<Type> mat1, const CMatrice<Type> mat2)
 {
 	unsigned int uiLigLoop, uiColLoop;
 
@@ -57,7 +97,7 @@ static CMatrice<Type> CCalculMatrice::addition(CMatrice<Type> mat1, CMatrice<Typ
 }
 
 template<typename Type>
-static CMatrice<Type> CCalculMatrice::soustraction(CMatrice<Type> mat1, CMatrice<Type> mat2)
+static CMatrice<Type> CCalculMatrice::soustraction(const CMatrice<Type> mat1, const CMatrice<Type> mat2)
 {
 	unsigned int uiLigLoop, uiColLoop;
 
@@ -74,7 +114,7 @@ static CMatrice<Type> CCalculMatrice::soustraction(CMatrice<Type> mat1, CMatrice
 }
 
 template<typename Type>
-static CMatrice<Type> CCalculMatrice::multiplication(CMatrice<Type> mat1, CMatrice<Type> mat2)
+static CMatrice<Type> CCalculMatrice::multiplication(const CMatrice<Type> mat1, const CMatrice<Type> mat2)
 {
 	unsigned int uiLigLoop, uiColLoop, uiCalLoop;
 
