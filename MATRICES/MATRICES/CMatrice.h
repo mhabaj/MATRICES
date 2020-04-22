@@ -19,9 +19,9 @@ template <typename Type> class CMatrice
 {
 
 private:
-	int iMATNbCol;/**<Nombre de colonnes de la matrice */
-	int iMATNbLig;/**<Nombre de lignes de la matrice */
-	Type** ppTYPEMATMatrice;/**<Elements de la matrice */
+	int iMATNbCol;/**Nombre de colonnes de la matrice */
+	int iMATNbLig;/**Nombre de lignes de la matrice */
+	Type** ppTYPEMATMatrice;/**Elements de la matrice */
 
 public:
 	/**
@@ -37,7 +37,7 @@ public:
 	 * \brief Constructeur via fichier.
 	 *
 	 * \param sPath Fichier source de la matrice a creer.
-	 * \exception Cexception LAAAAAAAAAAAAAAAAAAAAAAAA
+	 * \exception ERREUR_FICHIER Erreur fichier en cas de chemin non valide
 	 */
 	CMatrice(const char* sPath) throw(Cexception);
 
@@ -47,8 +47,7 @@ public:
 	 *
 	 * \param iLigne Nombres de lignes.
 	 * \param iColonne Nombre de collones.
- 	 * \exception Cexception LAAAAAAAAAAAAAAAAAAAAAAAA
-
+ 	 * \exception ERREUR_DIMENSIONS Dimensions CMatrice non valide
 	 */
 	CMatrice(int iLigne, int iColonne) throw(Cexception);
 
@@ -60,7 +59,7 @@ public:
 	 * \param iColonne Nombre de collones.
 	 * \param pTypeTableauElems tableau des éléments a mettre dans la matrice.
 	 * \pre Le nombre d'elements du tableau doit etre egale a iLigne * iColonne.
-	 * \exception Cexception LAAAAAAAAAAAAAAAAAAAAAAAA
+	 * \exception ERREUR_DIMENSIONS Dimensions CMatrice non valide
 	 */
 	CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems) throw(Cexception);
 
@@ -76,10 +75,10 @@ public:
 	/**
 	 * \fn operator=(const CMatrice& MATParam)
 	 * \brief surcharge de l'operateur =
-	 * \param MATParam Matrice a recopie
+	 * \param MATParam CMatrice
 	 * \return objet CMatrice<Type>&
 	 */
-	CMatrice<Type>& operator=(const CMatrice& MATParam); // T'es sur qu'il faut return un & ?
+	CMatrice<Type>& operator=(const CMatrice& MATParam);
 
 	/**
 	 * \fn operator*(const double iScalaire)
@@ -106,15 +105,13 @@ public:
 
 	/**
 	* \fn getCol()
-	* \brief ICIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
-	*
+	* \brief Renvoie le nombre de colonnes
 	*/
 	int getCol() const;
 
 	/**
 	* \fn getLig()
-	* \brief ICIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
-	*
+	* \brief Renvoie le nombre de lignes
 	*/
 	int getLig() const;
 
@@ -145,7 +142,7 @@ public:
 	/**
 	* \fn MATAjoutLigne();
 	* \brief Ajoute une ligne remplie a la matrice
-	* \param TypeLigne ICIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+	* \param TypeLigne Tableau contenant la ligne a ajouter
 	*/
 	void MATAjoutLigne(const Type* TypeLigne);
 
@@ -158,7 +155,7 @@ public:
 	/**
 	* \fn MATAjoutColonne(const Type* TypeColonne);
 	* \brief Ajoute une colonne remplie a la matrice
-	* \param TypeColonne ICIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+	* \param TypeColonne Tableau contenant la colonne a ajouter
 	*/
 	void MATAjoutColonne(const Type* TypeColonne);
 
@@ -167,11 +164,6 @@ public:
 	* \brief Permet d'afficher le contenu des matrices affichables
 	*/
 	void MATAfficherMatrice();
-	
-
-
-
-	
 };
 
 template<typename Type>
@@ -409,7 +401,6 @@ CMatrice<Type> CMatrice<Type>::operator/(const double iScalaire) throw(Cexceptio
 		return result;
 	}
 }
-
 
 template<typename Type>
 CMatrice<Type>::~CMatrice()

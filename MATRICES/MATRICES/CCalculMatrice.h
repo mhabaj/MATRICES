@@ -12,7 +12,7 @@
  /** \class CCalculMatrice
   *  \brief Classe de gestion d'operations de calcules complexes sur Matrices
   * 
-  * Permet d'effectuer des operations complexes sur des objets CMatrice
+  *	 Permet d'effectuer des operations complexes sur des objets CMatrice
   */
 class CCalculMatrice
 {

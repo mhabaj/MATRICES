@@ -15,28 +15,27 @@
 /** \class CFichier
  *  \brief Classe de gestion de fichiers.
  *
- *  Permet d'effectuer des operations simples sur les fichiers
+ *  Permet de gerer de maniere simple des fichiers
  */
 
 class CFichier {
 private:
-	std::ifstream* IFSFlux; /**             */
+	std::ifstream* IFSFlux; /** flux de donnees   */
 	bool bUtilisable; /** Etat du fichier */
 public:
 	/**
 	 * \fn CFichier(const char* sPath)
 	 * \brief Constructeur par default.
-	 * \param sPath chaine de caractères representant le chemin vers le fichier a manipuler 
-	 * \exception Cexception LAAAAAAAAAAAAAAAAAAAAAAAA
+	 * \param sPath chaine de caractères representant le chemin vers le fichier a manipuler
 	 * Ouvre et prepare le fichier a etre manipulé
 	 */
-	CFichier(const char* sPath) throw(Cexception); ////// OU EST LEXCEPTION LA DEDANS?????
+	CFichier(const char* sPath); 
 
 	/**
 	 * \fn nextSep(char sep)
-	 * \brief LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-	 * \param sep caractere representant LAAAAAAAAAAAAAAA
-	 * \exception Cexception LAAAAAAAAAAAAAAAAAAAAAAAA
+	 * \brief Saute jusqu'au prochain separateur dans le fichier
+	 * \param sep caractere representant le separateur
+	 * \exception FIN_FICHIER le separateur n'existe pas
 	 * Ouvre et prepare le fichier a etre manipulé
 	 */
 	void nextSep(char sep) throw(Cexception);
@@ -45,7 +44,7 @@ public:
 	 * \fn getInt()
 	 * \brief Recupere le prochain int dans le fichier
 	 * \return entier l'element recupere
-	 * \exception Cexception LAAAAAAAAAAAAAAAAAAAAAAAA
+	 * \exception ERREUR_LECTURE mauvais type en lecture
 	 */
 	int getInt() throw(Cexception);
 
@@ -53,21 +52,21 @@ public:
 	 * \fn getDouble()
 	 * \brief Recupere le prochain Double dans le fichier
 	 * \return double l'element recupere
-	 * \exception Cexception LAAAAAAAAAAAAAAAAAAAAAAAA
+	 * \exception ERREUR_LECTURE mauvais type en lecture
 	 */
 	double getDouble() throw(Cexception);
 
 	/**
 	 * \fn getString()
-	 * \brief LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-	 * \return chaine de caracteres char* representant LAAAAAAAAAAAAAAAAA
+	 * \brief Recupere la prochaine chaine de caracteres 
+	 * \return chaine de caracteres char*
 	 */
-	char* getString();  //POURQUOI PAS DE EXCEPTION ICI?
+	char* getString(); 
 
 	/**
 	 * \fn next()
-	 * \brief LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-	 * \return caractere representant LAAAAAAAAAAAAAAAAA
+	 * \brief saute un caractere
+	 * \return caractere 
 	 */
 	char next();
 
