@@ -1,100 +1,103 @@
-﻿  main.cpp
-d:\user\documents\code\git\matrices\matrices\matrices\cfichier.h(13): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
-d:\user\documents\code\git\matrices\matrices\matrices\cfichier.h(14): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
-d:\user\documents\code\git\matrices\matrices\matrices\cfichier.h(15): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
-d:\user\documents\code\git\matrices\matrices\matrices\cfichier.h(16): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
-d:\user\documents\code\git\matrices\matrices\matrices\cfichier.h(23): warning C5043: 'CFichier::CFichier' : la spécification d'exception ne correspond pas à la déclaration précédente
-  d:\user\documents\code\git\matrices\matrices\matrices\cfichier.h(13): note: voir la déclaration de 'CFichier::CFichier'
-d:\user\documents\code\git\matrices\matrices\matrices\cfichier.h(31): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
-d:\user\documents\code\git\matrices\matrices\matrices\cfichier.h(43): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
-d:\user\documents\code\git\matrices\matrices\matrices\cfichier.h(69): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(41): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
-  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(147): note: voir la référence à l'instanciation de classe modèle 'CMatrice<Type>' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(50): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(61): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(124): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(179): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(210): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(217): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(219): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(186): warning C4101: 'dValue' : variable locale non référencée
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(228): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(260): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(114): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(109): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(61): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<int> CMatrice<int>::operator *(const double)' en cours de compilation
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(60): note: voir la référence à l'instanciation de classe modèle 'CMatrice<int>' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(116): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(118): warning C4244: 'argument' : conversion de 'double' en 'Type', perte possible de données
+﻿  Cexception.cpp
+  main.cpp
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cfichier.h(33): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cfichier.h(42): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cfichier.h(43): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cfichier.h(44): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cfichier.h(51): warning C5043: 'CFichier::CFichier' : la spécification d'exception ne correspond pas à la déclaration précédente
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cfichier.h(33): note: voir la déclaration de 'CFichier::CFichier'
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cfichier.h(59): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cfichier.h(71): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cfichier.h(97): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(42): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(209): note: voir la référence à l'instanciation de classe modèle 'CMatrice<Type>' en cours de compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(53): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(65): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(186): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(241): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(272): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(279): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(281): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(248): warning C4101: 'dValue' : variable locale non référencée
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(290): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(322): warning C4290: Spécification d'exception C++ ignorée sauf pour indiquer qu'une fonction n'est pas __declspec(nothrow)
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(176): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(171): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\main.cpp(61): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<int> CMatrice<int>::operator *(const double)' en cours de compilation
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\main.cpp(60): note: voir la référence à l'instanciation de classe modèle 'CMatrice<int>' en cours de compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(178): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(180): warning C4244: 'argument' : conversion de 'double' en 'Type', perte possible de données
           with
           [
               Type=int
           ]
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(94): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(86): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(61): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<int> &CMatrice<int>::operator =(const CMatrice<int> &)' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(98): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(100): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(136): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(125): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(31): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CMatrice<double>::operator /(const double) throw(Cexception)' en cours de compilation
-  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(179): note: voir la référence à l'instanciation de classe modèle 'CMatrice<double>' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(138): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(302): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(292): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(11): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double>::CMatrice(const CMatrice<double> &)' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(306): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(308): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(276): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(280): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(282): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(244): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(248): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(250): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(323): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(318): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(7): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double>::~CMatrice(void)' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(488): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(485): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(9): note: voir la référence à l'instanciation de la fonction modèle 'void CMatrice<double>::MATAfficherMatrice(void)' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(486): warning C4101: 'uiColLoop' : variable locale non référencée
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(159): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(27): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> operator *<double>(const double,const CMatrice<double> &)' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(161): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(25): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(47): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CCalculMatrice::transpose<double>(CMatrice<double>)' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(27): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(42): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(50): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CCalculMatrice::addition<double>(CMatrice<double>,CMatrice<double>)' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(44): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(59): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(53): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CCalculMatrice::soustraction<double>(CMatrice<double>,CMatrice<double>)' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(61): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(76): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(56): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CCalculMatrice::multiplication<double>(CMatrice<double>,CMatrice<double>)' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(78): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(80): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(404): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(396): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(65): note: voir la référence à l'instanciation de la fonction modèle 'void CMatrice<int>::MATAjoutLigne(Type *)' en cours de compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(156): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(148): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\main.cpp(61): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<int> &CMatrice<int>::operator =(const CMatrice<int> &)' en cours de compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(160): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(162): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(198): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(187): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\main.cpp(31): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CMatrice<double>::operator /(const double) throw(Cexception)' en cours de compilation
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(241): note: voir la référence à l'instanciation de classe modèle 'CMatrice<double>' en cours de compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(200): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(364): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(354): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\main.cpp(11): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double>::CMatrice(const CMatrice<double> &)' en cours de compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(368): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(370): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(338): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(342): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(344): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(306): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(310): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(312): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(385): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(380): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\main.cpp(7): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double>::~CMatrice(void)' en cours de compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(553): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(550): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\main.cpp(9): note: voir la référence à l'instanciation de la fonction modèle 'void CMatrice<double>::MATAfficherMatrice(void)' en cours de compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(551): warning C4101: 'uiColLoop' : variable locale non référencée
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(221): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\main.cpp(27): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> operator *<double>(const double,const CMatrice<double> &)' en cours de compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(223): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\ccalculmatrice.h(32): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\main.cpp(47): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CCalculMatrice::transpose<double>(CMatrice<double>)' en cours de compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\ccalculmatrice.h(34): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\ccalculmatrice.h(49): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\main.cpp(50): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CCalculMatrice::addition<double>(CMatrice<double>,CMatrice<double>)' en cours de compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\ccalculmatrice.h(51): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\ccalculmatrice.h(66): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\main.cpp(53): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CCalculMatrice::soustraction<double>(CMatrice<double>,CMatrice<double>)' en cours de compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\ccalculmatrice.h(68): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\ccalculmatrice.h(83): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\main.cpp(56): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> CCalculMatrice::multiplication<double>(CMatrice<double>,CMatrice<double>)' en cours de compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\ccalculmatrice.h(85): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\ccalculmatrice.h(87): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(466): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(458): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\main.cpp(65): note: voir la référence à l'instanciation de la fonction modèle 'void CMatrice<int>::MATAjoutLigne(const Type *)' en cours de compilation
           with
           [
               Type=int
           ]
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(408): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(410): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(417): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(465): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(457): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(69): note: voir la référence à l'instanciation de la fonction modèle 'void CMatrice<int>::MATAjoutColonne(Type *)' en cours de compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(470): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(472): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(479): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(527): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(519): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\main.cpp(69): note: voir la référence à l'instanciation de la fonction modèle 'void CMatrice<int>::MATAjoutColonne(const Type *)' en cours de compilation
           with
           [
               Type=int
           ]
-d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(469): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(531): warning C4018: '<' : incompatibilité signed/unsigned
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cmatrice.h(536): warning C4018: '<' : incompatibilité signed/unsigned
   Génération de code en cours
-  0 of 198 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-  Fin de la génération du code
-    0 functions were new in current compilation
+d:\mega\megasync\backkkkkkuppp\backup usb 2go noir\fac\3eme année polytech\2eme semestre\c++\projet c++\matrices\matrices\matrices\cfichier.h(87): warning C4172: retourne l'adresse d'une variable locale ou : cValue temporaire
+  197 of 198 functions (99.5%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
-  MATRICES.vcxproj -> D:\User\Documents\Code\git\MATRICES\MATRICES\Release\MATRICES.exe
+  Fin de la génération du code
+  MATRICES.vcxproj -> D:\mega\MEGAsync\BACKKKKKKUPPP\backup USB 2Go noir\FAC\3eme année Polytech\2eme semestre\C++\PROJET C++\MATRICES\MATRICES\Release\MATRICES.exe

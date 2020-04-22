@@ -1,3 +1,10 @@
+/**
+ * \file CFichier.h
+ * \brief Gestion de fichiers
+ * \author ALHABAJ Mahmod, BELDA Tom
+ * \version 0.1
+ * \date 22 avril 2020
+ */
 #pragma once
 
 #include <iostream> 
@@ -5,12 +12,33 @@
 
 #include "Cexception.h"
 
+/** \class CFichier
+ *  \brief Classe de gestion de fichiers.
+ *
+ *  Permet d'effectuer des operations simples sur les fichiers
+ */
+
 class CFichier {
 private:
-	std::ifstream* IFSFlux;
-	bool bUtilisable;
+	std::ifstream* IFSFlux; /**             */
+	bool bUtilisable; /**                   */
 public:
+	/**
+	 * \fn CFichier(const char* sPath)
+	 * \brief Constructeur par default.
+	 * \param sPath chaine de caractères representant le chemin vers le fichier a manipuler 
+	 * 
+	 * Ouvre et prepare le fichier a etre manipulé
+	 */
 	CFichier(const char* sPath) throw(Cexception);
+
+	/**
+	 * \fn CFichier()
+	 * \brief Constructeur par default.
+	 * \param sPath chaine de caractères representant le chemin vers le fichier a manipuler
+	 *
+	 * Ouvre et prepare le fichier a etre manipulé
+	 */
 	void nextSep(char sep) throw(Cexception);
 	int getInt() throw(Cexception);
 	double getDouble() throw(Cexception);

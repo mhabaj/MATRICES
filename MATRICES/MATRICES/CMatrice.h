@@ -1,9 +1,9 @@
 /**
  * \file CMatrice.h
  * \brief Gestion de Matrices
- * \author Tom Belda, Mahmod Alhabaj
+ * \author ALHABAJ Mahmod, BELDA Tom
  * \version 0.1
- * \date 14 avril 2020
+ * \date 22 avril 2020
  */
 #pragma once
 
@@ -37,6 +37,7 @@ public:
 	 * \brief Constructeur via fichier.
 	 *
 	 * \param sPath Fichier source de la matrice a creer.
+	 * \exception Cexception LAAAAAAAAAAAAAAAAAAAAAAAA
 	 */
 	CMatrice(const char* sPath) throw(Cexception);
 
@@ -46,6 +47,8 @@ public:
 	 *
 	 * \param iLigne Nombres de lignes.
 	 * \param iColonne Nombre de collones.
+ 	 * \exception Cexception LAAAAAAAAAAAAAAAAAAAAAAAA
+
 	 */
 	CMatrice(int iLigne, int iColonne) throw(Cexception);
 
@@ -57,6 +60,7 @@ public:
 	 * \param iColonne Nombre de collones.
 	 * \param pTypeTableauElems tableau des éléments a mettre dans la matrice.
 	 * \pre Le nombre d'elements du tableau doit etre egale a iLigne * iColonne.
+	 * \exception Cexception LAAAAAAAAAAAAAAAAAAAAAAAA
 	 */
 	CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems) throw(Cexception);
 
@@ -73,15 +77,73 @@ public:
 	 * \brief Destructeur.
 	 */
 	~CMatrice();
+
+	/**
+	* \fn getCol()
+	* \brief ICIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+	*
+	*/
 	int getCol() const;
+
+	/**
+	* \fn getLig()
+	* \brief ICIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+	*
+	*/
 	int getLig() const;
+
+	/**
+	* \fn getElem(int iLig, int iCol) const;
+	* \brief Renvoie la valeur de l'element dans la matrice
+	* \param iLig Entier representant le numero de la ligne
+	* \param iCol Entier representant le numero de la colonne
+	* \return Type Element <Type> dans la Matrice
+	*/
 	Type getElem(int iLig, int iCol) const;
+
+	/**
+	* \fn MATModifierElem(Type elem, int ligne, int colonne);
+	* \brief Modifie un element dans la matrice
+	* \param elem Nouveau element <Type> a mettre dans la matrice
+	* \param ligne Entier representant le numero de la ligne
+	* \param colonne Entier representant le numero de la colonne
+	*/
 	void MATModifierElem(Type elem, int ligne, int colonne);
+
+	/**
+	* \fn MATAjoutLigne();
+	* \brief Ajoute une ligne vide a la matrice
+	*/
 	void MATAjoutLigne();
+
+	/**
+	* \fn MATAjoutLigne();
+	* \brief Ajoute une ligne remplie a la matrice
+	* \param TypeLigne ICIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+	*/
 	void MATAjoutLigne(const Type* TypeLigne);
+
+	/**
+	* \fn MATAjoutColonne();
+	* \brief Ajoute une colonne vide a la matrice
+	*/
 	void MATAjoutColonne();
+
+	/**
+	* \fn MATAjoutColonne(const Type* TypeColonne);
+	* \brief Ajoute une colonne remplie a la matrice
+	* \param TypeColonne ICIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+	*/
 	void MATAjoutColonne(const Type* TypeColonne);
+
+	/**
+	* \fn MATAfficherMatrice();
+	* \brief Permet d'afficher le contenu des matrices affichables
+	*/
 	void MATAfficherMatrice();
+
+
+
 	CMatrice<Type>& operator=(const CMatrice& MATParam)
 	{
 		unsigned int uiIniLoop, uiLigLoop, uiColLoop;

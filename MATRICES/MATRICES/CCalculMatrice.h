@@ -1,3 +1,10 @@
+/**
+ * \file CCalculMatrice.h
+ * \brief Operations de calcules complexes sur Matrices
+ * \author ALHABAJ Mahmod, BELDA Tom
+ * \version 0.1
+ * \date 22 avril 2020
+ */
 #pragma once
 
 #include "CMatrice.h"
