@@ -14,9 +14,55 @@
   * 
   *	 Permet d'effectuer des operations complexes sur des objets CMatrice
   */
-class CCalculMatrice
+template <typename Type> class CCalculMatrice : public CMatrice<Type>
 {
 public:
+	/**
+	 * \fn CMatrice()
+	 * \brief Constructeur par default.
+	 *
+	 * Alloue en mémoire l'espace d'un matrice de dimension 1,1.
+	 */
+	CCalculMatrice(){};
+
+	/**
+	 * \fn CMatrice(const char* sPath)
+	 * \brief Constructeur via fichier.
+	 *
+	 * \param sPath Fichier source de la matrice a creer.
+	 * \exception ERREUR_FICHIER Erreur fichier en cas de chemin non valide
+	 */
+	CCalculMatrice(const char* sPath) : CMatrice<Type>(sPath) {}
+
+	/**
+	 * \fn CMatrice(int iLigne, int iColonne)
+	 * \brief Constructeur avec dimensions.
+	 *
+	 * \param iLigne Nombres de lignes.
+	 * \param iColonne Nombre de collones.
+	 * \exception ERREUR_DIMENSIONS Dimensions CMatrice non valide
+	 */
+	CCalculMatrice(int iLigne, int iColonne) throw(Cexception) : CMatrice<Type>(iLigne, iColonne) {}
+
+	/**
+	 * \fn CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems)
+	 * \brief Constructeur avec dimensions et contenus.
+	 *
+	 * \param iLigne Nombres de lignes.
+	 * \param iColonne Nombre de collones.
+	 * \param pTypeTableauElems tableau des éléments a mettre dans la matrice.
+	 * \pre Le nombre d'elements du tableau doit etre egale a iLigne * iColonne.
+	 * \exception ERREUR_DIMENSIONS Dimensions CMatrice non valide
+	 */
+	CCalculMatrice(int iLigne, int iColonne, Type* pTypeTableauElems) throw(Cexception) : CMatrice<Type>(iLigne, iColonne, pTypeTableauElems) {}
+
+	/**
+	 * \fn CMatrice(const CMatrice<Type>& MATParam)
+	 * \brief Constructeur de recopie.
+	 *
+	 * \param MATParam Matrice a recopie.
+	 */
+	CCalculMatrice(const CMatrice<Type>& MATParam) : CMatrice<Type>(MATParam) {}
 
 	/**
 	 * \fn transpose(CMatrice<Type> mat)
@@ -25,66 +71,96 @@ public:
 	 * \param mat CMatrice<Type> sujet de l'operation
 	 * \return objet CMatrice<Type> representant le resultat de l'operation
 	 */
-	template<typename Type>
-	static CMatrice<Type> transpose(const CMatrice<Type> mat);
+	CCalculMatrice<Type> transpose();
 
 	/**
-	 * \fn addition(const CMatrice<Type> mat1, const CMatrice<Type> mat2)
-	 * \brief Additionner deux CMatrices
-	 * \tparam <Type>
-	 * \param mat1 CMatrice
-	 * \param mat2 CMatrice
-	 * \return objet CMatrice<Type> representant le resultat de l'addition
+	 * \fn operator*(const double iScalaire)
+	 * \brief surcharge de l'operateur * (Multiplication par un scalaire)
+	 * \param iScalaire Scalaire a multiplier
+	 * \return objet CMatrice<Type> resultat de la multiplication
 	 */
-	template<typename Type>
-	static CMatrice<Type> addition(const CMatrice<Type> mat1, const CMatrice<Type> mat2);
+	CCalculMatrice<Type> operator*(const double iScalaire);
 
 	/**
-	 * \fn soustraction(const CMatrice<Type> mat1, const CMatrice<Type> mat2)
-	 * \brief soustraire deux CMatrices
-	 * \tparam <Type>
-	 * \param mat1 CMatrice
-	 * \param mat2 CMatrice
-	 * \return objet CMatrice<Type> representant le resultat de la soustraction
+	 * \fn operator/(const double iScalaire)
+	 * \brief surcharge de l'operateur / (Division par un scalaire)
+	 * \param iScalaire Scalaire divisant la CMatrice
+	 * \return objet CMatrice<Type> resultat de la multiplication
 	 */
-	template<typename Type>
-	static CMatrice<Type> soustraction(const CMatrice<Type> mat1, const CMatrice<Type> mat2);
+	CCalculMatrice<Type> operator/(const double iScalaire);
 
-	/**
-	 * \fn multiplication(const CMatrice<Type> mat1, const CMatrice<Type> mat2)
-	 * \brief multiplier deux CMatrices
-	 * \tparam <Type>
-	 * \param mat1 CMatrice
-	 * \param mat2 CMatrice
-	 * \return objet CMatrice<Type> representant le resultat de la multiplication
-	 */
-	template<typename Type>
-	static CMatrice<Type> multiplication(const CMatrice<Type> mat1, const CMatrice<Type> mat2);
 };
 
 template<typename Type>
-CMatrice<Type> CCalculMatrice::transpose(const CMatrice<Type> mat)
+CCalculMatrice<Type> operator*(const double iScalaire, const CCalculMatrice<Type>& MATmat)
 {
 	unsigned int uiLigLoop, uiColLoop;
 
-	CMatrice<Type> result(mat.getCol(), mat.getLig());
+	int iLig = MATmat.getLig();
+	int iCol = MATmat.getCol();
 
-	for (uiLigLoop = 0; uiLigLoop < result.getLig(); uiLigLoop++)
+	CCalculMatrice<Type> result(iLig, iCol);
+
+	for (uiLigLoop = 0; uiLigLoop < iLig; uiLigLoop++)
 	{
-		for (uiColLoop = 0; uiColLoop < result.getCol(); uiColLoop++)
+		for (uiColLoop = 0; uiColLoop < iCol; uiColLoop++)
 		{
-			result.MATModifierElem(mat.getElem(uiColLoop, uiLigLoop), uiLigLoop, uiColLoop);
+			result.MATModifierElem(iScalaire * (MATmat.getElem(uiLigLoop, uiColLoop)), uiLigLoop, uiColLoop);
 		}
 	}
+
 	return result;
 }
 
 template<typename Type>
-static CMatrice<Type> CCalculMatrice::addition(const CMatrice<Type> mat1, const CMatrice<Type> mat2)
+CCalculMatrice<Type> CCalculMatrice<Type>::operator*(const double iScalaire)//Justifier choix multiplication
 {
 	unsigned int uiLigLoop, uiColLoop;
 
-	CMatrice<Type> result(mat1.getCol(), mat1.getLig());
+	CCalculMatrice<Type> result(this->getLig(), this->getCol());
+
+	for (uiLigLoop = 0; uiLigLoop < this->getLig(); uiLigLoop++)
+	{
+		for (uiColLoop = 0; uiColLoop < this->getCol(); uiColLoop++)
+		{
+			result.MATModifierElem(this->getElem(uiLigLoop, uiColLoop) * iScalaire, uiLigLoop, uiColLoop);
+		}
+	}
+
+	return result;
+}
+
+template<typename Type>
+CCalculMatrice<Type> CCalculMatrice<Type>::operator/(const double iScalaire) throw(Cexception)
+{
+	if (iScalaire == 0) {
+		Cexception error;
+		error.EXCmodifier_valeur(DIVISION_PAR_0);
+		throw error;
+	}
+	else {
+		unsigned int uiLigLoop, uiColLoop;
+
+		CCalculMatrice<Type> result(this->getLig(), this->getCol());
+
+		for (uiLigLoop = 0; uiLigLoop < this->getLig(); uiLigLoop++)
+		{
+			for (uiColLoop = 0; uiColLoop < this->getCol(); uiColLoop++)
+			{
+				result.MATModifierElem((this->getElem(uiLigLoop, uiColLoop)) / iScalaire, uiLigLoop, uiColLoop);
+			}
+		}
+
+		return result;
+	}
+}
+
+template<typename Type>
+CCalculMatrice<Type> operator+(const CCalculMatrice<Type> mat1, const CCalculMatrice<Type> mat2)//EXCEPTION DIMENSIONS INCORRECTES
+{
+	unsigned int uiLigLoop, uiColLoop;
+
+	CCalculMatrice<Type> result(mat1.getLig(), mat1.getCol());
 
 	for (uiLigLoop = 0; uiLigLoop < mat1.getLig(); uiLigLoop++)
 	{
@@ -97,11 +173,11 @@ static CMatrice<Type> CCalculMatrice::addition(const CMatrice<Type> mat1, const 
 }
 
 template<typename Type>
-static CMatrice<Type> CCalculMatrice::soustraction(const CMatrice<Type> mat1, const CMatrice<Type> mat2)
+CCalculMatrice<Type> operator-(const CCalculMatrice<Type> mat1, const CCalculMatrice<Type> mat2)//EXCEPTION DIMENSIONS INCORRECTES
 {
 	unsigned int uiLigLoop, uiColLoop;
 
-	CMatrice<Type> result(mat1.getCol(), mat1.getLig());
+	CMatrice<Type> result(mat1.getLig(), mat1.getCol());
 
 	for (uiLigLoop = 0; uiLigLoop < mat1.getLig(); uiLigLoop++)
 	{
@@ -114,7 +190,7 @@ static CMatrice<Type> CCalculMatrice::soustraction(const CMatrice<Type> mat1, co
 }
 
 template<typename Type>
-static CMatrice<Type> CCalculMatrice::multiplication(const CMatrice<Type> mat1, const CMatrice<Type> mat2)
+CCalculMatrice<Type> operator*(const CCalculMatrice<Type> mat1, const CCalculMatrice<Type> mat2)//EXCEPTION DIMENSIONS INCORRECTES
 {
 	unsigned int uiLigLoop, uiColLoop, uiCalLoop;
 
@@ -124,10 +200,29 @@ static CMatrice<Type> CCalculMatrice::multiplication(const CMatrice<Type> mat1, 
 	{
 		for (uiColLoop = 0; uiColLoop < result.getCol(); uiColLoop++)
 		{
-			for (uiCalLoop = 0; uiCalLoop < mat2.getLig(); uiCalLoop++)
+			result.MATModifierElem(mat1.getElem(uiLigLoop, 0) * mat2.getElem(0, uiColLoop), uiLigLoop, uiColLoop);
+			for (uiCalLoop = 1; uiCalLoop < mat2.getLig(); uiCalLoop++)
 			{
 				result.MATModifierElem(mat1.getElem(uiLigLoop, uiCalLoop) * mat2.getElem(uiCalLoop, uiColLoop) + result.getElem(uiLigLoop, uiColLoop), uiLigLoop, uiColLoop);
 			}
+		}
+	}
+	return result;
+}
+
+
+template<typename Type>
+CCalculMatrice<Type> CCalculMatrice<Type>::transpose()
+{
+	unsigned int uiLigLoop, uiColLoop;
+
+	CMatrice<Type> result(this->getCol(), this->getLig());
+
+	for (uiLigLoop = 0; uiLigLoop < result.getLig(); uiLigLoop++)
+	{
+		for (uiColLoop = 0; uiColLoop < result.getCol(); uiColLoop++)
+		{
+			result.MATModifierElem(this->getElem(uiColLoop, uiLigLoop), uiLigLoop, uiColLoop);
 		}
 	}
 	return result;

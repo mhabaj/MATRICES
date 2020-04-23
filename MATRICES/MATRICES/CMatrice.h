@@ -10,6 +10,9 @@
 #include "Cexception.h"
 #include "CFichier.h"
 
+#include <ostream>
+#include <iostream>
+
 /** \class CMatrice
  * \brief Classe de gestion de matrices.
  *
@@ -71,7 +74,6 @@ public:
 	 */
 	CMatrice(const CMatrice<Type>& MATParam);
 
-
 	/**
 	 * \fn operator=(const CMatrice& MATParam)
 	 * \brief surcharge de l'operateur =
@@ -79,23 +81,6 @@ public:
 	 * \return objet CMatrice<Type>&
 	 */
 	CMatrice<Type>& operator=(const CMatrice& MATParam);
-
-	/**
-	 * \fn operator*(const double iScalaire)
-	 * \brief surcharge de l'operateur * (Multiplication par un scalaire)
-	 * \param iScalaire Scalaire a multiplier
-	 * \return objet CMatrice<Type> resultat de la multiplication
-	 */
-	CMatrice<Type> operator*(const double iScalaire);
-
-	/**
-	 * \fn operator/(const double iScalaire)
-	 * \brief surcharge de l'operateur / (Division par un scalaire)
-	 * \param iScalaire Scalaire divisant la CMatrice
-	 * \return objet CMatrice<Type> resultat de la multiplication
-	 */
-	CMatrice<Type> operator/(const double iScalaire);
-
 
 	/**
 	 * \fn ~CMatrice()
@@ -114,6 +99,8 @@ public:
 	* \brief Renvoie le nombre de lignes
 	*/
 	int getLig() const;
+
+	Type** getElems() const;
 
 	/**
 	* \fn getElem(int iLig, int iCol) const;
@@ -158,34 +145,7 @@ public:
 	* \param TypeColonne Tableau contenant la colonne a ajouter
 	*/
 	void MATAjoutColonne(const Type* TypeColonne);
-
-	/**
-	* \fn MATAfficherMatrice();
-	* \brief Permet d'afficher le contenu des matrices affichables
-	*/
-	void MATAfficherMatrice();
 };
-
-template<typename Type>
-CMatrice<Type> operator*(const double iScalaire, const CMatrice<Type>& MATmat)
-{
-	unsigned int uiLigLoop, uiColLoop;
-
-	int iLig = MATmat.getLig();
-    int iCol = MATmat.getCol();
-
-    CMatrice<Type> result(iLig, iCol);
-
-    for (uiLigLoop = 0; uiLigLoop < iLig; uiLigLoop++)
-    {
-        for (uiColLoop = 0; uiColLoop < iCol; uiColLoop++)
-        {
-            result.MATModifierElem(iScalaire * (MATmat.getElem(uiLigLoop, uiColLoop)), uiLigLoop, uiColLoop);
-        }
-    }
-
-    return result;
-}
 
 template<typename Type>
 CMatrice<Type>::CMatrice()
@@ -263,14 +223,6 @@ CMatrice<Type>::CMatrice(int iLigne, int iColonne) throw(Cexception) //nombre de
 
 		for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
 			ppTYPEMATMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
-		}
-
-		for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
-		{
-			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
-			{
-				ppTYPEMATMatrice[uiColLoop][uiLigLoop] = 0;
-			}
 		}
 	}
 }
@@ -359,47 +311,29 @@ CMatrice<Type>& CMatrice<Type>::operator=(const CMatrice& MATParam)
 }
 
 template<typename Type>
-CMatrice<Type> CMatrice<Type>::operator*(const double iScalaire)//Justifier choix multiplication
+std::ostream& operator<<(std::ostream& flux, CMatrice<Type> const& mat)
 {
 	unsigned int uiLigLoop, uiColLoop;
 
-	CMatrice<Type> result(iMATNbLig, iMATNbCol);
-
-	for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
+	flux << "[";
+	for (uiLigLoop = 0; uiLigLoop < mat.getLig(); uiLigLoop++)
 	{
-		for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+		flux << "[";
+		for (int uiColLoop = 0; uiColLoop < mat.getCol(); uiColLoop++)
 		{
-			result.MATModifierElem((ppTYPEMATMatrice[uiColLoop][uiLigLoop]) * iScalaire, uiLigLoop, uiColLoop);
+			if (uiColLoop != mat.getCol() - 1)
+				flux << mat.getElem(uiLigLoop, uiColLoop) << " ";
+			else
+				flux << mat.getElem(uiLigLoop, uiColLoop);
 		}
+		if(uiLigLoop != mat.getLig() - 1)
+			flux << "] ";
+		else
+			flux << "]";
 	}
+	flux << "]";
 
-	return result;
-}
-
-
-template<typename Type>
-CMatrice<Type> CMatrice<Type>::operator/(const double iScalaire) throw(Cexception)
-{
-	if (iScalaire == 0) {
-		Cexception error;
-		error.EXCmodifier_valeur(DIVISION_PAR_0);
-		throw error;
-	}
-	else {
-		unsigned int uiLigLoop, uiColLoop;
-
-		CMatrice<Type> result(iMATNbLig, iMATNbCol);
-
-		for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
-		{
-			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
-			{
-				result.MATModifierElem((getElem(uiLigLoop, uiColLoop)) / iScalaire, uiLigLoop, uiColLoop);
-			}
-		}
-
-		return result;
-	}
+	return flux;
 }
 
 template<typename Type>
@@ -427,6 +361,12 @@ template<typename Type>
 int CMatrice<Type>::getLig() const
 {
 	return iMATNbLig;
+}
+
+template<typename Type>
+Type** CMatrice<Type>::getElems() const
+{
+	return ppTYPEMATMatrice;
 }
 
 template<typename Type>
@@ -571,19 +511,3 @@ void CMatrice<Type>::MATAjoutColonne(const Type* TypeColonne)//taille du tableau
 
 	iMATNbCol++;
 }
-
-template<typename Type>
-void CMatrice<Type>::MATAfficherMatrice()
-{
-	unsigned int uiLigLoop, uiColLoop;
-
-	for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
-	{
-		for (int uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
-		{
-			std::cout << ppTYPEMATMatrice[uiColLoop][uiLigLoop] << " ";
-		}
-		std::cout << "\n";
-	}
-}
-

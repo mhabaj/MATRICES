@@ -6,76 +6,66 @@ int main()
 	double tab1[4] = { 1, 2, 3, 4 };
 	CMatrice<double> m1(2, 2, tab1);
 	std::cout << "M1 :\n";
-	m1.MATAfficherMatrice();
+	std::cout << m1 << "\n";
 	std::cout << "-------------------------------------\n";
 	CMatrice<double> m2(m1);
 	std::cout << "M2 = M1 :\n";
-	m2.MATAfficherMatrice();
+	std::cout << m2 << "\n";
 	std::cout << "-------------------------------------\n";
 	m2.MATModifierElem(7, 1, 0);
 	std::cout << "Modifie M2 -> 3 = 7 :\n";
-	m2.MATAfficherMatrice();
+	std::cout << m2 << "\n";
 	std::cout << "-------------------------------------\n";
 	std::cout << "M1 :\n";
-	m1.MATAfficherMatrice();
+	std::cout << m1 << "\n";
 	std::cout << "/////////////////////////////////////\n";
 
-	std::cout << "M2 * 2.5 :\n";
-	(m2*2.5).MATAfficherMatrice();
-	std::cout << "-------------------------------------\n";
-	std::cout << "1.7 * M2 :\n";
-	(1.7*m2).MATAfficherMatrice();
-	std::cout << "-------------------------------------\n";
-	std::cout << "M2 / 0 :\n";
-	try {
-		m2 / 0;
-	}
-	catch (Cexception e) {
-		e.EXCaffiche_erreur();
-	}
+	CCalculMatrice<double> m3("C:/Users/belda_mjro20o/Desktop/mat.txt");
+	std::cout << "M3 : \n" << m3 << "\n";
 	std::cout << "/////////////////////////////////////\n";
 
-	try {
-		CMatrice<double> m3("C:/Users/belda_mijro20o/Desktop/mat.txt");
-		std::cout << "/////////////////////////////////////\n";
-	}
-	catch (Cexception e) {
-		e.EXCaffiche_erreur();
-	}
-
-	std::cout << "Transposee de M1 :\n";
-	(CCalculMatrice::transpose(m1)).MATAfficherMatrice();
+	std::cout << "M3 * 2.5 :\n" << (m3*2.5) << "\n";
 	std::cout << "-------------------------------------\n";
-	std::cout << "M1 + M2 :\n";
-	(CCalculMatrice::addition(m1, m2)).MATAfficherMatrice();
+	std::cout << "1.7 * M3 :\n" << (1.7*m3) << "\n";
 	std::cout << "-------------------------------------\n";
-	std::cout << "M1 - M2 :\n";
-	(CCalculMatrice::soustraction(m1, m2)).MATAfficherMatrice();
-	std::cout << "-------------------------------------\n";
-	std::cout << "M1 * M2 :\n";
-	(CCalculMatrice::multiplication(m1, m2)).MATAfficherMatrice();
+	std::cout << "M3 / 4 :\n" << (m3 / 4) << "\n";
 	std::cout << "/////////////////////////////////////\n";
 
-	int tab2[4] = { 2, 7, 3, 9 };
-	CMatrice<int> m4(2, 2, tab2);
+	std::cout << "Transposee de M3 :\n";
+	std::cout << m3.transpose() << "\n";
+	std::cout << "-------------------------------------\n";
+	std::cout << "M3 + M3 :\n";
+	std::cout << m3 + m3 << "\n";
+	std::cout << "-------------------------------------\n";
+	std::cout << "M3 - M3 :\n";
+	std::cout << m3 - m3 << "\n";
+	std::cout << "-------------------------------------\n";
+	std::cout << "M3 * M3 :\n";
+	std::cout << m3 * m3 << "\n";
+	std::cout << "/////////////////////////////////////\n";
+
+	double tab2[4] = { 2, 7, 3, 9 };
+	CCalculMatrice<double> m4(2, 2, tab2);
 	m4 = m4 * 1.5;
-	m4.MATAfficherMatrice();
+	std::cout << m4 << "\n";
 	std::cout << "-------------------------------------\n";
-	int tab3[2] = { 5, 1 };
+	double tab3[2] = { 5, 1 };
 	m4.MATAjoutLigne(tab3);
-	m4.MATAfficherMatrice();
+	std::cout << m4 << "\n";
 	std::cout << "-------------------------------------\n";
-	int tab4[3] = {11, 6, 4};
+	double tab4[3] = {11, 6, 4};
 	m4.MATAjoutColonne(tab4);
-	m4.MATAfficherMatrice();
+	std::cout << m4 << "\n";
 	std::cout << "-------------------------------------\n";
 
-	try {
-		CMatrice<double> m5(0, 0);
-	}
-	catch (Cexception e) {
-		e.EXCaffiche_erreur();
-	}
-
+	CCalculMatrice<CMatrice<double>> mu(2, 1);
+	mu.MATModifierElem(m3, 0, 0);
+	mu.MATModifierElem(m4, 1, 0);
+	
+	std::cout << mu << "\n";
+	/*std::cout << mu * 3 << "\n";
+	std::cout << 3 * mu << "\n";
+	std::cout << mu / 4 << "\n";*/
+	//std::cout <<  << "\n";
 	return 0;
 }
