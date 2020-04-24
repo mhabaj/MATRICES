@@ -123,7 +123,7 @@ CCalculMatrice<Type> CCalculMatrice<Type>::operator*(const double iScalaire)//Ju
 	{
 		for (uiColLoop = 0; uiColLoop < this->getCol(); uiColLoop++)
 		{
-			result.MATModifierElem(this->getElem(uiLigLoop, uiColLoop) * iScalaire, uiLigLoop, uiColLoop);
+			result.MATModifierElem((this->getElem(uiLigLoop, uiColLoop)) * iScalaire, uiLigLoop, uiColLoop);
 		}
 	}
 
@@ -158,56 +158,77 @@ CCalculMatrice<Type> CCalculMatrice<Type>::operator/(const double iScalaire) thr
 template<typename Type>
 CCalculMatrice<Type> operator+(const CCalculMatrice<Type> mat1, const CCalculMatrice<Type> mat2)//EXCEPTION DIMENSIONS INCORRECTES
 {
-	unsigned int uiLigLoop, uiColLoop;
-
-	CCalculMatrice<Type> result(mat1.getLig(), mat1.getCol());
-
-	for (uiLigLoop = 0; uiLigLoop < mat1.getLig(); uiLigLoop++)
-	{
-		for (uiColLoop = 0; uiColLoop < mat1.getCol(); uiColLoop++)
-		{
-			result.MATModifierElem(mat1.getElem(uiLigLoop, uiColLoop) + mat2.getElem(uiLigLoop, uiColLoop), uiLigLoop, uiColLoop);
-		}
+	if (mat1.getCol() != mat2.getCol() || mat1.getLig() != mat2.getLig()) {
+		Cexception error;
+		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);
+		throw error;
 	}
-	return result;
+	else {
+		unsigned int uiLigLoop, uiColLoop;
+
+		CCalculMatrice<Type> result(mat1.getLig(), mat1.getCol());
+
+		for (uiLigLoop = 0; uiLigLoop < mat1.getLig(); uiLigLoop++)
+		{
+			for (uiColLoop = 0; uiColLoop < mat1.getCol(); uiColLoop++)
+			{
+				result.MATModifierElem(mat1.getElem(uiLigLoop, uiColLoop) + mat2.getElem(uiLigLoop, uiColLoop), uiLigLoop, uiColLoop);
+			}
+		}
+		return result;
+	}
 }
 
 template<typename Type>
 CCalculMatrice<Type> operator-(const CCalculMatrice<Type> mat1, const CCalculMatrice<Type> mat2)//EXCEPTION DIMENSIONS INCORRECTES
 {
-	unsigned int uiLigLoop, uiColLoop;
-
-	CMatrice<Type> result(mat1.getLig(), mat1.getCol());
-
-	for (uiLigLoop = 0; uiLigLoop < mat1.getLig(); uiLigLoop++)
-	{
-		for (uiColLoop = 0; uiColLoop < mat1.getCol(); uiColLoop++)
-		{
-			result.MATModifierElem(mat1.getElem(uiLigLoop, uiColLoop) - mat2.getElem(uiLigLoop, uiColLoop), uiLigLoop, uiColLoop);
-		}
+	if (mat1.getCol() != mat2.getCol() || mat1.getLig() != mat2.getLig()) {
+		Cexception error;
+		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);
+		throw error;
 	}
-	return result;
+	else {
+		unsigned int uiLigLoop, uiColLoop;
+
+		CMatrice<Type> result(mat1.getLig(), mat1.getCol());
+
+		for (uiLigLoop = 0; uiLigLoop < mat1.getLig(); uiLigLoop++)
+		{
+			for (uiColLoop = 0; uiColLoop < mat1.getCol(); uiColLoop++)
+			{
+				result.MATModifierElem(mat1.getElem(uiLigLoop, uiColLoop) - mat2.getElem(uiLigLoop, uiColLoop), uiLigLoop, uiColLoop);
+			}
+		}
+		return result;
+	}
 }
 
 template<typename Type>
-CCalculMatrice<Type> operator*(const CCalculMatrice<Type> mat1, const CCalculMatrice<Type> mat2)//EXCEPTION DIMENSIONS INCORRECTES
+CCalculMatrice<Type> operator*(const CCalculMatrice<Type> mat1, const CCalculMatrice<Type> mat2)
 {
-	unsigned int uiLigLoop, uiColLoop, uiCalLoop;
+	if (mat1.getCol() != mat2.getLig()) {
+		Cexception error;
+		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);
+		throw error;
+	}
+	else {
+		unsigned int uiLigLoop, uiColLoop, uiCalLoop;
 
-	CMatrice<Type> result(mat1.getLig(), mat2.getCol());
+		CMatrice<Type> result(mat1.getLig(), mat2.getCol());
 
-	for (uiLigLoop = 0; uiLigLoop < result.getLig(); uiLigLoop++)
-	{
-		for (uiColLoop = 0; uiColLoop < result.getCol(); uiColLoop++)
+		for (uiLigLoop = 0; uiLigLoop < result.getLig(); uiLigLoop++)
 		{
-			result.MATModifierElem(mat1.getElem(uiLigLoop, 0) * mat2.getElem(0, uiColLoop), uiLigLoop, uiColLoop);
-			for (uiCalLoop = 1; uiCalLoop < mat2.getLig(); uiCalLoop++)
+			for (uiColLoop = 0; uiColLoop < result.getCol(); uiColLoop++)
 			{
-				result.MATModifierElem(mat1.getElem(uiLigLoop, uiCalLoop) * mat2.getElem(uiCalLoop, uiColLoop) + result.getElem(uiLigLoop, uiColLoop), uiLigLoop, uiColLoop);
+				result.MATModifierElem(mat1.getElem(uiLigLoop, 0) * mat2.getElem(0, uiColLoop), uiLigLoop, uiColLoop);
+				for (uiCalLoop = 1; uiCalLoop < mat2.getLig(); uiCalLoop++)
+				{
+					result.MATModifierElem(mat1.getElem(uiLigLoop, uiCalLoop) * mat2.getElem(uiCalLoop, uiColLoop) + result.getElem(uiLigLoop, uiColLoop), uiLigLoop, uiColLoop);
+				}
 			}
 		}
+		return result;
 	}
-	return result;
 }
 
 

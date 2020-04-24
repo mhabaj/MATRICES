@@ -58,14 +58,30 @@ int main()
 	std::cout << m4 << "\n";
 	std::cout << "-------------------------------------\n";
 
-	CCalculMatrice<CMatrice<double>> mu(2, 1);
+	CCalculMatrice<CCalculMatrice<double>> mu(2, 1);
 	mu.MATModifierElem(m3, 0, 0);
 	mu.MATModifierElem(m4, 1, 0);
-	
-	std::cout << mu << "\n";
-	/*std::cout << mu * 3 << "\n";
-	std::cout << 3 * mu << "\n";
-	std::cout << mu / 4 << "\n";*/
-	//std::cout <<  << "\n";
+	std::cout << "MU :\n";
+	std::cout << mu << "\n-------------------------------------\nMU * 3:\n";
+	std::cout << mu * 3 << "\n-------------------------------------\n3 * MU:\n";
+	std::cout << 3 * mu << "\n-------------------------------------\nMU / 4:\n";
+	std::cout << mu / 4 << "\n-------------------------------------\nMU + MU:\n";
+	std::cout << mu + mu << "\n-------------------------------------\nMU - MU:\n";
+	std::cout << mu - mu << "\n-------------------------------------\nMU * MU:\n";
+	try {
+		std::cout << mu * mu;
+	}
+	catch (Cexception e) {
+		e.EXCaffiche_erreur();
+	}
+
+	std::cout << "\n-------------------------------------\nM3 + M4 :\n";
+
+	try {
+		std::cout << m3 + m4 << "\n-------------------------------------\n";
+	}
+	catch (Cexception e) {
+		e.EXCaffiche_erreur();
+	}
 	return 0;
 }

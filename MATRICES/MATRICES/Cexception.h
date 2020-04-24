@@ -27,12 +27,12 @@ lors de la levée d'exception dans votre programme.
 // Définition de la valeur initiale d'une exception
 #define FAUX 0
 #define FICHIER_INTROUVABLE 1
+#define ERREUR_DIMENSIONS 2
 #define HORS_DIMENSIONS 3
 #define DIVISION_PAR_0 4
 #define ERREUR_FICHIER 5
 #define ERREUR_LECTURE 6
 #define FIN_FICHIER 7
-#define ERREUR_DIMENSIONS 8
 
 class Cexception
 {

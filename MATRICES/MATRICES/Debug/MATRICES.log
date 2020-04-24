@@ -33,7 +33,7 @@ d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(252): warning C
 d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(254): warning C4018: '<' : incompatibilité signed/unsigned
 d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(298): warning C4018: '<' : incompatibilité signed/unsigned
   d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(290): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
-  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(71): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> &CMatrice<double>::operator =(const CMatrice<double> &)' en cours de compilation
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(87): note: voir la référence à l'instanciation de la fonction modèle 'CMatrice<double> &CMatrice<double>::operator =(const CMatrice<double> &)' en cours de compilation
 d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(302): warning C4018: '<' : incompatibilité signed/unsigned
 d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(304): warning C4018: '<' : incompatibilité signed/unsigned
 d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(346): warning C4018: '<' : incompatibilité signed/unsigned
@@ -61,11 +61,11 @@ d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(503): warning C
 d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(319): warning C4018: '<' : incompatibilité signed/unsigned
   d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(9): note: voir la référence à l'instanciation de la fonction modèle 'std::ostream &operator <<<double>(std::ostream &,const CMatrice<double> &)' en cours de compilation
 d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(316): warning C4101: 'uiColLoop' : variable locale non référencée
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(221): warning C4018: '<' : incompatibilité signed/unsigned
-  d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(216): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(242): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(237): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
   d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(35): note: voir la référence à l'instanciation de la fonction modèle 'CCalculMatrice<double> CCalculMatrice<double>::transpose(void)' en cours de compilation
   d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(23): note: voir la référence à l'instanciation de classe modèle 'CCalculMatrice<double>' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(223): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(244): warning C4018: '<' : incompatibilité signed/unsigned
 d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(122): warning C4018: '<' : incompatibilité signed/unsigned
   d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(117): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
   d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(27): note: voir la référence à l'instanciation de la fonction modèle 'CCalculMatrice<double> CCalculMatrice<double>::operator *(const double)' en cours de compilation
@@ -77,16 +77,18 @@ d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(148): war
 d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(104): warning C4018: '<' : incompatibilité signed/unsigned
   d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(29): note: voir la référence à l'instanciation de la fonction modèle 'CCalculMatrice<double> operator *<double>(const double,const CCalculMatrice<double> &)' en cours de compilation
 d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(106): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(165): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(171): warning C4018: '<' : incompatibilité signed/unsigned
   d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(38): note: voir la référence à l'instanciation de la fonction modèle 'CCalculMatrice<double> operator +<double>(const CCalculMatrice<double>,const CCalculMatrice<double>)' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(167): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(182): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(173): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(195): warning C4018: '<' : incompatibilité signed/unsigned
   d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(41): note: voir la référence à l'instanciation de la fonction modèle 'CCalculMatrice<double> operator -<double>(const CCalculMatrice<double>,const CCalculMatrice<double>)' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(184): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(199): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(197): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(219): warning C4018: '<' : incompatibilité signed/unsigned
   d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(44): note: voir la référence à l'instanciation de la fonction modèle 'CCalculMatrice<double> operator *<double>(const CCalculMatrice<double>,const CCalculMatrice<double>)' en cours de compilation
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(201): warning C4018: '<' : incompatibilité signed/unsigned
-d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(204): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(221): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(224): warning C4018: '<' : incompatibilité signed/unsigned
+d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(135): warning C5043: 'CCalculMatrice<CCalculMatrice<double>>::operator /' : la spécification d'exception ne correspond pas à la déclaration précédente
+  d:\user\documents\code\git\matrices\matrices\matrices\ccalculmatrice.h(90): note: voir la déclaration de 'CCalculMatrice<CCalculMatrice<double>>::operator /'
 d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(224): warning C4018: '<' : incompatibilité signed/unsigned
 d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(217): warning C4101: 'uiLigLoop' : variable locale non référencée
 d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(217): warning C4101: 'uiColLoop' : variable locale non référencée

@@ -72,6 +72,9 @@ void Cexception::EXCaffiche_erreur()
 	case 1:
 		std::cout << "Erreur : Fichier introuvable\n";
 		break;
+	case 2:
+		std::cout << "Erreur : Dimensions non conformes\n";
+		break;
 	case 3:
 		std::cout << "Erreur : Indices hors dimension\n";
 		break;
@@ -86,9 +89,6 @@ void Cexception::EXCaffiche_erreur()
 		break;
 	case 7:
 		std::cout << "Erreur : Fin du fichier\n";
-		break;
-	case 8:
-		std::cout << "Erreur : Dimensions non conformes\n";
 		break;
 	}
 }
