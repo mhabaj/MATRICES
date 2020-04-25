@@ -145,6 +145,10 @@ public:
 	* \param TypeColonne Tableau contenant la colonne a ajouter
 	*/
 	void MATAjoutColonne(const Type* TypeColonne);
+
+	void MATSupprimerLigne(unsigned int uiIndice);
+
+	void MATSupprimerColonne(unsigned int uiIndice);
 };
 
 template<typename Type>
@@ -515,4 +519,93 @@ void CMatrice<Type>::MATAjoutColonne(const Type* TypeColonne)//taille du tableau
 	ppTYPEMATMatrice = ppTypeTempMatrice;
 
 	iMATNbCol++;
+}
+
+
+template<typename Type>
+void CMatrice<Type>::MATSupprimerLigne(unsigned int uiIndice)
+{
+	if (iMATNbLig <= 1) {
+		Cexception error;
+		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);//La matrice sera vide apres suppression
+		throw error;
+	}
+	else if (uiIndice >= iMATNbLig) {
+		Cexception error;
+		error.EXCmodifier_valeur(HORS_DIMENSIONS);//Les indices sont hors de la matrice
+		throw error;
+	}
+	else {
+		unsigned int uiIniLoop, uiLigLoop, uiColLoop, uiGetLoop;
+		int iTempNbLig = iMATNbLig - 1;
+
+		Type** ppTYPETempMatrice;
+
+		ppTYPETempMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+
+		for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
+			ppTYPETempMatrice[uiIniLoop] = (Type*)new Type[iTempNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		}
+
+		for (uiLigLoop = 0, uiGetLoop = 0; uiLigLoop < iTempNbLig; uiLigLoop++, uiGetLoop++)
+		{
+			if (uiLigLoop == uiIndice)
+				uiGetLoop++;
+
+			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+			{
+				ppTYPETempMatrice[uiColLoop][uiLigLoop] = ppTYPEMATMatrice[uiColLoop][uiGetLoop];
+			}
+		}
+
+		delete(ppTYPEMATMatrice);
+
+		ppTYPEMATMatrice = ppTYPETempMatrice;
+
+		iMATNbLig--;
+	}
+}
+
+
+template<typename Type>
+void CMatrice<Type>::MATSupprimerColonne(unsigned int uiIndice)
+{
+	if (iMATNbCol <= 1) {
+		Cexception error;
+		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);//La matrice sera vide apres suppression
+		throw error;
+	}
+	else if (uiIndice >= iMATNbCol) {
+		Cexception error;
+		error.EXCmodifier_valeur(HORS_DIMENSIONS);//Les indices sont hors de la matrice
+		throw error;
+	}
+	else {
+		unsigned int uiIniLoop, uiLigLoop, uiColLoop, uiGetLoop;
+		int iTempNbCol = iMATNbCol - 1;
+
+		Type** ppTYPETempMatrice;
+
+		ppTYPETempMatrice = (Type**) new Type*[iTempNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+
+		for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
+			ppTYPETempMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		}
+
+		for (uiColLoop = 0, uiGetLoop = 0; uiColLoop < iTempNbCol; uiColLoop++, uiGetLoop++)
+		{
+			if (uiColLoop == uiIndice)
+				uiGetLoop++;
+
+			ppTYPETempMatrice[uiColLoop] = ppTYPEMATMatrice[uiGetLoop];
+		}
+
+		for (uiColLoop = 0; uiColLoop < iTempNbCol; uiColLoop++)
+			delete[]
+			delete[] ppTYPEMATMatrice;
+
+		ppTYPEMATMatrice = ppTYPETempMatrice;
+
+		iMATNbCol--;
+	}
 }
