@@ -25,7 +25,7 @@ lors de la levée d'exception dans votre programme.
 #include <iostream>
 
 // Définition de la valeur initiale d'une exception
-#define FAUX 0
+#define FAUX 0					
 #define FICHIER_INTROUVABLE 1
 #define ERREUR_DIMENSIONS 2
 #define HORS_DIMENSIONS 3

@@ -22,8 +22,8 @@ template <typename Type> class CMatrice
 {
 
 private:
-	int iMATNbCol;/**Nombre de colonnes de la matrice */
-	int iMATNbLig;/**Nombre de lignes de la matrice */
+	unsigned int iMATNbCol;/**Nombre de colonnes de la matrice */
+	unsigned int iMATNbLig;/**Nombre de lignes de la matrice */
 	Type** ppTYPEMATMatrice;/**Elements de la matrice */
 
 public:
@@ -92,13 +92,13 @@ public:
 	* \fn getCol()
 	* \brief Renvoie le nombre de colonnes
 	*/
-	int getCol() const;
+	unsigned int getCol() const;
 
 	/**
 	* \fn getLig()
 	* \brief Renvoie le nombre de lignes
 	*/
-	int getLig() const;
+	unsigned int getLig() const;
 
 	Type** getElems() const;
 
@@ -160,10 +160,10 @@ CMatrice<double>::CMatrice(const char* sPath) throw(Cexception)//la matrice doit
 {
 	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
 
-	char* cType;
+	char cType[20];
 	unsigned int uiNbLig, uiNbCol;
-
-	double dValue;
+	
+	
 
 	CFichier f(sPath);
 
@@ -174,7 +174,7 @@ CMatrice<double>::CMatrice(const char* sPath) throw(Cexception)//la matrice doit
 	}
 	else {
 		f.nextSep('=');
-		cType = f.getString();
+		f.getString(cType);
 
 		f.nextSep('=');
 		uiNbLig = f.getInt();
@@ -213,7 +213,7 @@ CMatrice<Type>::CMatrice(unsigned int uiLigne, unsigned int uiColonne) throw(Cex
 		throw error;
 	}
 	else {
-		unsigned int uiIniLoop, uiLigLoop, uiColLoop;
+		unsigned int uiIniLoop;
 
 		iMATNbCol = uiColonne;
 		iMATNbLig = uiLigne;
@@ -323,7 +323,7 @@ std::ostream& operator<<(std::ostream& flux, CMatrice<Type> const& mat)
 		for (uiLigLoop = 0; uiLigLoop < mat.getLig(); uiLigLoop++)
 		{
 			flux << "[";
-			for (int uiColLoop = 0; uiColLoop < mat.getCol(); uiColLoop++)
+			for (uiColLoop = 0; uiColLoop < mat.getCol(); uiColLoop++)
 			{
 				if (uiColLoop != mat.getCol() - 1)
 					flux << mat.getElem(uiLigLoop, uiColLoop) << " ";
@@ -357,13 +357,13 @@ CMatrice<Type>::~CMatrice()
 }
 
 template<typename Type>
-int CMatrice<Type>::getCol() const
+unsigned int CMatrice<Type>::getCol() const
 {
 	return iMATNbCol;
 }
 
 template<typename Type>
-int CMatrice<Type>::getLig() const
+unsigned int CMatrice<Type>::getLig() const
 {
 	return iMATNbLig;
 }
@@ -490,7 +490,7 @@ template<typename Type>
 void CMatrice<Type>::MATAjoutColonne(const Type* TypeColonne)//taille du tableau egale au nombre de lignes
 {
 	unsigned int uiIniLoop, uiColLoop, uiLigLoop;
-	int iTempNbCol = iMATNbCol + 1;
+	unsigned int iTempNbCol = iMATNbCol + 1;
 
 	Type** ppTypeTempMatrice;
 

@@ -87,7 +87,7 @@ public:
 	 * \param iScalaire Scalaire divisant la CMatrice
 	 * \return objet CMatrice<Type> resultat de la multiplication
 	 */
-	CCalculMatrice<Type> operator/(const double iScalaire);
+	CCalculMatrice<Type> operator/(const double iScalaire) throw(Cexception);
 
 };
 
@@ -96,8 +96,8 @@ CCalculMatrice<Type> operator*(const double iScalaire, const CCalculMatrice<Type
 {
 	unsigned int uiLigLoop, uiColLoop;
 
-	int iLig = MATmat.getLig();
-	int iCol = MATmat.getCol();
+	unsigned int iLig = MATmat.getLig();
+	unsigned int iCol = MATmat.getCol();
 
 	CCalculMatrice<Type> result(iLig, iCol);
 

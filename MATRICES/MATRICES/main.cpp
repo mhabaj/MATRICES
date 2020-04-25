@@ -20,7 +20,7 @@ int main()
 	std::cout << m1 << "\n";
 	std::cout << "/////////////////////////////////////\n";
 
-	CCalculMatrice<double> m3("C:/Users/belda_mjro20o/Desktop/mat.txt");
+	CCalculMatrice<double> m3("C:/Users/mhaba/Desktop/mat.txt");
 	std::cout << "M3 : \n" << m3 << "\n";
 	std::cout << "/////////////////////////////////////\n";
 	

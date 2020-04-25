@@ -61,7 +61,7 @@ public:
 	 * \brief Recupere la prochaine chaine de caracteres 
 	 * \return chaine de caracteres char*
 	 */
-	char* getString(); 
+	void getString(char* sTab);
 
 	/**
 	 * \fn next()
@@ -125,17 +125,16 @@ double CFichier::getDouble() throw(Cexception)
 	}
 }
 
-char* CFichier::getString()//Refuse les chaines de plus de 256 caractères
+void CFichier::getString(char* sTab)//L'utilisateur doit gerer le tableau en param
 {
+	
 	if (IFSFlux->eof()) {
 		Cexception error;
 		error.EXCmodifier_valeur(FIN_FICHIER);//Fin du fichier atteinte
 		throw error;
 	}
 	else {
-		char cValue[256];
-		*IFSFlux >> cValue;
-		return cValue;
+		*IFSFlux >> sTab;
 	}
 }
 
