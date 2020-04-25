@@ -38,7 +38,7 @@ public:
 	 * \exception FIN_FICHIER le separateur n'existe pas
 	 * Ouvre et prepare le fichier a etre manipulé
 	 */
-	void nextSep(char sep) throw(Cexception);
+	void nextSep(char sep);
 
 	/**
 	 * \fn getInt()
@@ -46,7 +46,7 @@ public:
 	 * \return entier l'element recupere
 	 * \exception ERREUR_LECTURE mauvais type en lecture
 	 */
-	int getInt() throw(Cexception);
+	int getInt();
 
 	/**
 	 * \fn getDouble()
@@ -54,7 +54,7 @@ public:
 	 * \return double l'element recupere
 	 * \exception ERREUR_LECTURE mauvais type en lecture
 	 */
-	double getDouble() throw(Cexception);
+	double getDouble();
 
 	/**
 	 * \fn getString()
@@ -87,7 +87,7 @@ CFichier::CFichier(const char* sPath)
 		bUtilisable = false;
 }
 
-int CFichier::getInt() throw(Cexception)
+int CFichier::getInt()
 {
 	if (IFSFlux->eof()) {
 		Cexception error;
@@ -106,7 +106,7 @@ int CFichier::getInt() throw(Cexception)
 	}
 }
 
-double CFichier::getDouble() throw(Cexception)
+double CFichier::getDouble()
 {
 	if (IFSFlux->eof()) {
 		Cexception error;
@@ -152,7 +152,7 @@ char CFichier::next()
 	}
 }
 
-void CFichier::nextSep(char cSep) throw(Cexception)
+void CFichier::nextSep(char cSep)
 {
 	char cTempSep;
 

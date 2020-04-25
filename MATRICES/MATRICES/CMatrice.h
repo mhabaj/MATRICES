@@ -42,7 +42,7 @@ public:
 	 * \param sPath Fichier source de la matrice a creer.
 	 * \exception ERREUR_FICHIER Erreur fichier en cas de chemin non valide
 	 */
-	CMatrice(const char* sPath) throw(Cexception);
+	CMatrice(const char* sPath);
 
 	/**
 	 * \fn CMatrice(int iLigne, int iColonne)
@@ -52,7 +52,7 @@ public:
 	 * \param iColonne Nombre de collones.
  	 * \exception ERREUR_DIMENSIONS Dimensions CMatrice non valide
 	 */
-	CMatrice(unsigned int uiLigne, unsigned int uiColonne) throw(Cexception);
+	CMatrice(unsigned int uiLigne, unsigned int uiColonne);
 
 	/**
 	 * \fn CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems)
@@ -64,7 +64,7 @@ public:
 	 * \pre Le nombre d'elements du tableau doit etre egale a iLigne * iColonne.
 	 * \exception ERREUR_DIMENSIONS Dimensions CMatrice non valide
 	 */
-	CMatrice(unsigned int uiLigne, unsigned int uiColonne, const Type* pTypeTableauElems) throw(Cexception);
+	CMatrice(unsigned int uiLigne, unsigned int uiColonne, const Type* pTypeTableauElems);
 
 	/**
 	 * \fn CMatrice(const CMatrice<Type>& MATParam)
@@ -156,7 +156,7 @@ CMatrice<Type>::CMatrice()
 	ppTYPEMATMatrice[0] = (Type*)new Type[1];
 }
 
-CMatrice<double>::CMatrice(const char* sPath) throw(Cexception)//la matrice doit etre une matrice de double
+CMatrice<double>::CMatrice(const char* sPath)//la matrice doit etre une matrice de double
 {
 	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
 
@@ -205,7 +205,7 @@ CMatrice<double>::CMatrice(const char* sPath) throw(Cexception)//la matrice doit
 }
 
 template<typename Type>
-CMatrice<Type>::CMatrice(unsigned int uiLigne, unsigned int uiColonne) throw(Cexception) //nombre de lignes et de colonnes plus grand ou égale a 1.
+CMatrice<Type>::CMatrice(unsigned int uiLigne, unsigned int uiColonne) //nombre de lignes et de colonnes plus grand ou égale a 1.
 {
 	if (uiLigne < 1 || uiColonne < 1) {
 		Cexception error;
@@ -228,7 +228,7 @@ CMatrice<Type>::CMatrice(unsigned int uiLigne, unsigned int uiColonne) throw(Cex
 
 
 template<typename Type>
-CMatrice<Type>::CMatrice(unsigned int uiLigne, unsigned int uiColonne, const Type* pTypeTableauElems) throw(Cexception) //le tableau doit pouvoir remplir la matrice
+CMatrice<Type>::CMatrice(unsigned int uiLigne, unsigned int uiColonne, const Type* pTypeTableauElems) //le tableau doit pouvoir remplir la matrice
 {
 	if (uiLigne < 1 || uiColonne < 1) {
 		Cexception error;

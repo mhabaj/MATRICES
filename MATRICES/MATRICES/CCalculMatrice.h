@@ -42,7 +42,7 @@ public:
 	 * \param iColonne Nombre de collones.
 	 * \exception ERREUR_DIMENSIONS Dimensions CMatrice non valide
 	 */
-	CCalculMatrice(int iLigne, int iColonne) throw(Cexception) : CMatrice<Type>(iLigne, iColonne) {}
+	CCalculMatrice(int iLigne, int iColonne)  : CMatrice<Type>(iLigne, iColonne) {}
 
 	/**
 	 * \fn CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems)
@@ -54,7 +54,7 @@ public:
 	 * \pre Le nombre d'elements du tableau doit etre egale a iLigne * iColonne.
 	 * \exception ERREUR_DIMENSIONS Dimensions CMatrice non valide
 	 */
-	CCalculMatrice(int iLigne, int iColonne, Type* pTypeTableauElems) throw(Cexception) : CMatrice<Type>(iLigne, iColonne, pTypeTableauElems) {}
+	CCalculMatrice(int iLigne, int iColonne, Type* pTypeTableauElems) : CMatrice<Type>(iLigne, iColonne, pTypeTableauElems) {}
 
 	/**
 	 * \fn CMatrice(const CMatrice<Type>& MATParam)
@@ -87,7 +87,7 @@ public:
 	 * \param iScalaire Scalaire divisant la CMatrice
 	 * \return objet CMatrice<Type> resultat de la multiplication
 	 */
-	CCalculMatrice<Type> operator/(const double iScalaire) throw(Cexception);
+	CCalculMatrice<Type> operator/(const double iScalaire);
 
 };
 
@@ -131,7 +131,7 @@ CCalculMatrice<Type> CCalculMatrice<Type>::operator*(const double iScalaire)//Ju
 }
 
 template<typename Type>
-CCalculMatrice<Type> CCalculMatrice<Type>::operator/(const double iScalaire) throw(Cexception)//Supporte /
+CCalculMatrice<Type> CCalculMatrice<Type>::operator/(const double iScalaire) //Supporte /
 {
 	if (iScalaire == 0) {
 		Cexception error;
