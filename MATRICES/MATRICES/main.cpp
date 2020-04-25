@@ -23,7 +23,7 @@ int main()
 	CCalculMatrice<double> m3("C:/Users/belda_mjro20o/Desktop/mat.txt");
 	std::cout << "M3 : \n" << m3 << "\n";
 	std::cout << "/////////////////////////////////////\n";
-
+	
 	std::cout << "M3 * 2.5 :\n" << (m3*2.5) << "\n";
 	std::cout << "-------------------------------------\n";
 	std::cout << "1.7 * M3 :\n" << (1.7*m3) << "\n";
@@ -75,10 +75,10 @@ int main()
 		e.EXCaffiche_erreur();
 	}
 
-	std::cout << "\n-------------------------------------\nM3 + M4 :\n";
+	std::cout << "-------------------------------------\nM3 + M4 :\n";
 
 	try {
-		std::cout << m3 + m4 << "\n-------------------------------------\n";
+		std::cout << m3 + m4 << "\n";
 	}
 	catch (Cexception e) {
 		e.EXCaffiche_erreur();

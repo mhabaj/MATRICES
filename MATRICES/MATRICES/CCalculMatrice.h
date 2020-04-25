@@ -92,7 +92,7 @@ public:
 };
 
 template<typename Type>
-CCalculMatrice<Type> operator*(const double iScalaire, const CCalculMatrice<Type>& MATmat)
+CCalculMatrice<Type> operator*(const double iScalaire, const CCalculMatrice<Type>& MATmat)//Supporte *
 {
 	unsigned int uiLigLoop, uiColLoop;
 
@@ -113,7 +113,7 @@ CCalculMatrice<Type> operator*(const double iScalaire, const CCalculMatrice<Type
 }
 
 template<typename Type>
-CCalculMatrice<Type> CCalculMatrice<Type>::operator*(const double iScalaire)//Justifier choix multiplication
+CCalculMatrice<Type> CCalculMatrice<Type>::operator*(const double iScalaire)//Justifier choix multiplication//Supporte *
 {
 	unsigned int uiLigLoop, uiColLoop;
 
@@ -131,11 +131,11 @@ CCalculMatrice<Type> CCalculMatrice<Type>::operator*(const double iScalaire)//Ju
 }
 
 template<typename Type>
-CCalculMatrice<Type> CCalculMatrice<Type>::operator/(const double iScalaire) throw(Cexception)
+CCalculMatrice<Type> CCalculMatrice<Type>::operator/(const double iScalaire) throw(Cexception)//Supporte /
 {
 	if (iScalaire == 0) {
 		Cexception error;
-		error.EXCmodifier_valeur(DIVISION_PAR_0);
+		error.EXCmodifier_valeur(DIVISION_PAR_0);//Division par 0 impossible
 		throw error;
 	}
 	else {
@@ -156,11 +156,11 @@ CCalculMatrice<Type> CCalculMatrice<Type>::operator/(const double iScalaire) thr
 }
 
 template<typename Type>
-CCalculMatrice<Type> operator+(const CCalculMatrice<Type> mat1, const CCalculMatrice<Type> mat2)//EXCEPTION DIMENSIONS INCORRECTES
+CCalculMatrice<Type> operator+(const CCalculMatrice<Type> mat1, const CCalculMatrice<Type> mat2)//Supporte +
 {
 	if (mat1.getCol() != mat2.getCol() || mat1.getLig() != mat2.getLig()) {
 		Cexception error;
-		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);
+		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);//Les dimensions des matrices ne permettent pas l'additon
 		throw error;
 	}
 	else {
@@ -180,11 +180,11 @@ CCalculMatrice<Type> operator+(const CCalculMatrice<Type> mat1, const CCalculMat
 }
 
 template<typename Type>
-CCalculMatrice<Type> operator-(const CCalculMatrice<Type> mat1, const CCalculMatrice<Type> mat2)//EXCEPTION DIMENSIONS INCORRECTES
+CCalculMatrice<Type> operator-(const CCalculMatrice<Type> mat1, const CCalculMatrice<Type> mat2)//Supporte -
 {
 	if (mat1.getCol() != mat2.getCol() || mat1.getLig() != mat2.getLig()) {
 		Cexception error;
-		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);
+		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);//Les dimensions des matrices ne permettent pas la soustraction
 		throw error;
 	}
 	else {
@@ -204,11 +204,11 @@ CCalculMatrice<Type> operator-(const CCalculMatrice<Type> mat1, const CCalculMat
 }
 
 template<typename Type>
-CCalculMatrice<Type> operator*(const CCalculMatrice<Type> mat1, const CCalculMatrice<Type> mat2)
+CCalculMatrice<Type> operator*(const CCalculMatrice<Type> mat1, const CCalculMatrice<Type> mat2)//supporte *
 {
 	if (mat1.getCol() != mat2.getLig()) {
 		Cexception error;
-		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);
+		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);//Les dimensions des matrices ne permettent pas la multiplication
 		throw error;
 	}
 	else {

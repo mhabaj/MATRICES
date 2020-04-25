@@ -33,6 +33,7 @@ lors de la levée d'exception dans votre programme.
 #define ERREUR_FICHIER 5
 #define ERREUR_LECTURE 6
 #define FIN_FICHIER 7
+#define ERREUR_FLUX 8
 
 class Cexception
 {

@@ -81,7 +81,7 @@ public:
 CFichier::CFichier(const char* sPath)
 {
 	IFSFlux = new std::ifstream(sPath);
-	if (IFSFlux->is_open())
+	if (IFSFlux->is_open())//Si le fichier n'est pas ouvert
 		bUtilisable = true;
 	else
 		bUtilisable = false;
@@ -89,40 +89,68 @@ CFichier::CFichier(const char* sPath)
 
 int CFichier::getInt() throw(Cexception)
 {
-	int iValue;
-	*IFSFlux >> iValue;
-	if (IFSFlux->fail()) {
+	if (IFSFlux->eof()) {
 		Cexception error;
-		error.EXCmodifier_valeur(ERREUR_LECTURE);
+		error.EXCmodifier_valeur(FIN_FICHIER);//Fin du fichier atteinte
 		throw error;
 	}
-	return iValue;
+	else {
+		int iValue;
+		*IFSFlux >> iValue;
+		if (IFSFlux->fail()) {
+			Cexception error;
+			error.EXCmodifier_valeur(ERREUR_LECTURE);//La valeur en lecture n'est pas un int
+			throw error;
+		}
+		return iValue;
+	}
 }
 
 double CFichier::getDouble() throw(Cexception)
 {
-	double dValue;
-	*IFSFlux >> dValue;
-	if (IFSFlux->fail()) {
+	if (IFSFlux->eof()) {
 		Cexception error;
-		error.EXCmodifier_valeur(ERREUR_LECTURE);
+		error.EXCmodifier_valeur(FIN_FICHIER);//Fin du fichier atteinte
 		throw error;
 	}
-	return dValue;
+	else {
+		double dValue;
+		*IFSFlux >> dValue;
+		if (IFSFlux->fail()) {
+			Cexception error;
+			error.EXCmodifier_valeur(ERREUR_LECTURE);//La valeur en lecture n'est pas un double
+			throw error;
+		}
+		return dValue;
+	}
 }
 
-char* CFichier::getString()
+char* CFichier::getString()//Refuse les chaines de plus de 256 caractères
 {
-	char cValue[255];
-	*IFSFlux >> cValue;
-	return cValue;
+	if (IFSFlux->eof()) {
+		Cexception error;
+		error.EXCmodifier_valeur(FIN_FICHIER);//Fin du fichier atteinte
+		throw error;
+	}
+	else {
+		char cValue[256];
+		*IFSFlux >> cValue;
+		return cValue;
+	}
 }
 
 char CFichier::next()
 {
-	char cTemp;
-	IFSFlux->get(cTemp);
-	return cTemp;
+	if (IFSFlux->eof()) {
+		Cexception error;
+		error.EXCmodifier_valeur(FIN_FICHIER);//Fin du fichier atteinte
+		throw error;
+	}
+	else {
+		char cTemp;
+		IFSFlux->get(cTemp);
+		return cTemp;
+	}
 }
 
 void CFichier::nextSep(char cSep) throw(Cexception)
@@ -133,7 +161,7 @@ void CFichier::nextSep(char cSep) throw(Cexception)
 		IFSFlux->get(cTempSep);
 		if (IFSFlux->eof()) {
 			Cexception error;
-			error.EXCmodifier_valeur(FIN_FICHIER);
+			error.EXCmodifier_valeur(FIN_FICHIER);//Fin du fichier atteinte
 			throw error;
 		}
 	}

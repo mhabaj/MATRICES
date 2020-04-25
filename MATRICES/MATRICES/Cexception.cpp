@@ -90,5 +90,8 @@ void Cexception::EXCaffiche_erreur()
 	case 7:
 		std::cout << "Erreur : Fin du fichier\n";
 		break;
+	case 8:
+		std::cout << "Erreur : Problème flux d'affichage\n";
+		break;
 	}
 }
