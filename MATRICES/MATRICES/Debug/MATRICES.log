@@ -5,4 +5,7 @@
        main.obj
        MSVCRTD.lib(loadcfg.obj)
   Fin de la passe 2
+  Failed to connect to VCTIP: 'CreateFile' failed with 2
+  Not launching VCTIP: it is flagged as unstable
+  Telemetry event upload failed: 'Failed to open connection to VCTIP'
   MATRICES.vcxproj -> D:\mega\MEGAsync\BACKKKKKKUPPP\backup USB 2Go noir\FAC\3eme année Polytech\2eme semestre\C++\PROJET C++\MATRICES\MATRICES\Debug\MATRICES.exe
