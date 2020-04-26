@@ -1,11 +1,11 @@
 /**********************************************************
 Titre : Classe pour la gestion des exceptions
 ***********************************************************
-Auteur  : V. T'kindt   
+Auteur  : V. Ttype'kindt   
 Version : 1.0
 Date	: 10/07/2006
 -------------------------
-Lecteur : V. T'kindt     
+Lecteur : V. Ttype'kindt     
 Date	: 11/07/2006
 ***********************************************************
 Auteur	: 

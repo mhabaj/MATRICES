@@ -1,5 +1,5 @@
 /**
- * \file CMatrice.h
+ * \file Cmatrice.h
  * \brief Gestion de Matrices
  * \author ALHABAJ Mahmod, BELDA Tom
  * \version 0.1
@@ -13,612 +13,625 @@
 #include <ostream>
 #include <iostream>
 
-/** \class CMatrice
+/** \class Cmatrice
  * \brief Classe de gestion de matrices.
  *
  * Permet la creation de matrice de n'importe quel type et fournis quelques calculs simples.
  */
-template <typename Type> class CMatrice
+template <class Ttype> class Cmatrice
 {
 
 private:
-	unsigned int iMATNbCol;/**Nombre de colonnes de la matrice */
-	unsigned int iMATNbLig;/**Nombre de lignes de la matrice */
-	Type** ppTYPEMATMatrice;/**Elements de la matrice */
+	unsigned int uiMATnombre_colonnes;/**Nombre de colonnes de la matrice */
+	unsigned int uiMATnombre_lignes;/**Nombre de lignes de la matrice */
+	Ttype** ppTMATmatrice;/**Elements de la matrice */
 
 public:
 	/**
-	 * \fn CMatrice()
+	 * \fn Cmatrice()
 	 * \brief Constructeur par default.
 	 *
 	 * Alloue en mémoire l'espace d'un matrice de dimension 1,1.
 	 */
-	CMatrice();
+	Cmatrice();
 
 	/**
-	 * \fn CMatrice(const char* sPath)
+	 * \fn Cmatrice(const char* pcChemin)
 	 * \brief Constructeur via fichier.
 	 * \pre La matrice doit etre une matrice de double.
 	 *
-	 * \param sPath Fichier source de la matrice a creer.
+	 * \param pcChemin Fichier source de la matrice a creer.
 	 * \exception ERREUR_FICHIER Erreur fichier en cas de chemin non valide
 	 */
-	CMatrice(const char* sPath);
+	Cmatrice(const char* pcChemin);
 
 	/**
-	 * \fn CMatrice(int iLigne, int iColonne)
+	 * \fn Cmatrice(int iLigne, int iColonne)
 	 * \brief Constructeur avec dimensions.
 	 *
 	 * \param iLigne Nombres de lignes(plus grand ou egal a 1).
-	 * \param iColonne Nombre de collones(plus grand ou egal a 1).
- 	 * \exception ERREUR_DIMENSIONS Dimensions CMatrice non valide
+	 * \param iColonne Nombre de colonnes(plus grand ou egal a 1).
+ 	 * \exception ERREUR_DIMENSIONS Dimensions Cmatrice non valide
 	 */
-	CMatrice(unsigned int uiLigne, unsigned int uiColonne);
+	Cmatrice(unsigned int uiLigne, unsigned int uiColonne);
 
 	/**
-	 * \fn CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems)
+	 * \fn Cmatrice(int iLigne, int iColonne, Ttype* pTTableau_elements)
 	 * \brief Constructeur avec dimensions et contenus.
-	 * \pre Le nombre d'elements du tableau doit etre egale a iLigne * iColonne.
+	 * \pre Le nombre d'elements du tableau doit etre egale a uiLigne * uiColonne.
 	 *
-	 * \param iLigne Nombres de lignes(plus grand ou egal a 1).
-	 * \param iColonne Nombre de collones(plus grand ou egal a 1).
-	 * \param pTypeTableauElems tableau des éléments a mettre dans la matrice.
-	 * \exception ERREUR_DIMENSIONS Dimensions CMatrice non valide
+	 * \param uiLigne Nombres de lignes(plus grand ou egal a 1).
+	 * \param uiColonne Nombre de collones(plus grand ou egal a 1).
+	 * \param pTTableau_elements tableau des éléments a mettre dans la matrice.
+	 * \exception ERREUR_DIMENSIONS Dimensions Cmatrice non valide
 	 */
-	CMatrice(unsigned int uiLigne, unsigned int uiColonne, const Type* pTypeTableauElems);
+	Cmatrice(unsigned int uiLigne, unsigned int uiColonne, const Ttype* pTTableau_elements);
 
 	/**
-	 * \fn CMatrice(const CMatrice<Type>& MATParam)
+	 * \fn Cmatrice(const Cmatrice<Ttype>& MATparam)
 	 * \brief Constructeur de recopie.
 	 *
-	 * \param MATParam Matrice a recopie.
+	 * \param MATparam Cmatrice matrice a recopie.
 	 */
-	CMatrice(const CMatrice<Type>& MATParam);
+	Cmatrice(const Cmatrice<Ttype>& MATparam);
 
 	/**
-	 * \fn operator=(const CMatrice& MATParam)
+	 * \fn operator=(const Cmatrice& MATparam)
 	 * \brief surcharge de l'operateur =
-	 * \param MATParam CMatrice
-	 * \return objet CMatrice<Type>&
+	 *
+	 * \param MATparam Cmatrice
+	 * \return objet Cmatrice<Ttype>&
 	 */
-	CMatrice<Type>& operator=(const CMatrice& MATParam);
+	Cmatrice<Ttype>& operator=(const Cmatrice& MATparam);
 
 	/**
-	 * \fn ~CMatrice()
+	 * \fn ~Cmatrice()
 	 * \brief Destructeur.
 	 */
-	~CMatrice();
+	~Cmatrice();
 
 	/**
-	* \fn getCol()
+	* \fn MATlire_nombre_colonnes()
 	* \brief Renvoie le nombre de colonnes
+	*
+	* \return unsigned int nombre de colonnes
 	*/
-	unsigned int getCol() const;
+	unsigned int MATlire_nombre_colonnes() const;
 
 	/**
-	* \fn getLig()
+	* \fn MATlire_nombre_lignes()
 	* \brief Renvoie le nombre de lignes
+	*
+	* \return unsigned int nombre de ligne
 	*/
-	unsigned int getLig() const;
-
-	Type** getElems() const;
+	unsigned int MATlire_nombre_lignes() const;
 
 	/**
-	* \fn getElem(int iLig, int iCol) const;
+	* \fn MATlire_elements()
+	* \brief Renvoie les éléments de la matrice
+	*
+	* \return Ttype pointeur sur les elements de la matrice
+	*/
+	Ttype** MATlire_elements() const;
+
+	/**
+	* \fn MATlire_element(unsigned int uiLigne, unsigned int uiColonne) const;
 	* \brief Renvoie la valeur de l'element dans la matrice
-	* \param iLig Entier representant le numero de la ligne
-	* \param iCol Entier representant le numero de la colonne
-	* \return Type Element <Type> dans la Matrice
+	*
+	* \param uiLigne Entier non signe representant le numero de la ligne
+	* \param uiColonne Entier non signe representant le numero de la colonne
+	* \return Ttype Element <Ttype> dans la Matrice
 	*/
-	Type getElem(unsigned int uiLig, unsigned int uiCol) const;
+	Ttype MATlire_element(unsigned int uiLigne, unsigned int uiColonne) const;
 
 	/**
-	* \fn MATModifierElem(Type elem, int ligne, int colonne);
+	* \fn MATmodifier_element(Ttype TElement, unsigned int uiLigne, unsigned int uiColonne);
 	* \brief Modifie un element dans la matrice
-	* \param elem Nouveau element <Type> a mettre dans la matrice
-	* \param ligne Entier representant le numero de la ligne
-	* \param colonne Entier representant le numero de la colonne
+	*
+	* \param TElement Nouveau element <Ttype> a mettre dans la matrice
+	* \param uiLigne Entier non signe representant le numero de la ligne
+	* \param uiColonne Entier non signe representant le numero de la colonne
 	*/
-	void MATModifierElem(Type elem, unsigned int uiLig, unsigned int uiCol);
+	void MATmodifier_element(Ttype TElement, unsigned int uiLigne, unsigned int uiColonne);
 
 	/**
-	* \fn MATAjoutLigne();
+	* \fn MATajouter_ligne();
 	* \brief Ajoute une ligne vide a la matrice
 	*/
-	void MATAjoutLigne();
+	void MATajouter_ligne();
 
 	/**
-	* \fn MATAjoutLigne();
+	* \fn MATajouter_ligne();
 	* \brief Ajoute une ligne remplie a la matrice
 	* \pre Le tableau doit avoir comme taille le nombre de colonnes
 	*
-	* \param TypeLigne Tableau contenant la ligne a ajouter
+	* \param TLigne Tableau contenant la ligne a ajouter
 	*/
-	void MATAjoutLigne(const Type* TypeLigne);
+	void MATajouter_ligne(const Ttype* TLigne);
 
 	/**
-	* \fn MATAjoutColonne();
+	* \fn MATajouter_colonne();
 	* \brief Ajoute une colonne vide a la matrice
 	*/
-	void MATAjoutColonne();
+	void MATajouter_colonne();
 
 	/**
-	* \fn MATAjoutColonne(const Type* TypeColonne);
+	* \fn MATajouter_colonne(const Ttype* TColonne);
 	* \brief Ajoute une colonne remplie a la matrice
 	* \pre Le tableau doit avoir comme taille le nombre de lignes
 	*
-	* \param TypeColonne Tableau contenant la colonne a ajouter
+	* \param TColonne Tableau contenant la colonne a ajouter
 	*/
-	void MATAjoutColonne(const Type* TypeColonne);
+	void MATajouter_colonne(const Ttype* TColonne);
 
 	/**
-	* \fn MATSupprimerLigne(unsigned int uiIndice);
+	* \fn MATsupprimer_ligne(unsigned int uiIndice);
 	* \brief supprime la ligne a l'indice
 	*
 	* \param uiIndice indice de la ligne a supprimer
 	*/
-	void MATSupprimerLigne(unsigned int uiIndice);
+	void MATsupprimer_ligne(unsigned int uiIndice);
 
 	/**
-	* \fn MATSupprimerColonne(unsigned int uiIndice);
+	* \fn MATsupprimer_colonne(unsigned int uiIndice);
 	* \brief supprime la colonne a l'indice
 	*
 	* \param uiIndice indice de la colonne a supprimer
 	*/
-	void MATSupprimerColonne(unsigned int uiIndice);
+	void MATsupprimer_colonne(unsigned int uiIndice);
 };
 
-template<typename Type>
-CMatrice<Type>::CMatrice()
+template<typename Ttype>
+Cmatrice<Ttype>::Cmatrice()
 {
-	iMATNbCol = 1;
-	iMATNbLig = 1;
-	ppTYPEMATMatrice = (Type**) new Type*[1];
-	ppTYPEMATMatrice[0] = (Type*)new Type[1];
+	uiMATnombre_colonnes = 1;
+	uiMATnombre_lignes = 1;
+	ppTMATmatrice = (Ttype**) new Ttype*[1];
+	ppTMATmatrice[0] = (Ttype*)new Ttype[1];
 }
 
-CMatrice<double>::CMatrice(const char* sPath)
-{
-	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
-
-	char cType[20];
-	unsigned int uiNbLig, uiNbCol;
-	
-	CFichier f(sPath);
+Cmatrice<double>::Cmatrice(const char* pcChemin)
+{	
+	CFichier f(pcChemin);
 
 	if (!f.utilisable()) {
-		Cexception error;
-		error.EXCmodifier_valeur(ERREUR_FICHIER);//Le fichier n'est pas utilisable : non existant ou chemin errone
-		throw error;
+		Cexception EXCerror;
+		EXCerror.EXCmodifier_valeur(ERREUR_FICHIER);//Le fichier n'est pas utilisable : non existant ou chemin errone
+		throw EXCerror;
 	}
 	else {
+		unsigned int uiBoucle_initialisation, uiBoucle_ligne, uiBoucle_colonne;
+
+		char cType[20];
+		unsigned int uiNombre_ligne, uiNombre_colonne;
+
 		f.nextSep('=');
 		f.getString(cType);
 
 		f.nextSep('=');
-		uiNbLig = f.getInt();
+		uiNombre_ligne = f.getInt();
 
 		f.nextSep('=');
-		uiNbCol = f.getInt();
+		uiNombre_colonne = f.getInt();
 
-		iMATNbLig = uiNbLig;
-		iMATNbCol = uiNbCol;
+		uiMATnombre_lignes = uiNombre_ligne;
+		uiMATnombre_colonnes = uiNombre_colonne;
 
-		ppTYPEMATMatrice = new double*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+		ppTMATmatrice = new double*[uiMATnombre_colonnes];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
-		for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
-			ppTYPEMATMatrice[uiIniLoop] = new double[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		for (uiBoucle_initialisation = 0; uiBoucle_initialisation < uiMATnombre_colonnes; uiBoucle_initialisation++) {
+			ppTMATmatrice[uiBoucle_initialisation] = new double[uiMATnombre_lignes];//Creer un tableau de Ttype sur chaque colonne, cela represente les lignes.
 		}
 
 		f.nextSep('[');
 		f.next();
 
-		for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
+		for (uiBoucle_ligne = 0; uiBoucle_ligne < uiMATnombre_lignes; uiBoucle_ligne++)
 		{
-			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+			for (uiBoucle_colonne = 0; uiBoucle_colonne < uiMATnombre_colonnes; uiBoucle_colonne++)
 			{
-				MATModifierElem(f.getDouble(), uiLigLoop, uiColLoop);
+				MATmodifier_element(f.getDouble(), uiBoucle_ligne, uiBoucle_colonne);
 			}
 		}
 	}
 }
 
-template<typename Type>
-CMatrice<Type>::CMatrice(unsigned int uiLigne, unsigned int uiColonne)
+template<typename Ttype>
+Cmatrice<Ttype>::Cmatrice(unsigned int uiLigne, unsigned int uiColonne)
 {
 	if (uiLigne < 1 || uiColonne < 1) {
-		Cexception error;
-		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);//Les dimensions sont inférieurs a 1
-		throw error;
+		Cexception EXCerror;
+		EXCerror.EXCmodifier_valeur(ERREUR_DIMENSIONS);//Les dimensions sont inférieurs a 1
+		throw EXCerror;
 	}
 	else {
-		unsigned int uiIniLoop;
+		unsigned int uiBoucle_initialisation;
 
-		iMATNbCol = uiColonne;
-		iMATNbLig = uiLigne;
+		uiMATnombre_colonnes = uiColonne;
+		uiMATnombre_lignes = uiLigne;
 
-		ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+		ppTMATmatrice = (Ttype**) new Ttype*[uiMATnombre_colonnes];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
-		for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
-			ppTYPEMATMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		for (uiBoucle_initialisation = 0; uiBoucle_initialisation < uiMATnombre_colonnes; uiBoucle_initialisation++) {
+			ppTMATmatrice[uiBoucle_initialisation] = (Ttype*)new Ttype[uiMATnombre_lignes];//Creer un tableau de Ttype sur chaque colonne, cela represente les lignes.
 		}
 	}
 }
 
 
-template<typename Type>
-CMatrice<Type>::CMatrice(unsigned int uiLigne, unsigned int uiColonne, const Type* pTypeTableauElems)
+template<typename Ttype>
+Cmatrice<Ttype>::Cmatrice(unsigned int uiLigne, unsigned int uiColonne, const Ttype* pTTableau_elements)
 {
 	if (uiLigne < 1 || uiColonne < 1) {
-		Cexception error;
-		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);//Les dimensions sont inférieurs a 1
-		throw error;
+		Cexception EXCerror;
+		EXCerror.EXCmodifier_valeur(ERREUR_DIMENSIONS);//Les dimensions sont inférieurs a 1
+		throw EXCerror;
 	}
 	else {
-		unsigned int uiIniLoop, uiLigLoop, uiColLoop;
+		unsigned int uiBoucle_initialisation, uiBoucle_ligne, uiBoucle_colonne;
 
-		iMATNbCol = uiColonne;
-		iMATNbLig = uiLigne;
+		uiMATnombre_colonnes = uiColonne;
+		uiMATnombre_lignes = uiLigne;
 
-		ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+		ppTMATmatrice = (Ttype**) new Ttype*[uiMATnombre_colonnes];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
-		for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
-			ppTYPEMATMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		for (uiBoucle_initialisation = 0; uiBoucle_initialisation < uiMATnombre_colonnes; uiBoucle_initialisation++) {
+			ppTMATmatrice[uiBoucle_initialisation] = (Ttype*)new Ttype[uiMATnombre_lignes];//Creer un tableau de Ttype sur chaque colonne, cela represente les lignes.
 		}
 
-		for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
+		for (uiBoucle_ligne = 0; uiBoucle_ligne < uiMATnombre_lignes; uiBoucle_ligne++)
 		{
-			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+			for (uiBoucle_colonne = 0; uiBoucle_colonne < uiMATnombre_colonnes; uiBoucle_colonne++)
 			{
-				ppTYPEMATMatrice[uiColLoop][uiLigLoop] = pTypeTableauElems[uiLigLoop*iMATNbCol + uiColLoop];
+				ppTMATmatrice[uiBoucle_colonne][uiBoucle_ligne] = pTTableau_elements[uiBoucle_ligne*uiMATnombre_colonnes + uiBoucle_colonne];
 			}
 		}
 	}
 }
 
-template<typename Type>
-CMatrice<Type>::CMatrice(const CMatrice<Type>& MATParam)
+template<typename Ttype>
+Cmatrice<Ttype>::Cmatrice(const Cmatrice<Ttype>& MATparam)
 {
-	if (MATParam.ppTYPEMATMatrice) {
+	if (MATparam.ppTMATmatrice) {
 
-		unsigned int uiIniLoop, uiLigLoop, uiColLoop;
+		unsigned int uiBoucle_initialisation, uiBoucle_ligne, uiBoucle_colonne;
 
-		iMATNbCol = MATParam.iMATNbCol;
-		iMATNbLig = MATParam.iMATNbLig;
+		uiMATnombre_colonnes = MATparam.uiMATnombre_colonnes;
+		uiMATnombre_lignes = MATparam.uiMATnombre_lignes;
 
-		ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+		ppTMATmatrice = (Ttype**) new Ttype*[uiMATnombre_colonnes];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
-		for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
-			ppTYPEMATMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		for (uiBoucle_initialisation = 0; uiBoucle_initialisation < uiMATnombre_colonnes; uiBoucle_initialisation++) {
+			ppTMATmatrice[uiBoucle_initialisation] = (Ttype*)new Ttype[uiMATnombre_lignes];//Creer un tableau de Ttype sur chaque colonne, cela represente les lignes.
 		}
 
-		for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
+		for (uiBoucle_ligne = 0; uiBoucle_ligne < uiMATnombre_lignes; uiBoucle_ligne++)
 		{
-			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+			for (uiBoucle_colonne = 0; uiBoucle_colonne < uiMATnombre_colonnes; uiBoucle_colonne++)
 			{
-				ppTYPEMATMatrice[uiColLoop][uiLigLoop] = MATParam.ppTYPEMATMatrice[uiColLoop][uiLigLoop];
+				ppTMATmatrice[uiBoucle_colonne][uiBoucle_ligne] = MATparam.ppTMATmatrice[uiBoucle_colonne][uiBoucle_ligne];
 			}
 		}
 	}
 }
 
-template<typename Type>
-CMatrice<Type>& CMatrice<Type>::operator=(const CMatrice& MATParam)
+template<typename Ttype>
+Cmatrice<Ttype>& Cmatrice<Ttype>::operator=(const Cmatrice& MATparam)
 {
-	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
+	unsigned int uiBoucle_initialisation, uiBoucle_ligne, uiBoucle_colonne;
 
-	iMATNbCol = MATParam.iMATNbCol;
-	iMATNbLig = MATParam.iMATNbLig;
+	uiMATnombre_colonnes = MATparam.uiMATnombre_colonnes;
+	uiMATnombre_lignes = MATparam.uiMATnombre_lignes;
 
-	ppTYPEMATMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+	ppTMATmatrice = (Ttype**) new Ttype*[uiMATnombre_colonnes];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
-	for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
-		ppTYPEMATMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+	for (uiBoucle_initialisation = 0; uiBoucle_initialisation < uiMATnombre_colonnes; uiBoucle_initialisation++) {
+		ppTMATmatrice[uiBoucle_initialisation] = (Ttype*)new Ttype[uiMATnombre_lignes];//Creer un tableau de Ttype sur chaque colonne, cela represente les lignes.
 	}
 
-	for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
+	for (uiBoucle_ligne = 0; uiBoucle_ligne < uiMATnombre_lignes; uiBoucle_ligne++)
 	{
-		for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+		for (uiBoucle_colonne = 0; uiBoucle_colonne < uiMATnombre_colonnes; uiBoucle_colonne++)
 		{
-			ppTYPEMATMatrice[uiColLoop][uiLigLoop] = MATParam.ppTYPEMATMatrice[uiColLoop][uiLigLoop];
+			ppTMATmatrice[uiBoucle_colonne][uiBoucle_ligne] = MATparam.ppTMATmatrice[uiBoucle_colonne][uiBoucle_ligne];
 		}
 	}
 
 	return *this;
 }
 
-template<typename Type>
-std::ostream& operator<<(std::ostream& flux, CMatrice<Type> const& mat)
+template<typename Ttype>
+std::ostream& operator<<(std::ostream& fFlux, Cmatrice<Ttype> const& MATmatrice)
 {
-	if (!flux.good()) {
-		Cexception error;
-		error.EXCmodifier_valeur(ERREUR_FLUX);//Le flux de donné n'est pas utilisable
-		throw error;
+	if (!fFlux.good()) {
+		Cexception EXCerror;
+		EXCerror.EXCmodifier_valeur(ERREUR_FLUX);//Le fFlux de donné n'est pas utilisable
+		throw EXCerror;
 	}
 	else {
-		unsigned int uiLigLoop, uiColLoop;
+		unsigned int uiBoucle_ligne, uiBoucle_colonne;
 
-		flux << "[";
-		for (uiLigLoop = 0; uiLigLoop < mat.getLig(); uiLigLoop++)
+		fFlux << "[";
+		for (uiBoucle_ligne = 0; uiBoucle_ligne < MATmatrice.MATlire_nombre_lignes(); uiBoucle_ligne++)
 		{
-			flux << "[";
-			for (uiColLoop = 0; uiColLoop < mat.getCol(); uiColLoop++)
+			fFlux << "[";
+			for (uiBoucle_colonne = 0; uiBoucle_colonne < MATmatrice.MATlire_nombre_colonnes(); uiBoucle_colonne++)
 			{
-				if (uiColLoop != mat.getCol() - 1)
-					flux << mat.getElem(uiLigLoop, uiColLoop) << " ";
+				if (uiBoucle_colonne != MATmatrice.MATlire_nombre_colonnes() - 1)
+					fFlux << MATmatrice.MATlire_element(uiBoucle_ligne, uiBoucle_colonne) << " ";
 				else
-					flux << mat.getElem(uiLigLoop, uiColLoop);
+					fFlux << MATmatrice.MATlire_element(uiBoucle_ligne, uiBoucle_colonne);
 			}
-			if (uiLigLoop != mat.getLig() - 1)
-				flux << "] ";
+			if (uiBoucle_ligne != MATmatrice.MATlire_nombre_lignes() - 1)
+				fFlux << "] ";
 			else
-				flux << "]";
+				fFlux << "]";
 		}
-		flux << "]";
+		fFlux << "]";
 
-		return flux;
+		return fFlux;
 	}
 }
 
-template<typename Type>
-CMatrice<Type>::~CMatrice()
+template<typename Ttype>
+Cmatrice<Ttype>::~Cmatrice()
 {
-	if (ppTYPEMATMatrice) {
+	if (ppTMATmatrice) {
 
-		unsigned int uiLoop;
+		unsigned int uiBoucle_colonne;
 
-		for (uiLoop = 0; uiLoop < iMATNbCol; uiLoop++) {
-			delete[] ppTYPEMATMatrice[uiLoop];
+		for (uiBoucle_colonne = 0; uiBoucle_colonne < uiMATnombre_colonnes; uiBoucle_colonne++) {
+			delete[] ppTMATmatrice[uiBoucle_colonne];
 		}
 
-		delete[] ppTYPEMATMatrice;
+		delete[] ppTMATmatrice;
 	}
 }
 
-template<typename Type>
-unsigned int CMatrice<Type>::getCol() const
+template<typename Ttype>
+unsigned int Cmatrice<Ttype>::MATlire_nombre_colonnes() const
 {
-	return iMATNbCol;
+	return uiMATnombre_colonnes;
 }
 
-template<typename Type>
-unsigned int CMatrice<Type>::getLig() const
+template<typename Ttype>
+unsigned int Cmatrice<Ttype>::MATlire_nombre_lignes() const
 {
-	return iMATNbLig;
+	return uiMATnombre_lignes;
 }
 
-template<typename Type>
-Type** CMatrice<Type>::getElems() const
+template<typename Ttype>
+Ttype** Cmatrice<Ttype>::MATlire_elements() const
 {
-	return ppTYPEMATMatrice;
+	return ppTMATmatrice;
 }
 
-template<typename Type>
-Type CMatrice<Type>::getElem(unsigned int uiLig, unsigned int uiCol) const
+template<typename Ttype>
+Ttype Cmatrice<Ttype>::MATlire_element(unsigned int uiLigne, unsigned int uiColonne) const
 {
-	if (uiLig < 0 || uiLig >= iMATNbLig || uiCol < 0 || uiCol >= iMATNbCol) {
-		Cexception error;
-		error.EXCmodifier_valeur(HORS_DIMENSIONS);//Les indices sont hors de la matrice
-		throw error;
+	if (uiLigne < 0 || uiLigne >= uiMATnombre_lignes || uiColonne < 0 || uiColonne >= uiMATnombre_colonnes) {
+		Cexception EXCerror;
+		EXCerror.EXCmodifier_valeur(HORS_DIMENSIONS);//Les indices sont hors de la matrice
+		throw EXCerror;
 	}
-	return ppTYPEMATMatrice[uiCol][uiLig];
+	return ppTMATmatrice[uiColonne][uiLigne];
 }
 
-template<typename Type>
-void CMatrice<Type>::MATModifierElem(Type TYPEElem, unsigned int uiLig, unsigned int uiCol)
+template<typename Ttype>
+void Cmatrice<Ttype>::MATmodifier_element(Ttype TElement, unsigned int uiLigne, unsigned int uiColonne)
 {
-	if (uiLig < 0 || uiLig >= iMATNbLig || uiCol < 0 || uiCol >= iMATNbCol) {
-		Cexception error;
-		error.EXCmodifier_valeur(HORS_DIMENSIONS);//Les indices sont hors de la matrice
-		throw error;
+	if (uiLigne < 0 || uiLigne >= uiMATnombre_lignes || uiColonne < 0 || uiColonne >= uiMATnombre_colonnes) {
+		Cexception EXCerror;
+		EXCerror.EXCmodifier_valeur(HORS_DIMENSIONS);//Les indices sont hors de la matrice
+		throw EXCerror;
 	}
-	ppTYPEMATMatrice[uiCol][uiLig] = TYPEElem;
+	ppTMATmatrice[uiColonne][uiLigne] = TElement;
 }
 
-template<typename Type>
-void CMatrice<Type>::MATAjoutLigne()
+template<typename Ttype>
+void Cmatrice<Ttype>::MATajouter_ligne()
 {
-	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
-	int iTempNbLig = iMATNbLig + 1;
+	unsigned int uiBoucle_initialisation, uiBoucle_ligne, uiBoucle_colonne;
+	unsigned int uiNombre_lignes_temporaire = uiMATnombre_lignes + 1;
 
-	Type** ppTYPETempMatrice;
+	Ttype** ppTMatrice_temporaire;
 
-	ppTYPETempMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+	ppTMatrice_temporaire = (Ttype**) new Ttype*[uiMATnombre_colonnes];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
-	for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
-		ppTYPETempMatrice[uiIniLoop] = (Type*)new Type[iTempNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+	for (uiBoucle_initialisation = 0; uiBoucle_initialisation < uiMATnombre_colonnes; uiBoucle_initialisation++) {
+		ppTMatrice_temporaire[uiBoucle_initialisation] = (Ttype*)new Ttype[uiNombre_lignes_temporaire];//Creer un tableau de Ttype sur chaque colonne, cela represente les lignes.
 	}
 
-	for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
+	for (uiBoucle_ligne = 0; uiBoucle_ligne < uiMATnombre_lignes; uiBoucle_ligne++)
 	{
-		for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+		for (uiBoucle_colonne = 0; uiBoucle_colonne < uiMATnombre_colonnes; uiBoucle_colonne++)
 		{
-			ppTYPETempMatrice[uiColLoop][uiLigLoop] = ppTYPEMATMatrice[uiColLoop][uiLigLoop];
+			ppTMatrice_temporaire[uiBoucle_colonne][uiBoucle_ligne] = ppTMATmatrice[uiBoucle_colonne][uiBoucle_ligne];
 		}
 	}
 
-	delete[] ppTYPEMATMatrice;
+	delete[] ppTMATmatrice;
 
-	ppTYPEMATMatrice = ppTYPETempMatrice;
+	ppTMATmatrice = ppTMatrice_temporaire;
 
-	iMATNbLig++;
+	uiMATnombre_lignes++;
 }
 
-template<typename Type>
-void CMatrice<Type>::MATAjoutLigne(const Type* TypeLigne)
+template<typename Ttype>
+void Cmatrice<Ttype>::MATajouter_ligne(const Ttype* TypeLigne)
 {
-	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
-	int iTempNbLig = iMATNbLig + 1;
+	unsigned int uiBoucle_initialisation, uiBoucle_ligne, uiBoucle_colonne;
+	unsigned int uiNombre_lignes_temporaire = uiMATnombre_lignes + 1;
 
-	Type** ppTYPETempMatrice;
+	Ttype** ppTMatrice_temporaire;
 
-	ppTYPETempMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+	ppTMatrice_temporaire = (Ttype**) new Ttype*[uiMATnombre_colonnes];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
-	for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
-		ppTYPETempMatrice[uiIniLoop] = (Type*)new Type[iTempNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+	for (uiBoucle_initialisation = 0; uiBoucle_initialisation < uiMATnombre_colonnes; uiBoucle_initialisation++) {
+		ppTMatrice_temporaire[uiBoucle_initialisation] = (Ttype*)new Ttype[uiNombre_lignes_temporaire];//Creer un tableau de Ttype sur chaque colonne, cela represente les lignes.
 	}
 
-	for (uiLigLoop = 0; uiLigLoop < iMATNbLig; uiLigLoop++)
+	for (uiBoucle_ligne = 0; uiBoucle_ligne < uiMATnombre_lignes; uiBoucle_ligne++)
 	{
-		for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+		for (uiBoucle_colonne = 0; uiBoucle_colonne < uiMATnombre_colonnes; uiBoucle_colonne++)
 		{
-			ppTYPETempMatrice[uiColLoop][uiLigLoop] = ppTYPEMATMatrice[uiColLoop][uiLigLoop];
+			ppTMatrice_temporaire[uiBoucle_colonne][uiBoucle_ligne] = ppTMATmatrice[uiBoucle_colonne][uiBoucle_ligne];
 
 		}
 	}
 
-	for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+	for (uiBoucle_colonne = 0; uiBoucle_colonne < uiMATnombre_colonnes; uiBoucle_colonne++)
 	{
-		ppTYPETempMatrice[uiColLoop][iTempNbLig-1] = TypeLigne[uiColLoop];
+		ppTMatrice_temporaire[uiBoucle_colonne][uiNombre_lignes_temporaire-1] = TypeLigne[uiBoucle_colonne];
 	}
 
-	delete[] ppTYPEMATMatrice;
+	delete[] ppTMATmatrice;
 
-	ppTYPEMATMatrice = ppTYPETempMatrice;
+	ppTMATmatrice = ppTMatrice_temporaire;
 
-	iMATNbLig++;
+	uiMATnombre_lignes++;
 }
 
-template<typename Type>
-void CMatrice<Type>::MATAjoutColonne()
+template<typename Ttype>
+void Cmatrice<Ttype>::MATajouter_colonne()
 {
-	unsigned int uiIniLoop, uiColLoop;
-	int iTempNbCol = iMATNbCol + 1;
+	unsigned int uiBoucle_initialisation, uiBoucle_colonne;
+	unsigned int uiNombre_colonnes_temporaire = uiMATnombre_colonnes + 1;
 
-	Type** ppTypeTempMatrice;
+	Ttype** ppTMatrice_temporaire;
 
-	ppTypeTempMatrice = (Type**) new Type*[iTempNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+	ppTMatrice_temporaire = (Ttype**) new Ttype*[uiNombre_colonnes_temporaire];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
-	for (uiIniLoop = 0; uiIniLoop < iTempNbCol; uiIniLoop++) {
-		ppTypeTempMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+	for (uiBoucle_initialisation = 0; uiBoucle_initialisation < uiNombre_colonnes_temporaire; uiBoucle_initialisation++) {
+		ppTMatrice_temporaire[uiBoucle_initialisation] = (Ttype*)new Ttype[uiMATnombre_lignes];//Creer un tableau de Ttype sur chaque colonne, cela represente les lignes.
 	}
 
-	for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+	for (uiBoucle_colonne = 0; uiBoucle_colonne < uiMATnombre_colonnes; uiBoucle_colonne++)
 	{
-		ppTypeTempMatrice[uiColLoop] = ppTYPEMATMatrice[uiColLoop];
+		ppTMatrice_temporaire[uiBoucle_colonne] = ppTMATmatrice[uiBoucle_colonne];
 	}
 
-	delete[] ppTYPEMATMatrice;
+	delete[] ppTMATmatrice;
 
-	ppTYPEMATMatrice = ppTypeTempMatrice;
+	ppTMATmatrice = ppTMatrice_temporaire;
 
-	iMATNbCol++;
+	uiMATnombre_colonnes++;
 }
 
-template<typename Type>
-void CMatrice<Type>::MATAjoutColonne(const Type* TypeColonne)//taille du tableau egale au nombre de lignes
+template<typename Ttype>
+void Cmatrice<Ttype>::MATajouter_colonne(const Ttype* TypeColonne)//taille du tableau egale au nombre de lignes
 {
-	unsigned int uiIniLoop, uiColLoop, uiLigLoop;
-	unsigned int iTempNbCol = iMATNbCol + 1;
+	unsigned int uiBoucle_initialisation, uiBoucle_ligne, uiBoucle_colonne;
+	unsigned int uiNombre_colonnes_temporaire = uiMATnombre_colonnes + 1;
 
-	Type** ppTypeTempMatrice;
+	Ttype** ppTMatrice_temporaire;
 
-	ppTypeTempMatrice = (Type**) new Type*[iTempNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+	ppTMatrice_temporaire = (Ttype**) new Ttype*[uiNombre_colonnes_temporaire];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
-	for (uiIniLoop = 0; uiIniLoop < iTempNbCol; uiIniLoop++) {
-		ppTypeTempMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+	for (uiBoucle_initialisation = 0; uiBoucle_initialisation < uiNombre_colonnes_temporaire; uiBoucle_initialisation++) {
+		ppTMatrice_temporaire[uiBoucle_initialisation] = (Ttype*)new Ttype[uiMATnombre_lignes];//Creer un tableau de Ttype sur chaque colonne, cela represente les lignes.
 	}
 
-	for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+	for (uiBoucle_colonne = 0; uiBoucle_colonne < uiMATnombre_colonnes; uiBoucle_colonne++)
 	{
-		ppTypeTempMatrice[uiColLoop] = ppTYPEMATMatrice[uiColLoop];
+		ppTMatrice_temporaire[uiBoucle_colonne] = ppTMATmatrice[uiBoucle_colonne];
 	}
 
-	for (uiLigLoop = 0; uiLigLoop < iTempNbCol; uiLigLoop++)
+	for (uiBoucle_ligne = 0; uiBoucle_ligne < uiNombre_colonnes_temporaire; uiBoucle_ligne++)
 	{
-		ppTypeTempMatrice[iTempNbCol - 1][uiLigLoop] = TypeColonne[uiLigLoop];
+		ppTMatrice_temporaire[uiNombre_colonnes_temporaire - 1][uiBoucle_ligne] = TypeColonne[uiBoucle_ligne];
 	}
 
-	delete[] ppTYPEMATMatrice;
+	delete[] ppTMATmatrice;
 
-	ppTYPEMATMatrice = ppTypeTempMatrice;
+	ppTMATmatrice = ppTMatrice_temporaire;
 
-	iMATNbCol++;
+	uiMATnombre_colonnes++;
 }
 
 
-template<typename Type>
-void CMatrice<Type>::MATSupprimerLigne(unsigned int uiIndice)
+template<typename Ttype>
+void Cmatrice<Ttype>::MATsupprimer_ligne(unsigned int uiIndice)
 {
-	if (iMATNbLig <= 1) {
-		Cexception error;
-		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);//La matrice sera vide apres suppression
-		throw error;
+	if (uiMATnombre_lignes <= 1) {
+		Cexception EXCerror;
+		EXCerror.EXCmodifier_valeur(ERREUR_DIMENSIONS);//La matrice sera vide apres suppression
+		throw EXCerror;
 	}
-	else if (uiIndice >= iMATNbLig) {
-		Cexception error;
-		error.EXCmodifier_valeur(HORS_DIMENSIONS);//Les indices sont hors de la matrice
-		throw error;
+	else if (uiIndice >= uiMATnombre_lignes) {
+		Cexception EXCerror;
+		EXCerror.EXCmodifier_valeur(HORS_DIMENSIONS);//Les indices sont hors de la matrice
+		throw EXCerror;
 	}
 	else {
-		unsigned int uiIniLoop, uiLigLoop, uiColLoop, uiGetLoop;
-		int iTempNbLig = iMATNbLig - 1;
+		unsigned int uiBoucle_initialisation, uiBoucle_ligne, uiBoucle_colonne, uiBoucle_lecture;
+		unsigned int uiNombre_colonnes_temporaire = uiMATnombre_lignes - 1;
 
-		Type** ppTYPETempMatrice;
+		Ttype** ppTMatrice_temporaire;
 
-		ppTYPETempMatrice = (Type**) new Type*[iMATNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+		ppTMatrice_temporaire = (Ttype**) new Ttype*[uiMATnombre_colonnes];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
-		for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
-			ppTYPETempMatrice[uiIniLoop] = (Type*)new Type[iTempNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		for (uiBoucle_initialisation = 0; uiBoucle_initialisation < uiMATnombre_colonnes; uiBoucle_initialisation++) {
+			ppTMatrice_temporaire[uiBoucle_initialisation] = (Ttype*)new Ttype[uiNombre_colonnes_temporaire];//Creer un tableau de Ttype sur chaque colonne, cela represente les lignes.
 		}
 
-		for (uiLigLoop = 0, uiGetLoop = 0; uiLigLoop < iTempNbLig; uiLigLoop++, uiGetLoop++)
+		for (uiBoucle_ligne = 0, uiBoucle_lecture = 0; uiBoucle_ligne < uiNombre_colonnes_temporaire; uiBoucle_ligne++, uiBoucle_lecture++)
 		{
-			if (uiLigLoop == uiIndice)
-				uiGetLoop++;
+			if (uiBoucle_ligne == uiIndice)
+				uiBoucle_lecture++;
 
-			for (uiColLoop = 0; uiColLoop < iMATNbCol; uiColLoop++)
+			for (uiBoucle_colonne = 0; uiBoucle_colonne < uiMATnombre_colonnes; uiBoucle_colonne++)
 			{
-				ppTYPETempMatrice[uiColLoop][uiLigLoop] = ppTYPEMATMatrice[uiColLoop][uiGetLoop];
+				ppTMatrice_temporaire[uiBoucle_colonne][uiBoucle_ligne] = ppTMATmatrice[uiBoucle_colonne][uiBoucle_lecture];
 			}
 		}
 
-		delete[] ppTYPEMATMatrice;
+		delete[] ppTMATmatrice;
 
-		ppTYPEMATMatrice = ppTYPETempMatrice;
+		ppTMATmatrice = ppTMatrice_temporaire;
 
-		iMATNbLig--;
+		uiMATnombre_lignes--;
 	}
 }
 
 
-template<typename Type>
-void CMatrice<Type>::MATSupprimerColonne(unsigned int uiIndice)
+template<typename Ttype>
+void Cmatrice<Ttype>::MATsupprimer_colonne(unsigned int uiIndice)
 {
-	if (iMATNbCol <= 1) {
+	if (uiMATnombre_colonnes <= 1) {
 		Cexception error;
 		error.EXCmodifier_valeur(ERREUR_DIMENSIONS);//La matrice sera vide apres suppression
 		throw error;
 	}
-	else if (uiIndice >= iMATNbCol) {
+	else if (uiIndice >= uiMATnombre_colonnes) {
 		Cexception error;
 		error.EXCmodifier_valeur(HORS_DIMENSIONS);//Les indices sont hors de la matrice
 		throw error;
 	}
 	else {
-		unsigned int uiIniLoop, uiLigLoop, uiColLoop, uiGetLoop;
-		unsigned int iTempNbCol = iMATNbCol - 1;
+		unsigned int uiBoucle_initialisation, uiBoucle_ligne, uiBoucle_colonne, uiBoucle_lecture;
+		unsigned int uiNombre_colonnes_temporaire = uiMATnombre_colonnes - 1;
 
-		Type** ppTYPETempMatrice;
+		Ttype** ppTMatrice_temporaire;
 
-		ppTYPETempMatrice = (Type**) new Type*[iTempNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+		ppTMatrice_temporaire = (Ttype**) new Ttype*[uiNombre_colonnes_temporaire];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
-		for (uiIniLoop = 0; uiIniLoop < iTempNbCol; uiIniLoop++) {
-			ppTYPETempMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
+		for (uiBoucle_initialisation = 0; uiBoucle_initialisation < uiNombre_colonnes_temporaire; uiBoucle_initialisation++) {
+			ppTMatrice_temporaire[uiBoucle_initialisation] = (Ttype*)new Ttype[uiMATnombre_lignes];//Creer un tableau de Ttype sur chaque colonne, cela represente les lignes.
 		}
 
-		for (uiColLoop = 0, uiGetLoop = 0; uiColLoop < iTempNbCol; uiColLoop++, uiGetLoop++)
+		for (uiBoucle_colonne = 0, uiBoucle_lecture = 0; uiBoucle_colonne < uiNombre_colonnes_temporaire; uiBoucle_colonne++, uiBoucle_lecture++)
 		{
-			if (uiColLoop == uiIndice)
-				uiGetLoop++;
+			if (uiBoucle_colonne == uiIndice)
+				uiBoucle_lecture++;
 
-			ppTYPETempMatrice[uiColLoop] = ppTYPEMATMatrice[uiGetLoop];
+			ppTMatrice_temporaire[uiBoucle_colonne] = ppTMATmatrice[uiBoucle_lecture];
 		}
 
-		delete[] ppTYPEMATMatrice;
+		delete[] ppTMATmatrice;
 
-		ppTYPEMATMatrice = ppTYPETempMatrice;
+		ppTMATmatrice = ppTMatrice_temporaire;
 
-		iMATNbCol--;
+		uiMATnombre_colonnes--;
 	}
 }
