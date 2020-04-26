@@ -1,8 +1,15 @@
 ﻿  main.cpp
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(565): warning C4018: '<' : incompatibilité signed/unsigned
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(542): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(60): note: voir la référence à l'instanciation de la fonction modèle 'void CMatrice<double>::MATSupprimerLigne(unsigned int)' en cours de compilation
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(180): note: voir la référence à l'instanciation de classe modèle 'CMatrice<double>' en cours de compilation
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(599): warning C4101: 'uiLigLoop' : variable locale non référencée
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(587): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(63): note: voir la référence à l'instanciation de la fonction modèle 'void CMatrice<double>::MATSupprimerColonne(unsigned int)' en cours de compilation
   LINK : 0 nouveaux modules et 1 (sur 51) modules ont changé depuis la liaison précédente
   Génération d'une image non-SAFESEH.
   Début de la passe 2
        main.obj
        MSVCRTD.lib(loadcfg.obj)
   Fin de la passe 2
-  MATRICES.vcxproj -> D:\mega\MEGAsync\BACKKKKKKUPPP\backup USB 2Go noir\FAC\3eme année Polytech\2eme semestre\C++\PROJET C++\MATRICES\MATRICES\Debug\MATRICES.exe
+  MATRICES.vcxproj -> D:\User\Documents\Code\git\MATRICES\MATRICES\Debug\MATRICES.exe

@@ -20,7 +20,7 @@ int main()
 	std::cout << m1 << "\n";
 	std::cout << "/////////////////////////////////////\n";
 
-	CCalculMatrice<double> m3("C:/Users/mhaba/Desktop/mat.txt");
+	CCalculMatrice<double> m3("C:/Users/belda_mjro20o/Desktop/mat.txt");
 	std::cout << "M3 : \n" << m3 << "\n";
 	std::cout << "/////////////////////////////////////\n";
 	
@@ -55,6 +55,12 @@ int main()
 	std::cout << "-------------------------------------\n";
 	double tab4[3] = {11, 6, 4};
 	m4.MATAjoutColonne(tab4);
+	std::cout << m4 << "\n";
+	std::cout << "-------------------------------------\n";
+	m4.MATSupprimerLigne(1);
+	std::cout << m4 << "\n";
+	std::cout << "-------------------------------------\n";
+	m4.MATSupprimerColonne(1);
 	std::cout << m4 << "\n";
 	std::cout << "-------------------------------------\n";
 

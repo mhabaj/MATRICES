@@ -38,6 +38,7 @@ public:
 	/**
 	 * \fn CMatrice(const char* sPath)
 	 * \brief Constructeur via fichier.
+	 * \pre La matrice doit etre une matrice de double.
 	 *
 	 * \param sPath Fichier source de la matrice a creer.
 	 * \exception ERREUR_FICHIER Erreur fichier en cas de chemin non valide
@@ -48,8 +49,8 @@ public:
 	 * \fn CMatrice(int iLigne, int iColonne)
 	 * \brief Constructeur avec dimensions.
 	 *
-	 * \param iLigne Nombres de lignes.
-	 * \param iColonne Nombre de collones.
+	 * \param iLigne Nombres de lignes(plus grand ou egal a 1).
+	 * \param iColonne Nombre de collones(plus grand ou egal a 1).
  	 * \exception ERREUR_DIMENSIONS Dimensions CMatrice non valide
 	 */
 	CMatrice(unsigned int uiLigne, unsigned int uiColonne);
@@ -57,11 +58,11 @@ public:
 	/**
 	 * \fn CMatrice(int iLigne, int iColonne, Type* pTypeTableauElems)
 	 * \brief Constructeur avec dimensions et contenus.
-	 *
-	 * \param iLigne Nombres de lignes.
-	 * \param iColonne Nombre de collones.
-	 * \param pTypeTableauElems tableau des éléments a mettre dans la matrice.
 	 * \pre Le nombre d'elements du tableau doit etre egale a iLigne * iColonne.
+	 *
+	 * \param iLigne Nombres de lignes(plus grand ou egal a 1).
+	 * \param iColonne Nombre de collones(plus grand ou egal a 1).
+	 * \param pTypeTableauElems tableau des éléments a mettre dans la matrice.
 	 * \exception ERREUR_DIMENSIONS Dimensions CMatrice non valide
 	 */
 	CMatrice(unsigned int uiLigne, unsigned int uiColonne, const Type* pTypeTableauElems);
@@ -129,6 +130,8 @@ public:
 	/**
 	* \fn MATAjoutLigne();
 	* \brief Ajoute une ligne remplie a la matrice
+	* \pre Le tableau doit avoir comme taille le nombre de colonnes
+	*
 	* \param TypeLigne Tableau contenant la ligne a ajouter
 	*/
 	void MATAjoutLigne(const Type* TypeLigne);
@@ -142,12 +145,26 @@ public:
 	/**
 	* \fn MATAjoutColonne(const Type* TypeColonne);
 	* \brief Ajoute une colonne remplie a la matrice
+	* \pre Le tableau doit avoir comme taille le nombre de lignes
+	*
 	* \param TypeColonne Tableau contenant la colonne a ajouter
 	*/
 	void MATAjoutColonne(const Type* TypeColonne);
 
+	/**
+	* \fn MATSupprimerLigne(unsigned int uiIndice);
+	* \brief supprime la ligne a l'indice
+	*
+	* \param uiIndice indice de la ligne a supprimer
+	*/
 	void MATSupprimerLigne(unsigned int uiIndice);
 
+	/**
+	* \fn MATSupprimerColonne(unsigned int uiIndice);
+	* \brief supprime la colonne a l'indice
+	*
+	* \param uiIndice indice de la colonne a supprimer
+	*/
 	void MATSupprimerColonne(unsigned int uiIndice);
 };
 
@@ -160,15 +177,13 @@ CMatrice<Type>::CMatrice()
 	ppTYPEMATMatrice[0] = (Type*)new Type[1];
 }
 
-CMatrice<double>::CMatrice(const char* sPath)//la matrice doit etre une matrice de double
+CMatrice<double>::CMatrice(const char* sPath)
 {
 	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
 
 	char cType[20];
 	unsigned int uiNbLig, uiNbCol;
 	
-	
-
 	CFichier f(sPath);
 
 	if (!f.utilisable()) {
@@ -209,7 +224,7 @@ CMatrice<double>::CMatrice(const char* sPath)//la matrice doit etre une matrice 
 }
 
 template<typename Type>
-CMatrice<Type>::CMatrice(unsigned int uiLigne, unsigned int uiColonne) //nombre de lignes et de colonnes plus grand ou égale a 1.
+CMatrice<Type>::CMatrice(unsigned int uiLigne, unsigned int uiColonne)
 {
 	if (uiLigne < 1 || uiColonne < 1) {
 		Cexception error;
@@ -232,7 +247,7 @@ CMatrice<Type>::CMatrice(unsigned int uiLigne, unsigned int uiColonne) //nombre 
 
 
 template<typename Type>
-CMatrice<Type>::CMatrice(unsigned int uiLigne, unsigned int uiColonne, const Type* pTypeTableauElems) //le tableau doit pouvoir remplir la matrice
+CMatrice<Type>::CMatrice(unsigned int uiLigne, unsigned int uiColonne, const Type* pTypeTableauElems)
 {
 	if (uiLigne < 1 || uiColonne < 1) {
 		Cexception error;
@@ -422,7 +437,7 @@ void CMatrice<Type>::MATAjoutLigne()
 		}
 	}
 
-	delete(ppTYPEMATMatrice);
+	delete[] ppTYPEMATMatrice;
 
 	ppTYPEMATMatrice = ppTYPETempMatrice;
 
@@ -430,7 +445,7 @@ void CMatrice<Type>::MATAjoutLigne()
 }
 
 template<typename Type>
-void CMatrice<Type>::MATAjoutLigne(const Type* TypeLigne)//tableau de la meme taille que le nombre de colonne
+void CMatrice<Type>::MATAjoutLigne(const Type* TypeLigne)
 {
 	unsigned int uiIniLoop, uiLigLoop, uiColLoop;
 	int iTempNbLig = iMATNbLig + 1;
@@ -457,7 +472,7 @@ void CMatrice<Type>::MATAjoutLigne(const Type* TypeLigne)//tableau de la meme ta
 		ppTYPETempMatrice[uiColLoop][iTempNbLig-1] = TypeLigne[uiColLoop];
 	}
 
-	delete(ppTYPEMATMatrice);
+	delete[] ppTYPEMATMatrice;
 
 	ppTYPEMATMatrice = ppTYPETempMatrice;
 
@@ -483,7 +498,7 @@ void CMatrice<Type>::MATAjoutColonne()
 		ppTypeTempMatrice[uiColLoop] = ppTYPEMATMatrice[uiColLoop];
 	}
 
-	delete(ppTYPEMATMatrice);
+	delete[] ppTYPEMATMatrice;
 
 	ppTYPEMATMatrice = ppTypeTempMatrice;
 
@@ -514,7 +529,7 @@ void CMatrice<Type>::MATAjoutColonne(const Type* TypeColonne)//taille du tableau
 		ppTypeTempMatrice[iTempNbCol - 1][uiLigLoop] = TypeColonne[uiLigLoop];
 	}
 
-	delete(ppTYPEMATMatrice);
+	delete[] ppTYPEMATMatrice;
 
 	ppTYPEMATMatrice = ppTypeTempMatrice;
 
@@ -558,7 +573,7 @@ void CMatrice<Type>::MATSupprimerLigne(unsigned int uiIndice)
 			}
 		}
 
-		delete(ppTYPEMATMatrice);
+		delete[] ppTYPEMATMatrice;
 
 		ppTYPEMATMatrice = ppTYPETempMatrice;
 
@@ -582,13 +597,13 @@ void CMatrice<Type>::MATSupprimerColonne(unsigned int uiIndice)
 	}
 	else {
 		unsigned int uiIniLoop, uiLigLoop, uiColLoop, uiGetLoop;
-		int iTempNbCol = iMATNbCol - 1;
+		unsigned int iTempNbCol = iMATNbCol - 1;
 
 		Type** ppTYPETempMatrice;
 
 		ppTYPETempMatrice = (Type**) new Type*[iTempNbCol];//Creer un tableau de tableau, cela represente le nombre de colonnes.
 
-		for (uiIniLoop = 0; uiIniLoop < iMATNbCol; uiIniLoop++) {
+		for (uiIniLoop = 0; uiIniLoop < iTempNbCol; uiIniLoop++) {
 			ppTYPETempMatrice[uiIniLoop] = (Type*)new Type[iMATNbLig];//Creer un tableau de Type sur chaque colonne, cela represente les lignes.
 		}
 
@@ -600,9 +615,7 @@ void CMatrice<Type>::MATSupprimerColonne(unsigned int uiIndice)
 			ppTYPETempMatrice[uiColLoop] = ppTYPEMATMatrice[uiGetLoop];
 		}
 
-		for (uiColLoop = 0; uiColLoop < iTempNbCol; uiColLoop++)
-			delete[]
-			delete[] ppTYPEMATMatrice;
+		delete[] ppTYPEMATMatrice;
 
 		ppTYPEMATMatrice = ppTYPETempMatrice;
 
