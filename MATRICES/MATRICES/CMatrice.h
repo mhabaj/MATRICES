@@ -181,7 +181,7 @@ public:
 	void MATsupprimer_colonne(unsigned int uiIndice);
 };
 
-template<typename Ttype>
+template<class Ttype>
 Cmatrice<Ttype>::Cmatrice()
 {
 	uiMATnombre_colonnes = 1;
@@ -236,7 +236,7 @@ Cmatrice<double>::Cmatrice(const char* pcChemin)
 	}
 }
 
-template<typename Ttype>
+template<class Ttype>
 Cmatrice<Ttype>::Cmatrice(unsigned int uiLigne, unsigned int uiColonne)
 {
 	if (uiLigne < 1 || uiColonne < 1) {
@@ -259,7 +259,7 @@ Cmatrice<Ttype>::Cmatrice(unsigned int uiLigne, unsigned int uiColonne)
 }
 
 
-template<typename Ttype>
+template<class Ttype>
 Cmatrice<Ttype>::Cmatrice(unsigned int uiLigne, unsigned int uiColonne, const Ttype* pTTableau_elements)
 {
 	if (uiLigne < 1 || uiColonne < 1) {
@@ -289,7 +289,7 @@ Cmatrice<Ttype>::Cmatrice(unsigned int uiLigne, unsigned int uiColonne, const Tt
 	}
 }
 
-template<typename Ttype>
+template<class Ttype>
 Cmatrice<Ttype>::Cmatrice(const Cmatrice<Ttype>& MATparam)
 {
 	if (MATparam.ppTMATmatrice) {
@@ -315,7 +315,7 @@ Cmatrice<Ttype>::Cmatrice(const Cmatrice<Ttype>& MATparam)
 	}
 }
 
-template<typename Ttype>
+template<class Ttype>
 Cmatrice<Ttype>& Cmatrice<Ttype>::operator=(const Cmatrice& MATparam)
 {
 	unsigned int uiBoucle_initialisation, uiBoucle_ligne, uiBoucle_colonne;
@@ -340,7 +340,7 @@ Cmatrice<Ttype>& Cmatrice<Ttype>::operator=(const Cmatrice& MATparam)
 	return *this;
 }
 
-template<typename Ttype>
+template<class Ttype>
 std::ostream& operator<<(std::ostream& fFlux, Cmatrice<Ttype> const& MATmatrice)
 {
 	if (!fFlux.good()) {
@@ -373,7 +373,7 @@ std::ostream& operator<<(std::ostream& fFlux, Cmatrice<Ttype> const& MATmatrice)
 	}
 }
 
-template<typename Ttype>
+template<class Ttype>
 Cmatrice<Ttype>::~Cmatrice()
 {
 	if (ppTMATmatrice) {
@@ -388,25 +388,25 @@ Cmatrice<Ttype>::~Cmatrice()
 	}
 }
 
-template<typename Ttype>
+template<class Ttype>
 unsigned int Cmatrice<Ttype>::MATlire_nombre_colonnes() const
 {
 	return uiMATnombre_colonnes;
 }
 
-template<typename Ttype>
+template<class Ttype>
 unsigned int Cmatrice<Ttype>::MATlire_nombre_lignes() const
 {
 	return uiMATnombre_lignes;
 }
 
-template<typename Ttype>
+template<class Ttype>
 Ttype** Cmatrice<Ttype>::MATlire_elements() const
 {
 	return ppTMATmatrice;
 }
 
-template<typename Ttype>
+template<class Ttype>
 Ttype Cmatrice<Ttype>::MATlire_element(unsigned int uiLigne, unsigned int uiColonne) const
 {
 	if (uiLigne < 0 || uiLigne >= uiMATnombre_lignes || uiColonne < 0 || uiColonne >= uiMATnombre_colonnes) {
@@ -417,7 +417,7 @@ Ttype Cmatrice<Ttype>::MATlire_element(unsigned int uiLigne, unsigned int uiColo
 	return ppTMATmatrice[uiColonne][uiLigne];
 }
 
-template<typename Ttype>
+template<class Ttype>
 void Cmatrice<Ttype>::MATmodifier_element(Ttype TElement, unsigned int uiLigne, unsigned int uiColonne)
 {
 	if (uiLigne < 0 || uiLigne >= uiMATnombre_lignes || uiColonne < 0 || uiColonne >= uiMATnombre_colonnes) {
@@ -428,7 +428,7 @@ void Cmatrice<Ttype>::MATmodifier_element(Ttype TElement, unsigned int uiLigne, 
 	ppTMATmatrice[uiColonne][uiLigne] = TElement;
 }
 
-template<typename Ttype>
+template<class Ttype>
 void Cmatrice<Ttype>::MATajouter_ligne()
 {
 	unsigned int uiBoucle_initialisation, uiBoucle_ligne, uiBoucle_colonne;
@@ -457,7 +457,7 @@ void Cmatrice<Ttype>::MATajouter_ligne()
 	uiMATnombre_lignes++;
 }
 
-template<typename Ttype>
+template<class Ttype>
 void Cmatrice<Ttype>::MATajouter_ligne(const Ttype* TypeLigne)
 {
 	unsigned int uiBoucle_initialisation, uiBoucle_ligne, uiBoucle_colonne;
@@ -492,7 +492,7 @@ void Cmatrice<Ttype>::MATajouter_ligne(const Ttype* TypeLigne)
 	uiMATnombre_lignes++;
 }
 
-template<typename Ttype>
+template<class Ttype>
 void Cmatrice<Ttype>::MATajouter_colonne()
 {
 	unsigned int uiBoucle_initialisation, uiBoucle_colonne;
@@ -518,7 +518,7 @@ void Cmatrice<Ttype>::MATajouter_colonne()
 	uiMATnombre_colonnes++;
 }
 
-template<typename Ttype>
+template<class Ttype>
 void Cmatrice<Ttype>::MATajouter_colonne(const Ttype* TypeColonne)//taille du tableau egale au nombre de lignes
 {
 	unsigned int uiBoucle_initialisation, uiBoucle_ligne, uiBoucle_colonne;
@@ -550,7 +550,7 @@ void Cmatrice<Ttype>::MATajouter_colonne(const Ttype* TypeColonne)//taille du ta
 }
 
 
-template<typename Ttype>
+template<class Ttype>
 void Cmatrice<Ttype>::MATsupprimer_ligne(unsigned int uiIndice)
 {
 	if (uiMATnombre_lignes <= 1) {
@@ -595,7 +595,7 @@ void Cmatrice<Ttype>::MATsupprimer_ligne(unsigned int uiIndice)
 }
 
 
-template<typename Ttype>
+template<class Ttype>
 void Cmatrice<Ttype>::MATsupprimer_colonne(unsigned int uiIndice)
 {
 	if (uiMATnombre_colonnes <= 1) {

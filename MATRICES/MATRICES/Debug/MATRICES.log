@@ -1,0 +1,12 @@
+﻿  main.cpp
+d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(612): warning C4101: 'uiBoucle_ligne' : variable locale non référencée
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(600): note: pendant la compilation de la fonction membre '<Inconnu>' (classe <Inconnu>)
+  d:\user\documents\code\git\matrices\matrices\matrices\main.cpp(63): note: voir la référence à l'instanciation de la fonction modèle 'void Cmatrice<double>::MATsupprimer_colonne(unsigned int)' en cours de compilation
+  d:\user\documents\code\git\matrices\matrices\matrices\cmatrice.h(193): note: voir la référence à l'instanciation de classe modèle 'Cmatrice<double>' en cours de compilation
+  LINK : 0 nouveaux modules et 1 (sur 51) modules ont changé depuis la liaison précédente
+  Génération d'une image non-SAFESEH.
+  Début de la passe 2
+       main.obj
+       MSVCRTD.lib(loadcfg.obj)
+  Fin de la passe 2
+  MATRICES.vcxproj -> D:\User\Documents\Code\git\MATRICES\MATRICES\Debug\MATRICES.exe

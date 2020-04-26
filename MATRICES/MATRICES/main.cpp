@@ -20,7 +20,7 @@ int main()
 	std::cout << m1 << "\n";
 	std::cout << "/////////////////////////////////////\n";
 
-	CCalculMatrice<double> m3("C:/Users/belda_mjro20o/Desktop/mat.txt");
+	Ccalcul_matrice<double> m3("C:/Users/belda_mjro20o/Desktop/mat.txt");
 	std::cout << "M3 : \n" << m3 << "\n";
 	std::cout << "/////////////////////////////////////\n";
 	
@@ -45,7 +45,7 @@ int main()
 	std::cout << "/////////////////////////////////////\n";
 
 	double tab2[4] = { 2, 7, 3, 9 };
-	CCalculMatrice<double> m4(2, 2, tab2);
+	Ccalcul_matrice<double> m4(2, 2, tab2);
 	m4 = m4 * 1.5;
 	std::cout << m4 << "\n";
 	std::cout << "-------------------------------------\n";
@@ -64,7 +64,7 @@ int main()
 	std::cout << m4 << "\n";
 	std::cout << "-------------------------------------\n";
 
-	CCalculMatrice<CCalculMatrice<double>> mu(2, 1);
+	Ccalcul_matrice<Ccalcul_matrice<double>> mu(2, 1);
 	mu.MATmodifier_element(m3, 0, 0);
 	mu.MATmodifier_element(m4, 1, 0);
 	std::cout << "MU :\n";
