@@ -25,16 +25,15 @@ lors de la levée d'exception dans votre programme.
 #include <iostream>
 
 // Définition de la valeur initiale d'une exception
-#define FAUX 0					
-#define FICHIER_INTROUVABLE 1
-#define ERREUR_DIMENSIONS 2
-#define HORS_DIMENSIONS 3
-#define DIVISION_PAR_0 4
-#define ERREUR_FICHIER 5
-#define ERREUR_LECTURE 6
-#define FIN_FICHIER 7
-#define ERREUR_FLUX 8
-#define ERREUR_TYPE 9
+#define FAUX 0
+#define ERREUR_DIMENSIONS 1 //Les deimensions ne sont pas valide(plus petit que 1)
+#define HORS_DIMENSIONS 2 //Indices plus grand que le nombre de colonnes ou de lignes
+#define DIVISION_PAR_0 3 //Division par 0
+#define ERREUR_FICHIER 4 //Acces au fichier impossible
+#define ERREUR_LECTURE 5 //Erreur dans la lecture du fichier(mauvais type demande
+#define FIN_FICHIER 6 //Fin du fichier atteinte
+#define ERREUR_FLUX 7 //Probleme au niveau d'un flux
+#define ERREUR_TYPE 8 //Probleme de type(matrice)
 
 class Cexception
 {

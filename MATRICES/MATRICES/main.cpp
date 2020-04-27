@@ -1,93 +1,106 @@
 #include "Ccalcul_matrice.h"
 #include "CMatrice.h"
 
-int main()
+int main(int argc, char* argv[])
 {
-	double tab1[4] = { 1, 2, 3, 4 };
-	Cmatrice<double> m1(2, 2, tab1);
-	std::cout << "M1 :\n";
-	std::cout << m1 << "\n";
-	std::cout << "-------------------------------------\n";
-	Cmatrice<double> m2(m1);
-	std::cout << "M2 = M1 :\n";
-	std::cout << m2 << "\n";
-	std::cout << "-------------------------------------\n";
-	m2.MATmodifier_element(7, 1, 0);
-	std::cout << "Modifie M2 -> 3 = 7 :\n";
-	std::cout << m2 << "\n";
-	std::cout << "-------------------------------------\n";
-	std::cout << "M1 :\n";
-	std::cout << m1 << "\n";
-	std::cout << "/////////////////////////////////////\n";
+	unsigned int uiBoucle_arguments, uiNombre_matrice;
+	unsigned int uiDecalage = 1;
+	double dValeur;
 
-	Ccalcul_matrice<double> m3("C:/Users/belda_mjro20o/Desktop/mat.txt");
-	std::cout << "M3 : \n" << m3 << "\n";
-	std::cout << "/////////////////////////////////////\n";
-	
-	std::cout << "M3 * 2.5 :\n" << (m3*2.5) << "\n";
-	std::cout << "-------------------------------------\n";
-	std::cout << "1.7 * M3 :\n" << (1.7*m3) << "\n";
-	std::cout << "-------------------------------------\n";
-	std::cout << "M3 / 4 :\n" << (m3 / 4) << "\n";
-	std::cout << "/////////////////////////////////////\n";
+	uiNombre_matrice = argc - 1;
 
-	std::cout << "Transposee de M3 :\n";
-	std::cout << m3.CMTtranspose() << "\n";
-	std::cout << "-------------------------------------\n";
-	std::cout << "M3 + M3 :\n";
-	std::cout << m3 + m3 << "\n";
-	std::cout << "-------------------------------------\n";
-	std::cout << "M3 - M3 :\n";
-	std::cout << m3 - m3 << "\n";
-	std::cout << "-------------------------------------\n";
-	std::cout << "M3 * M3 :\n";
-	std::cout << m3 * m3 << "\n";
-	std::cout << "/////////////////////////////////////\n";
+	Ccalcul_matrice<double>* CCMMatrices = new Ccalcul_matrice<double>[uiNombre_matrice];
 
-	double tab2[4] = { 2, 7, 3, 9 };
-	Ccalcul_matrice<double> m4(2, 2, tab2);
-	m4 = m4 * 1.5;
-	std::cout << m4 << "\n";
-	std::cout << "-------------------------------------\n";
-	double tab3[2] = { 5, 1 };
-	m4.MATajouter_ligne(tab3);
-	std::cout << m4 << "\n";
-	std::cout << "-------------------------------------\n";
-	double tab4[3] = {11, 6, 4};
-	m4.MATajouter_colonne(tab4);
-	std::cout << m4 << "\n";
-	std::cout << "-------------------------------------\n";
-	m4.MATsupprimer_ligne(1);
-	std::cout << m4 << "\n";
-	std::cout << "-------------------------------------\n";
-	m4.MATsupprimer_colonne(1);
-	std::cout << m4 << "\n";
-	std::cout << "-------------------------------------\n";
-
-	Ccalcul_matrice<Ccalcul_matrice<double>> mu(2, 1);
-	mu.MATmodifier_element(m3, 0, 0);
-	mu.MATmodifier_element(m4, 1, 0);
-	std::cout << "MU :\n";
-	std::cout << mu << "\n-------------------------------------\nMU * 3:\n";
-	std::cout << mu * 3 << "\n-------------------------------------\n3 * MU:\n";
-	std::cout << 3 * mu << "\n-------------------------------------\nMU / 4:\n";
-	std::cout << mu / 4 << "\n-------------------------------------\nMU + MU:\n";
-	std::cout << mu + mu << "\n-------------------------------------\nMU - MU:\n";
-	std::cout << mu - mu << "\n-------------------------------------\nMU * MU:\n";
-	try {
-		std::cout << mu * mu;
-	}
-	catch (Cexception e) {
-		e.EXCafficher_erreur();
+	for (uiBoucle_arguments = 1; uiBoucle_arguments < argc; uiBoucle_arguments++) {
+		try {
+			CCMMatrices[uiBoucle_arguments - uiDecalage] = *new Ccalcul_matrice<double>(argv[uiBoucle_arguments]);
+		}
+		catch (Cexception e) {
+			std::cout << "Fichier : " << argv[uiBoucle_arguments] << " : ";
+			e.EXCafficher_erreur();
+			uiDecalage++;
+			uiNombre_matrice--;
+		}
 	}
 
-	std::cout << "-------------------------------------\nM3 + M4 :\n";
+	if(uiNombre_matrice > 0){
 
-	try {
-		std::cout << m3 + m4 << "\n";
-	}
-	catch (Cexception e) {
-		e.EXCafficher_erreur();
+		for (uiBoucle_arguments = 0; uiBoucle_arguments < uiNombre_matrice; uiBoucle_arguments++) {
+			std::cout << "Matrice " << uiBoucle_arguments + 1 << " : ";
+			std::cout << CCMMatrices[uiBoucle_arguments] << "\n";
+		}
+
+		std::cout << "Rentre une valeur :\n";
+		std::cin >> dValeur;
+
+		for (uiBoucle_arguments = 0; uiBoucle_arguments < uiNombre_matrice; uiBoucle_arguments++) {
+			std::cout << "Matrice " << uiBoucle_arguments + 1 << " * " << dValeur << " = " << CCMMatrices[uiBoucle_arguments] * dValeur << "\n";
+		}
+
+		std::cout << "--------------------------------------\n";
+
+		for (uiBoucle_arguments = 0; uiBoucle_arguments < uiNombre_matrice; uiBoucle_arguments++) {
+			try {
+				std::cout << "Matrice " << uiBoucle_arguments + 1 << " / " << dValeur << " = " << CCMMatrices[uiBoucle_arguments] / dValeur << "\n";
+			}
+			catch (Cexception e) {
+				std::cout << "Matrice " << uiBoucle_arguments + 1 << " : ";
+				e.EXCafficher_erreur();
+			}
+		}
+
+		std::cout << "--------------------------------------\n";
+
+		Ccalcul_matrice<double> CMMAddition(CCMMatrices[0]);
+
+		for (uiBoucle_arguments = 1; uiBoucle_arguments < uiNombre_matrice; uiBoucle_arguments++) {
+			try {
+				CMMAddition = CMMAddition + CCMMatrices[uiBoucle_arguments];
+			}
+			catch (Cexception e) {
+				std::cout << "Matrice " << uiBoucle_arguments + 1 << " : ";
+				e.EXCafficher_erreur();
+			}
+		}
+
+		std::cout << "Resultat de l'addition : " << CMMAddition << "\n";
+
+		std::cout << "--------------------------------------\n";
+
+		Ccalcul_matrice<double> CMMCalcul(CCMMatrices[0]);
+
+		for (uiBoucle_arguments = 1; uiBoucle_arguments < uiNombre_matrice; uiBoucle_arguments++) {
+			try {
+				if (uiBoucle_arguments % 2 == 0)
+					CMMCalcul = CMMCalcul + CCMMatrices[uiBoucle_arguments];
+				else
+					CMMCalcul = CMMCalcul - CCMMatrices[uiBoucle_arguments];
+			}
+			catch (Cexception e) {
+				std::cout << "Matrice " << uiBoucle_arguments + 1 << " : ";
+				e.EXCafficher_erreur();
+			}
+		}
+
+		std::cout << "Resultat du calcul M1-M2+M3.... : " << CMMCalcul << "\n";
+
+		std::cout << "--------------------------------------\n";
+
+		Ccalcul_matrice<double> CMMMultiplication(CCMMatrices[0]);
+
+		for (uiBoucle_arguments = 1; uiBoucle_arguments < uiNombre_matrice; uiBoucle_arguments++) {
+			try {
+				CMMMultiplication = CMMMultiplication * CCMMatrices[uiBoucle_arguments];
+			}
+			catch (Cexception e) {
+				std::cout << "Matrice " << uiBoucle_arguments + 1 << " : ";
+				e.EXCafficher_erreur();
+			}
+		}
+
+		std::cout << "Resultat de la multiplication : " << CMMMultiplication << "\n";
+
+		delete[] CCMMatrices;
 	}
 	return 0;
 }

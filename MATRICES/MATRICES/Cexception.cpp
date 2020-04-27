@@ -70,30 +70,27 @@ void Cexception::EXCafficher_erreur()
 {
 	switch (uiEXCvaleur) {
 	case 1:
-		std::cout << "Erreur : Fichier introuvable\n";
-		break;
-	case 2:
 		std::cout << "Erreur : Dimensions non conformes\n";
 		break;
-	case 3:
+	case 2:
 		std::cout << "Erreur : Indices hors dimension\n";
 		break;
-	case 4:
+	case 3:
 		std::cout << "Erreur : Division par 0\n";
 		break;
-	case 5:
+	case 4:
 		std::cout << "Erreur : Fichier inutilisable\n";
 		break;
-	case 6:
+	case 5:
 		std::cout << "Erreur : Lecture impossible\n";
 		break;
-	case 7:
+	case 6:
 		std::cout << "Erreur : Fin du fichier\n";
 		break;
-	case 8:
+	case 7:
 		std::cout << "Erreur : Problème flux d'affichage\n";
 		break;
-	case 9:
+	case 8:
 		std::cout << "Erreur : Pour les fichiers, seul le type double est accepte\n";
 		break;
 	}

@@ -208,8 +208,6 @@ Cmatrice<double>::Cmatrice(const char* pcChemin)
 		f.FICprochain_separateur('=');
 		f.FIClire_mot(cType);
 
-		std::cout << cType;
-
 		if (strcmp(cType, "double") != 0) {
 			Cexception EXCerror;
 			EXCerror.EXCmodifier_valeur(ERREUR_TYPE);//Le constructeur par fichier ne fonctionne qu'avec le type double.

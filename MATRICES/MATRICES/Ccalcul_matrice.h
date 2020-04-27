@@ -24,7 +24,7 @@ public:
 	 *
 	 * Alloue en mémoire l'espace d'un matrice de dimension 1,1.
 	 */
-	Ccalcul_matrice(){};
+	Ccalcul_matrice(){}
 
 	/**
 	 * \fn Ccalcul_matrice(const char* pcChemin)
@@ -66,12 +66,12 @@ public:
 	Ccalcul_matrice(const Cmatrice<Ttype>& MATparam) : Cmatrice<Ttype>(MATparam) {}
 
 	/**
-	 * \fn CMTtranspose(Cmatrice<Ttype> mat)
+	 * \fn CCMtranspose(Cmatrice<Ttype> mat)
 	 * \brief Calculer la transpose de la matrice
 	 * 
 	 * \return objet Cmatrice<Ttype> representant le resultat de l'operation
 	 */
-	Ccalcul_matrice<Ttype> CMTtranspose();
+	Ccalcul_matrice<Ttype> CCMtranspose();
 
 	/**
 	 * \fn operator*(const double dScalaire)
@@ -94,34 +94,34 @@ public:
 	Ccalcul_matrice<Ttype> operator/(const double dScalaire);
 
 	/**
-	 * \fn operator+(const Ccalcul_matrice<Ttype> CMTmat)
+	 * \fn operator+(const Ccalcul_matrice<Ttype> CCMmat)
 	 * \brief surcharge de l'operateur + (addition entre matrices)
 	 * \pre il faut que le Ttype de la matrice supporte l'addition par un autre Ttype
 	 *
 	 * \param matrice de l'addition
 	 * \return objet Cmatrice<Ttype> resultat de l'addition
 	 */
-	Ccalcul_matrice<Ttype> operator+(const Ccalcul_matrice<Ttype> CMTmat);
+	Ccalcul_matrice<Ttype> operator+(const Ccalcul_matrice<Ttype> CCMmat);
 
 	/**
-	 * \fn operator-(const Ccalcul_matrice<Ttype> CMTmat)
+	 * \fn operator-(const Ccalcul_matrice<Ttype> CCMmat)
 	 * \brief surcharge de l'operateur - (soustraction entre matrices)
 	 * \pre il faut que le Ttype de la matrice supporte la soustraction par un autre Ttype
 	 *
 	 * \param matrice de la soustraction
 	 * \return objet Cmatrice<Ttype> resultat de la soustraction
 	 */
-	Ccalcul_matrice<Ttype> operator-(const Ccalcul_matrice<Ttype> CMTmat);
+	Ccalcul_matrice<Ttype> operator-(const Ccalcul_matrice<Ttype> CCMmat);
 
 	/**
-	 * \fn operator*(const Ccalcul_matrice<Ttype> CMTmat)
+	 * \fn operator*(const Ccalcul_matrice<Ttype> CCMmat)
 	 * \brief surcharge de l'operateur * (multiplication entre matrices)
 	 * \pre il faut que le Ttype de la matrice supporte la multiplication par un autre Ttype
 	 *
 	 * \param matrice de la multiplication
 	 * \return objet Cmatrice<Ttype> resultat de la multiplication
 	 */
-	Ccalcul_matrice<Ttype> operator*(const Ccalcul_matrice<Ttype> CMTmat);
+	Ccalcul_matrice<Ttype> operator*(const Ccalcul_matrice<Ttype> CCMmat);
 
 };
 
@@ -133,17 +133,17 @@ Ccalcul_matrice<Ttype> operator*(const double dScalaire, const Ccalcul_matrice<T
 	unsigned int uiLigne = MATparam.MATlire_nombre_lignes();
 	unsigned int uiColonne = MATparam.MATlire_nombre_colonnes();
 
-	Ccalcul_matrice<Ttype> CMTresult(uiLigne, uiColonne);
+	Ccalcul_matrice<Ttype> CCMresult(uiLigne, uiColonne);
 
 	for (uiBoucle_ligne = 0; uiBoucle_ligne < uiLigne; uiBoucle_ligne++)
 	{
 		for (uiBoucle_colonne = 0; uiBoucle_colonne < uiColonne; uiBoucle_colonne++)
 		{
-			CMTresult.MATmodifier_element(dScalaire * (MATparam.MATlire_element(uiBoucle_ligne, uiBoucle_colonne)), uiBoucle_ligne, uiBoucle_colonne);
+			CCMresult.MATmodifier_element(dScalaire * (MATparam.MATlire_element(uiBoucle_ligne, uiBoucle_colonne)), uiBoucle_ligne, uiBoucle_colonne);
 		}
 	}
 
-	return CMTresult;
+	return CCMresult;
 }
 
 template<class Ttype>
@@ -151,17 +151,17 @@ Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator*(const double dScalaire)
 {
 	unsigned int uiBoucle_ligne, uiBoucle_colonne;
 
-	Ccalcul_matrice<Ttype> CMTresult(this->MATlire_nombre_lignes(), this->MATlire_nombre_colonnes());
+	Ccalcul_matrice<Ttype> CCMresult(this->MATlire_nombre_lignes(), this->MATlire_nombre_colonnes());
 
 	for (uiBoucle_ligne = 0; uiBoucle_ligne < this->MATlire_nombre_lignes(); uiBoucle_ligne++)
 	{
 		for (uiBoucle_colonne = 0; uiBoucle_colonne < this->MATlire_nombre_colonnes(); uiBoucle_colonne++)
 		{
-			CMTresult.MATmodifier_element((this->MATlire_element(uiBoucle_ligne, uiBoucle_colonne)) * dScalaire, uiBoucle_ligne, uiBoucle_colonne);
+			CCMresult.MATmodifier_element((this->MATlire_element(uiBoucle_ligne, uiBoucle_colonne)) * dScalaire, uiBoucle_ligne, uiBoucle_colonne);
 		}
 	}
 
-	return CMTresult;
+	return CCMresult;
 }
 
 template<class Ttype>
@@ -175,24 +175,24 @@ Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator/(const double dScalaire)
 	else {
 		unsigned int uiBoucle_ligne, uiBoucle_colonne;
 
-		Ccalcul_matrice<Ttype> CMTresult(this->MATlire_nombre_lignes(), this->MATlire_nombre_colonnes());
+		Ccalcul_matrice<Ttype> CCMresult(this->MATlire_nombre_lignes(), this->MATlire_nombre_colonnes());
 
 		for (uiBoucle_ligne = 0; uiBoucle_ligne < this->MATlire_nombre_lignes(); uiBoucle_ligne++)
 		{
 			for (uiBoucle_colonne = 0; uiBoucle_colonne < this->MATlire_nombre_colonnes(); uiBoucle_colonne++)
 			{
-				CMTresult.MATmodifier_element((this->MATlire_element(uiBoucle_ligne, uiBoucle_colonne)) / dScalaire, uiBoucle_ligne, uiBoucle_colonne);
+				CCMresult.MATmodifier_element((this->MATlire_element(uiBoucle_ligne, uiBoucle_colonne)) / dScalaire, uiBoucle_ligne, uiBoucle_colonne);
 			}
 		}
 
-		return CMTresult;
+		return CCMresult;
 	}
 }
 
 template<class Ttype>
-Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator+(const Ccalcul_matrice<Ttype> CMTmat)
+Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator+(const Ccalcul_matrice<Ttype> CCMmat)
 {
-	if (this->MATlire_nombre_colonnes() != CMTmat.MATlire_nombre_colonnes() || this->MATlire_nombre_lignes() != CMTmat.MATlire_nombre_lignes()) {
+	if (this->MATlire_nombre_colonnes() != CCMmat.MATlire_nombre_colonnes() || this->MATlire_nombre_lignes() != CCMmat.MATlire_nombre_lignes()) {
 		Cexception EXCerror;
 		EXCerror.EXCmodifier_valeur(ERREUR_DIMENSIONS);//Les dimensions des matrices ne permettent pas l'additon
 		throw EXCerror;
@@ -200,23 +200,23 @@ Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator+(const Ccalcul_matrice<T
 	else {
 		unsigned int uiBoucle_ligne, uiBoucle_colonne;
 
-		Ccalcul_matrice<Ttype> CMTresult(this->MATlire_nombre_lignes(), this->MATlire_nombre_colonnes());
+		Ccalcul_matrice<Ttype> CCMresult(this->MATlire_nombre_lignes(), this->MATlire_nombre_colonnes());
 
 		for (uiBoucle_ligne = 0; uiBoucle_ligne < this->MATlire_nombre_lignes(); uiBoucle_ligne++)
 		{
 			for (uiBoucle_colonne = 0; uiBoucle_colonne < this->MATlire_nombre_colonnes(); uiBoucle_colonne++)
 			{
-				CMTresult.MATmodifier_element(this->MATlire_element(uiBoucle_ligne, uiBoucle_colonne) + CMTmat.MATlire_element(uiBoucle_ligne, uiBoucle_colonne), uiBoucle_ligne, uiBoucle_colonne);
+				CCMresult.MATmodifier_element(this->MATlire_element(uiBoucle_ligne, uiBoucle_colonne) + CCMmat.MATlire_element(uiBoucle_ligne, uiBoucle_colonne), uiBoucle_ligne, uiBoucle_colonne);
 			}
 		}
-		return CMTresult;
+		return CCMresult;
 	}
 }
 
 template<class Ttype>
-Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator-(const Ccalcul_matrice<Ttype> CMTmat)
+Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator-(const Ccalcul_matrice<Ttype> CCMmat)
 {
-	if (this->MATlire_nombre_colonnes() != CMTmat.MATlire_nombre_colonnes() || this->MATlire_nombre_lignes() != CMTmat.MATlire_nombre_lignes()) {
+	if (this->MATlire_nombre_colonnes() != CCMmat.MATlire_nombre_colonnes() || this->MATlire_nombre_lignes() != CCMmat.MATlire_nombre_lignes()) {
 		Cexception EXCerror;
 		EXCerror.EXCmodifier_valeur(ERREUR_DIMENSIONS);//Les dimensions des matrices ne permettent pas la soustraction
 		throw EXCerror;
@@ -224,23 +224,23 @@ Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator-(const Ccalcul_matrice<T
 	else {
 		unsigned int uiBoucle_ligne, uiBoucle_colonne;
 
-		Cmatrice<Ttype> CMTresult(this->MATlire_nombre_lignes(), this->MATlire_nombre_colonnes());
+		Cmatrice<Ttype> CCMresult(this->MATlire_nombre_lignes(), this->MATlire_nombre_colonnes());
 
 		for (uiBoucle_ligne = 0; uiBoucle_ligne < this->MATlire_nombre_lignes(); uiBoucle_ligne++)
 		{
 			for (uiBoucle_colonne = 0; uiBoucle_colonne < this->MATlire_nombre_colonnes(); uiBoucle_colonne++)
 			{
-				CMTresult.MATmodifier_element(this->MATlire_element(uiBoucle_ligne, uiBoucle_colonne) - CMTmat.MATlire_element(uiBoucle_ligne, uiBoucle_colonne), uiBoucle_ligne, uiBoucle_colonne);
+				CCMresult.MATmodifier_element(this->MATlire_element(uiBoucle_ligne, uiBoucle_colonne) - CCMmat.MATlire_element(uiBoucle_ligne, uiBoucle_colonne), uiBoucle_ligne, uiBoucle_colonne);
 			}
 		}
-		return CMTresult;
+		return CCMresult;
 	}
 }
 
 template<class Ttype>
-Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator*(const Ccalcul_matrice<Ttype> CMTmat)
+Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator*(const Ccalcul_matrice<Ttype> CCMmat)
 {
-	if (this->MATlire_nombre_colonnes() != CMTmat.MATlire_nombre_lignes()) {
+	if (this->MATlire_nombre_colonnes() != CCMmat.MATlire_nombre_lignes()) {
 		Cexception EXCerror;
 		EXCerror.EXCmodifier_valeur(ERREUR_DIMENSIONS);//Les dimensions des matrices ne permettent pas la multiplication
 		throw EXCerror;
@@ -248,37 +248,37 @@ Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator*(const Ccalcul_matrice<T
 	else {
 		unsigned int uiBoucle_ligne, uiBoucle_colonne, uiBoucle_calcul;
 
-		Cmatrice<Ttype> CMTresult(this->MATlire_nombre_lignes(), CMTmat.MATlire_nombre_colonnes());
+		Cmatrice<Ttype> CCMresult(this->MATlire_nombre_lignes(), CCMmat.MATlire_nombre_colonnes());
 
-		for (uiBoucle_ligne = 0; uiBoucle_ligne < CMTresult.MATlire_nombre_lignes(); uiBoucle_ligne++)
+		for (uiBoucle_ligne = 0; uiBoucle_ligne < CCMresult.MATlire_nombre_lignes(); uiBoucle_ligne++)
 		{
-			for (uiBoucle_colonne = 0; uiBoucle_colonne < CMTresult.MATlire_nombre_colonnes(); uiBoucle_colonne++)
+			for (uiBoucle_colonne = 0; uiBoucle_colonne < CCMresult.MATlire_nombre_colonnes(); uiBoucle_colonne++)
 			{
-				CMTresult.MATmodifier_element(this->MATlire_element(uiBoucle_ligne, 0) * CMTmat.MATlire_element(0, uiBoucle_colonne), uiBoucle_ligne, uiBoucle_colonne);
-				for (uiBoucle_calcul = 1; uiBoucle_calcul < CMTmat.MATlire_nombre_lignes(); uiBoucle_calcul++)
+				CCMresult.MATmodifier_element(this->MATlire_element(uiBoucle_ligne, 0) * CCMmat.MATlire_element(0, uiBoucle_colonne), uiBoucle_ligne, uiBoucle_colonne);
+				for (uiBoucle_calcul = 1; uiBoucle_calcul < CCMmat.MATlire_nombre_lignes(); uiBoucle_calcul++)
 				{
-					CMTresult.MATmodifier_element(this->MATlire_element(uiBoucle_ligne, uiBoucle_calcul) * CMTmat.MATlire_element(uiBoucle_calcul, uiBoucle_colonne) + CMTresult.MATlire_element(uiBoucle_ligne, uiBoucle_colonne), uiBoucle_ligne, uiBoucle_colonne);
+					CCMresult.MATmodifier_element(this->MATlire_element(uiBoucle_ligne, uiBoucle_calcul) * CCMmat.MATlire_element(uiBoucle_calcul, uiBoucle_colonne) + CCMresult.MATlire_element(uiBoucle_ligne, uiBoucle_colonne), uiBoucle_ligne, uiBoucle_colonne);
 				}
 			}
 		}
-		return CMTresult;
+		return CCMresult;
 	}
 }
 
 
 template<class Ttype>
-Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::CMTtranspose()
+Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::CCMtranspose()
 {
 	unsigned int uiBoucle_ligne, uiBoucle_colonne;
 
-	Cmatrice<Ttype> CMTresult(this->MATlire_nombre_colonnes(), this->MATlire_nombre_lignes());
+	Cmatrice<Ttype> CCMresult(this->MATlire_nombre_colonnes(), this->MATlire_nombre_lignes());
 
-	for (uiBoucle_ligne = 0; uiBoucle_ligne < CMTresult.MATlire_nombre_lignes(); uiBoucle_ligne++)
+	for (uiBoucle_ligne = 0; uiBoucle_ligne < CCMresult.MATlire_nombre_lignes(); uiBoucle_ligne++)
 	{
-		for (uiBoucle_colonne = 0; uiBoucle_colonne < CMTresult.MATlire_nombre_colonnes(); uiBoucle_colonne++)
+		for (uiBoucle_colonne = 0; uiBoucle_colonne < CCMresult.MATlire_nombre_colonnes(); uiBoucle_colonne++)
 		{
-			CMTresult.MATmodifier_element(this->MATlire_element(uiBoucle_colonne, uiBoucle_ligne), uiBoucle_ligne, uiBoucle_colonne);
+			CCMresult.MATmodifier_element(this->MATlire_element(uiBoucle_colonne, uiBoucle_ligne), uiBoucle_ligne, uiBoucle_colonne);
 		}
 	}
-	return CMTresult;
+	return CCMresult;
 }
