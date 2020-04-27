@@ -32,7 +32,7 @@ int main()
 	std::cout << "/////////////////////////////////////\n";
 
 	std::cout << "Transposee de M3 :\n";
-	std::cout << m3.transpose() << "\n";
+	std::cout << m3.CMTtranspose() << "\n";
 	std::cout << "-------------------------------------\n";
 	std::cout << "M3 + M3 :\n";
 	std::cout << m3 + m3 << "\n";
