@@ -1,11 +1,11 @@
 /**********************************************************
 Titre : Classe pour la gestion des exceptions
 ***********************************************************
-Auteur  : V. Ttype'kindt   
+Auteur  : V. T'kindt   
 Version : 1.0
 Date	: 10/07/2006
 -------------------------
-Lecteur : V. Ttype'kindt     
+Lecteur : V. T'kindt     
 Date	: 11/07/2006
 ***********************************************************
 Auteur	: 
@@ -66,7 +66,7 @@ void Cexception::EXCmodifier_valeur(unsigned int val)
  //l'exception est modifiée
 }
 
-void Cexception::EXCaffiche_erreur()
+void Cexception::EXCafficher_erreur()
 {
 	switch (uiEXCvaleur) {
 	case 1:
@@ -92,6 +92,9 @@ void Cexception::EXCaffiche_erreur()
 		break;
 	case 8:
 		std::cout << "Erreur : Problème flux d'affichage\n";
+		break;
+	case 9:
+		std::cout << "Erreur : Pour les fichiers, seul le type double est accepte\n";
 		break;
 	}
 }

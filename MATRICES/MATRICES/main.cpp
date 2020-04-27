@@ -1,4 +1,4 @@
-#include "CCalculMatrice.h"
+#include "Ccalcul_matrice.h"
 #include "CMatrice.h"
 
 int main()
@@ -78,7 +78,7 @@ int main()
 		std::cout << mu * mu;
 	}
 	catch (Cexception e) {
-		e.EXCaffiche_erreur();
+		e.EXCafficher_erreur();
 	}
 
 	std::cout << "-------------------------------------\nM3 + M4 :\n";
@@ -87,7 +87,7 @@ int main()
 		std::cout << m3 + m4 << "\n";
 	}
 	catch (Cexception e) {
-		e.EXCaffiche_erreur();
+		e.EXCafficher_erreur();
 	}
 	return 0;
 }

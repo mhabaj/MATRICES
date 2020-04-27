@@ -1,11 +1,11 @@
 /**********************************************************
 Titre : Classe pour la gestion des exceptions
 ***********************************************************
-Auteur  : V. Ttype'kindt   
+Auteur  : V. T'kindt   
 Version : 1.0
 Date	: 10/07/2006
 -------------------------
-Lecteur : V. Ttype'kindt     
+Lecteur : V. T'kindt     
 Date	: 11/07/2006
 ***********************************************************
 Auteur	: 
@@ -34,6 +34,7 @@ lors de la levée d'exception dans votre programme.
 #define ERREUR_LECTURE 6
 #define FIN_FICHIER 7
 #define ERREUR_FLUX 8
+#define ERREUR_TYPE 9
 
 class Cexception
 {
@@ -73,8 +74,7 @@ class Cexception
 	nécessite : néant
 	S : valeur de l'exception
 	entraîne : la valeur de l'exception est retournée*/
-   void EXCaffiche_erreur();
- //MODULES EXTERNES
+   void EXCafficher_erreur();
 };
 
 /**************************************************************

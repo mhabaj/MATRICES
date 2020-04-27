@@ -192,9 +192,9 @@ Cmatrice<Ttype>::Cmatrice()
 
 Cmatrice<double>::Cmatrice(const char* pcChemin)
 {	
-	CFichier f(pcChemin);
+	Cfichier f(pcChemin);
 
-	if (!f.utilisable()) {
+	if (!f.FICutilisable()) {
 		Cexception EXCerror;
 		EXCerror.EXCmodifier_valeur(ERREUR_FICHIER);//Le fichier n'est pas utilisable : non existant ou chemin errone
 		throw EXCerror;
@@ -205,32 +205,42 @@ Cmatrice<double>::Cmatrice(const char* pcChemin)
 		char cType[20];
 		unsigned int uiNombre_ligne, uiNombre_colonne;
 
-		f.nextSep('=');
-		f.getString(cType);
+		f.FICprochain_separateur('=');
+		f.FIClire_mot(cType);
 
-		f.nextSep('=');
-		uiNombre_ligne = f.getInt();
+		std::cout << cType;
 
-		f.nextSep('=');
-		uiNombre_colonne = f.getInt();
-
-		uiMATnombre_lignes = uiNombre_ligne;
-		uiMATnombre_colonnes = uiNombre_colonne;
-
-		ppTMATmatrice = new double*[uiMATnombre_colonnes];//Creer un tableau de tableau, cela represente le nombre de colonnes.
-
-		for (uiBoucle_initialisation = 0; uiBoucle_initialisation < uiMATnombre_colonnes; uiBoucle_initialisation++) {
-			ppTMATmatrice[uiBoucle_initialisation] = new double[uiMATnombre_lignes];//Creer un tableau de Ttype sur chaque colonne, cela represente les lignes.
+		if (strcmp(cType, "double") != 0) {
+			Cexception EXCerror;
+			EXCerror.EXCmodifier_valeur(ERREUR_TYPE);//Le constructeur par fichier ne fonctionne qu'avec le type double.
+			throw EXCerror;
 		}
+		else {
 
-		f.nextSep('[');
-		f.next();
+			f.FICprochain_separateur('=');
+			uiNombre_ligne = f.FIClire_int();
 
-		for (uiBoucle_ligne = 0; uiBoucle_ligne < uiMATnombre_lignes; uiBoucle_ligne++)
-		{
-			for (uiBoucle_colonne = 0; uiBoucle_colonne < uiMATnombre_colonnes; uiBoucle_colonne++)
+			f.FICprochain_separateur('=');
+			uiNombre_colonne = f.FIClire_int();
+
+			uiMATnombre_lignes = uiNombre_ligne;
+			uiMATnombre_colonnes = uiNombre_colonne;
+
+			ppTMATmatrice = new double*[uiMATnombre_colonnes];//Creer un tableau de tableau, cela represente le nombre de colonnes.
+
+			for (uiBoucle_initialisation = 0; uiBoucle_initialisation < uiMATnombre_colonnes; uiBoucle_initialisation++) {
+				ppTMATmatrice[uiBoucle_initialisation] = new double[uiMATnombre_lignes];//Creer un tableau de Ttype sur chaque colonne, cela represente les lignes.
+			}
+
+			f.FICprochain_separateur('[');
+			f.FIClire_un();
+
+			for (uiBoucle_ligne = 0; uiBoucle_ligne < uiMATnombre_lignes; uiBoucle_ligne++)
 			{
-				MATmodifier_element(f.getDouble(), uiBoucle_ligne, uiBoucle_colonne);
+				for (uiBoucle_colonne = 0; uiBoucle_colonne < uiMATnombre_colonnes; uiBoucle_colonne++)
+				{
+					MATmodifier_element(f.FIClire_double(), uiBoucle_ligne, uiBoucle_colonne);
+				}
 			}
 		}
 	}
@@ -345,7 +355,7 @@ std::ostream& operator<<(std::ostream& fFlux, Cmatrice<Ttype> const& MATmatrice)
 {
 	if (!fFlux.good()) {
 		Cexception EXCerror;
-		EXCerror.EXCmodifier_valeur(ERREUR_FLUX);//Le fFlux de donné n'est pas utilisable
+		EXCerror.EXCmodifier_valeur(ERREUR_FLUX);//Le fFlux de donné n'est pas FICutilisable
 		throw EXCerror;
 	}
 	else {

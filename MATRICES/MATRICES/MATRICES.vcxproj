@@ -23,7 +23,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CCalculMatrice.h" />
+    <ClInclude Include="Ccalcul_matrice.h" />
     <ClInclude Include="Cexception.h" />
     <ClInclude Include="CMatrice.h" />
     <ClInclude Include="CFichier.h" />
