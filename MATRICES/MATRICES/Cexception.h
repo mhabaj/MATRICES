@@ -74,6 +74,11 @@ class Cexception
 	S : valeur de l'exception
 	entraîne : la valeur de l'exception est retournée*/
    void EXCafficher_erreur();
+   /* Cette fonction permet d'afficher l'erreur
+	E : néant
+	nécessite : néant
+	S : néant
+	entraîne : la valeur de l'exception est affichee*/
 };
 
 /**************************************************************

@@ -125,6 +125,15 @@ public:
 
 };
 
+/**
+ * \fn operator*(const double dScalaire, const Ccalcul_matrice<Ttype>& MATparam)
+ * \brief surcharge de l'operateur * (Multiplication par un scalaire)
+ * \pre il faut que le Ttype de la matrice supporte la multiplication par un scalaire
+ *
+ * \param dScalaire Scalaire a multiplier
+ * \param MATparam matrice a multiplier
+ * \return objet Cmatrice<Ttype> resultat de la multiplication
+ */
 template<class Ttype>
 Ccalcul_matrice<Ttype> operator*(const double dScalaire, const Ccalcul_matrice<Ttype>& MATparam)
 {
@@ -255,7 +264,7 @@ Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator*(const Ccalcul_matrice<T
 			for (uiBoucle_colonne = 0; uiBoucle_colonne < CCMresult.MATlire_nombre_colonnes(); uiBoucle_colonne++)
 			{
 				CCMresult.MATmodifier_element(this->MATlire_element(uiBoucle_ligne, 0) * CCMmat.MATlire_element(0, uiBoucle_colonne), uiBoucle_ligne, uiBoucle_colonne);
-				for (uiBoucle_calcul = 1; uiBoucle_calcul < CCMmat.MATlire_nombre_lignes(); uiBoucle_calcul++)
+				for (uiBoucle_calcul = 1; uiBoucle_calcul < CCMmat.MATlire_nombre_lignes(); uiBoucle_calcul++)//On fait une troisieme boucle pour le calcul de chaque element
 				{
 					CCMresult.MATmodifier_element(this->MATlire_element(uiBoucle_ligne, uiBoucle_calcul) * CCMmat.MATlire_element(uiBoucle_calcul, uiBoucle_colonne) + CCMresult.MATlire_element(uiBoucle_ligne, uiBoucle_colonne), uiBoucle_ligne, uiBoucle_colonne);
 				}
