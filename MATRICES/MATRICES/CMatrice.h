@@ -39,6 +39,16 @@ public:
 	 * \fn Cmatrice(const char* pcChemin)
 	 * \brief Constructeur via fichier.
 	 * \pre La matrice doit etre une matrice de double.
+	 * \pre Le format du fichier text doit suivre celui imposé. Seulement une matrice par fichier
+	 *		Exemple:
+	 *			TypeMatrice=int
+	 *			NBLignes=3
+	 * 			NBColonnes=3
+	 *			Matrice=[
+	 *			5 3 7
+	 * 			1 -2 8
+	 *			4 9 -1
+	 *			]
 	 *
 	 * \param pcChemin Fichier source de la matrice a creer.
 	 * \exception ERREUR_FICHIER Erreur fichier en cas de chemin non valide

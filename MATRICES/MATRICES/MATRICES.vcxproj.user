@@ -4,4 +4,8 @@
     <LocalDebuggerCommandArguments>D:/User/Documents/Code/git/MATRICES/MATRICES/Release/mat1.txt</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LocalDebuggerCommandArguments>C:/Users/mhaba/Desktop/mat1.txt C:/Users/mhaba/Desktop/mat2.txt C:/Users/mhaba/Desktop/mat3.txt</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
 </Project>
