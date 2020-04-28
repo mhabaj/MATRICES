@@ -143,11 +143,14 @@ Ccalcul_matrice<Ttype> operator*(const double dScalaire, const Ccalcul_matrice<T
 {
 	unsigned int uiBoucle_ligne, uiBoucle_colonne;
 
+	//On recupère les dimensions de la matrice
 	unsigned int uiLigne = MATparam.MATlire_nombre_lignes();
 	unsigned int uiColonne = MATparam.MATlire_nombre_colonnes();
 
+	//On creer une nouvelle matrice
 	Ccalcul_matrice<Ttype> CCMresult(uiLigne, uiColonne);
 
+	//On recopie chaque element en le multipliant par le scalaire
 	for (uiBoucle_ligne = 0; uiBoucle_ligne < uiLigne; uiBoucle_ligne++)
 	{
 		for (uiBoucle_colonne = 0; uiBoucle_colonne < uiColonne; uiBoucle_colonne++)
@@ -159,7 +162,7 @@ Ccalcul_matrice<Ttype> operator*(const double dScalaire, const Ccalcul_matrice<T
 	return CCMresult;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 template<class Ttype>
@@ -167,8 +170,10 @@ Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator*(const double dScalaire)
 {
 	unsigned int uiBoucle_ligne, uiBoucle_colonne;
 
+	//On creer une nouvelle matrice
 	Ccalcul_matrice<Ttype> CCMresult(this->MATlire_nombre_lignes(), this->MATlire_nombre_colonnes());
 
+	//On recopie chaque element en le multipliant par le scalaire
 	for (uiBoucle_ligne = 0; uiBoucle_ligne < this->MATlire_nombre_lignes(); uiBoucle_ligne++)
 	{
 		for (uiBoucle_colonne = 0; uiBoucle_colonne < this->MATlire_nombre_colonnes(); uiBoucle_colonne++)
@@ -185,14 +190,17 @@ Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator/(const double dScalaire)
 {
 	if (dScalaire == 0) {
 		Cexception EXCerror;
-		EXCerror.EXCmodifier_valeur(DIVISION_PAR_0);//Division par 0 impossible
+		//Division par 0 impossible
+		EXCerror.EXCmodifier_valeur(DIVISION_PAR_0);
 		throw EXCerror;
 	}
 	else {
 		unsigned int uiBoucle_ligne, uiBoucle_colonne;
 
+		//On creer une nouvelle matrice
 		Ccalcul_matrice<Ttype> CCMresult(this->MATlire_nombre_lignes(), this->MATlire_nombre_colonnes());
 
+		//On recopie chaque element en le divisant par le scalaire
 		for (uiBoucle_ligne = 0; uiBoucle_ligne < this->MATlire_nombre_lignes(); uiBoucle_ligne++)
 		{
 			for (uiBoucle_colonne = 0; uiBoucle_colonne < this->MATlire_nombre_colonnes(); uiBoucle_colonne++)
@@ -210,14 +218,17 @@ Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator+(const Ccalcul_matrice<T
 {
 	if (this->MATlire_nombre_colonnes() != CCMmat.MATlire_nombre_colonnes() || this->MATlire_nombre_lignes() != CCMmat.MATlire_nombre_lignes()) {
 		Cexception EXCerror;
-		EXCerror.EXCmodifier_valeur(ERREUR_DIMENSIONS);//Les dimensions des matrices ne permettent pas l'additon
+		//Les dimensions des matrices ne permettent pas l'additon
+		EXCerror.EXCmodifier_valeur(ERREUR_DIMENSIONS);
 		throw EXCerror;
 	}
 	else {
 		unsigned int uiBoucle_ligne, uiBoucle_colonne;
 
+		//On creer une nouvelle matrice
 		Ccalcul_matrice<Ttype> CCMresult(this->MATlire_nombre_lignes(), this->MATlire_nombre_colonnes());
 
+		//On recopie chaque element en le additionnant par l'element correspondant dans l'autre matrice
 		for (uiBoucle_ligne = 0; uiBoucle_ligne < this->MATlire_nombre_lignes(); uiBoucle_ligne++)
 		{
 			for (uiBoucle_colonne = 0; uiBoucle_colonne < this->MATlire_nombre_colonnes(); uiBoucle_colonne++)
@@ -234,14 +245,17 @@ Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator-(const Ccalcul_matrice<T
 {
 	if (this->MATlire_nombre_colonnes() != CCMmat.MATlire_nombre_colonnes() || this->MATlire_nombre_lignes() != CCMmat.MATlire_nombre_lignes()) {
 		Cexception EXCerror;
-		EXCerror.EXCmodifier_valeur(ERREUR_DIMENSIONS);//Les dimensions des matrices ne permettent pas la soustraction
+		//Les dimensions des matrices ne permettent pas la soustraction
+		EXCerror.EXCmodifier_valeur(ERREUR_DIMENSIONS);
 		throw EXCerror;
 	}
 	else {
 		unsigned int uiBoucle_ligne, uiBoucle_colonne;
 
+		//On creer une nouvelle matrice
 		Cmatrice<Ttype> CCMresult(this->MATlire_nombre_lignes(), this->MATlire_nombre_colonnes());
 
+		//On recopie chaque element en le soustrayant par l'element correspondant dans l'autre matrice
 		for (uiBoucle_ligne = 0; uiBoucle_ligne < this->MATlire_nombre_lignes(); uiBoucle_ligne++)
 		{
 			for (uiBoucle_colonne = 0; uiBoucle_colonne < this->MATlire_nombre_colonnes(); uiBoucle_colonne++)
@@ -258,21 +272,28 @@ Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator*(const Ccalcul_matrice<T
 {
 	if (this->MATlire_nombre_colonnes() != CCMmat.MATlire_nombre_lignes()) {
 		Cexception EXCerror;
-		EXCerror.EXCmodifier_valeur(ERREUR_DIMENSIONS);//Les dimensions des matrices ne permettent pas la multiplication
+		//Les dimensions des matrices ne permettent pas la multiplication
+		EXCerror.EXCmodifier_valeur(ERREUR_DIMENSIONS);
 		throw EXCerror;
 	}
 	else {
 		unsigned int uiBoucle_ligne, uiBoucle_colonne, uiBoucle_calcul;
 
+		//On creer une nouvelle matrice
 		Cmatrice<Ttype> CCMresult(this->MATlire_nombre_lignes(), CCMmat.MATlire_nombre_colonnes());
 
+		//Pour chaque ligne de 0 a la taille de la matrice
 		for (uiBoucle_ligne = 0; uiBoucle_ligne < CCMresult.MATlire_nombre_lignes(); uiBoucle_ligne++)
 		{
+			//Pour chaque colonne de 0 a la taille de la matrice
 			for (uiBoucle_colonne = 0; uiBoucle_colonne < CCMresult.MATlire_nombre_colonnes(); uiBoucle_colonne++)
 			{
+				//On fait le calcul une première fois pour s'en servir de base
 				CCMresult.MATmodifier_element(this->MATlire_element(uiBoucle_ligne, 0) * CCMmat.MATlire_element(0, uiBoucle_colonne), uiBoucle_ligne, uiBoucle_colonne);
-				for (uiBoucle_calcul = 1; uiBoucle_calcul < CCMmat.MATlire_nombre_lignes(); uiBoucle_calcul++)//On fait une troisieme boucle pour le calcul de chaque element
+				//On additionne le resultat des calculs de 1 jusqu'au nombre de colonnes de la première matrice(ou nombre de lignes de la deuxième)
+				for (uiBoucle_calcul = 1; uiBoucle_calcul < CCMmat.MATlire_nombre_lignes(); uiBoucle_calcul++)
 				{
+					//On fait element de la ligne de la matrice 1 * element de la colonne de la matrice 2 correspondant
 					CCMresult.MATmodifier_element(this->MATlire_element(uiBoucle_ligne, uiBoucle_calcul) * CCMmat.MATlire_element(uiBoucle_calcul, uiBoucle_colonne) + CCMresult.MATlire_element(uiBoucle_ligne, uiBoucle_colonne), uiBoucle_ligne, uiBoucle_colonne);
 				}
 			}
@@ -288,8 +309,10 @@ Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::CCMtranspose()
 {
 	unsigned int uiBoucle_ligne, uiBoucle_colonne;
 
+	//On creer une nouvelle matrice
 	Cmatrice<Ttype> CCMresult(this->MATlire_nombre_colonnes(), this->MATlire_nombre_lignes());
 
+	//On recopie la matrice en inversant les indexes
 	for (uiBoucle_ligne = 0; uiBoucle_ligne < CCMresult.MATlire_nombre_lignes(); uiBoucle_ligne++)
 	{
 		for (uiBoucle_colonne = 0; uiBoucle_colonne < CCMresult.MATlire_nombre_colonnes(); uiBoucle_colonne++)

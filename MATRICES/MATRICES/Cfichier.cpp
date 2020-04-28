@@ -16,7 +16,8 @@
 Cfichier::Cfichier(const char* pcChemin)
 {
 	IFSFlux = new std::ifstream(pcChemin);
-	if (IFSFlux->is_open())//Si le fichier n'est pas ouvert
+	//Si le fichier n'est pas ouvert
+	if (IFSFlux->is_open())
 		bUtilisable = true;
 	else
 		bUtilisable = false;
@@ -24,15 +25,18 @@ Cfichier::Cfichier(const char* pcChemin)
 
 Cfichier::~Cfichier()
 {
-	IFSFlux->close();
-	delete IFSFlux;
+	if (IFSFlux) {
+		IFSFlux->close();
+		delete IFSFlux;
+	}
 }
 
 int Cfichier::FIClire_int()
 {
 	if (IFSFlux->eof()) {
 		Cexception EXCerror;
-		EXCerror.EXCmodifier_valeur(FIN_FICHIER);//Fin du fichier atteinte
+		//Fin du fichier atteinte
+		EXCerror.EXCmodifier_valeur(FIN_FICHIER);
 		throw EXCerror;
 	}
 	else {
@@ -40,7 +44,8 @@ int Cfichier::FIClire_int()
 		*IFSFlux >> iValeur;
 		if (IFSFlux->fail()) {
 			Cexception EXCerror;
-			EXCerror.EXCmodifier_valeur(ERREUR_LECTURE);//La valeur en lecture n'est pas un int
+			//La valeur en lecture n'est pas un int
+			EXCerror.EXCmodifier_valeur(ERREUR_LECTURE);
 			throw EXCerror;
 		}
 		return iValeur;
@@ -51,7 +56,8 @@ double Cfichier::FIClire_double()
 {
 	if (IFSFlux->eof()) {
 		Cexception EXCerror;
-		EXCerror.EXCmodifier_valeur(FIN_FICHIER);//Fin du fichier atteinte
+		//Fin du fichier atteinte
+		EXCerror.EXCmodifier_valeur(FIN_FICHIER);
 		throw EXCerror;
 	}
 	else {
@@ -59,7 +65,8 @@ double Cfichier::FIClire_double()
 		*IFSFlux >> dValeur;
 		if (IFSFlux->fail()) {
 			Cexception EXCerror;
-			EXCerror.EXCmodifier_valeur(ERREUR_LECTURE);//La valeur en lecture n'est pas un double
+			//La valeur en lecture n'est pas un double
+			EXCerror.EXCmodifier_valeur(ERREUR_LECTURE);
 			throw EXCerror;
 		}
 		return dValeur;
@@ -71,7 +78,8 @@ void Cfichier::FIClire_mot(char* pcChaine)
 
 	if (IFSFlux->eof()) {
 		Cexception EXCerror;
-		EXCerror.EXCmodifier_valeur(FIN_FICHIER);//Fin du fichier atteinte
+		//Fin du fichier atteinte
+		EXCerror.EXCmodifier_valeur(FIN_FICHIER);
 		throw EXCerror;
 	}
 	else {
@@ -83,7 +91,8 @@ char Cfichier::FIClire_un()
 {
 	if (IFSFlux->eof()) {
 		Cexception EXCerror;
-		EXCerror.EXCmodifier_valeur(FIN_FICHIER);//Fin du fichier atteinte
+		//Fin du fichier atteinte
+		EXCerror.EXCmodifier_valeur(FIN_FICHIER);
 		throw EXCerror;
 	}
 	else {
@@ -97,11 +106,13 @@ void Cfichier::FICprochain_separateur(char cSeparateur)
 {
 	char cSeparateur_temporaire;
 
+	//On prend le prochain caractère tant qu'on a pas le separateur
 	do {
 		IFSFlux->get(cSeparateur_temporaire);
 		if (IFSFlux->eof()) {
 			Cexception EXCerror;
-			EXCerror.EXCmodifier_valeur(FIN_FICHIER);//Fin du fichier atteinte
+			//Fin du fichier atteinte
+			EXCerror.EXCmodifier_valeur(FIN_FICHIER);
 			throw EXCerror;
 		}
 	} while (cSeparateur_temporaire != cSeparateur);
