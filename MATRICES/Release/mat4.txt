@@ -1,7 +1,0 @@
-TypeMatrice=double
-NBLignes=2
-NBColonnes=3
-Matrice=[
-14 35 72
-91 -20 86
-]
