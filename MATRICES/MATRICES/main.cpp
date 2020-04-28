@@ -1,12 +1,9 @@
 #include "Ccalcul_matrice.h"
-
 int main(unsigned int argc, char* argv[])
 {
 	unsigned int uiBoucle_arguments, uiNombre_matrice;
 	unsigned int uiDecalage = 1;
 	
-	
-
 	double dValeur;
 
 	uiNombre_matrice = argc - 1;
@@ -108,8 +105,8 @@ int main(unsigned int argc, char* argv[])
 				exit(ARGUMENT_INVALIDE);
 			}
 		
-		
 			delete[] CCMMatrices;
+			
 	
 	}
 	return 0;

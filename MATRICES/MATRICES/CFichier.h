@@ -34,6 +34,15 @@ public:
 	Cfichier(const char* pcChemin);
 
 	/**
+	 * \fn Cfichier
+	 * \brief Destructeur.
+	 *
+	 * Detruit l'objet
+	 */
+	~Cfichier();
+
+
+	/**
 	 * \fn FICprochain_separateur(char sep)
 	 * \brief Saute jusqu'au prochain separateur dans le fichier
 	 *

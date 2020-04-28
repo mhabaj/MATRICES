@@ -22,6 +22,12 @@ Cfichier::Cfichier(const char* pcChemin)
 		bUtilisable = false;
 }
 
+Cfichier::~Cfichier()
+{
+	IFSFlux->close();
+	delete IFSFlux;
+}
+
 int Cfichier::FIClire_int()
 {
 	if (IFSFlux->eof()) {

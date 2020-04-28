@@ -411,6 +411,7 @@ Cmatrice<Ttype>::~Cmatrice()
 		}
 
 		delete[] ppTMATmatrice;
+
 	}
 }
 
@@ -479,7 +480,6 @@ void Cmatrice<Ttype>::MATajouter_ligne()
 	delete[] ppTMATmatrice;
 
 	ppTMATmatrice = ppTMatrice_temporaire;
-
 	uiMATnombre_lignes++;
 }
 
