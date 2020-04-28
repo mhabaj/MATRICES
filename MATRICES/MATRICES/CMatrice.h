@@ -6,10 +6,10 @@
  * \date 22 avril 2020
  */
 #pragma once
-
+ /*
+ Modules internes : */
 #include "Cexception.h"
-#include "CFichier.h"
-
+#include "Cfichier.h"
 #include <ostream>
 #include <iostream>
 
@@ -351,13 +351,14 @@ Cmatrice<Ttype>& Cmatrice<Ttype>::operator=(const Cmatrice& MATparam)
 /**
  * \fn operator<<(std::ostream& fFlux, Cmatrice<Ttype> const& MATmatrice)
  * \brief surcharge de l'operateur <<
- *
+ * \pre Il faut que Ttype surcharge l'operateur <<
+ * 
  * \param fFlux flux de données
  * \param MATmatrice matrice a afficher
  * \return std::ostream& flux de données
  */
 template<class Ttype>
-std::ostream& operator<<(std::ostream& fFlux, Cmatrice<Ttype> const& MATmatrice)
+std::ostream& operator<<(std::ostream& fFlux, const Cmatrice<Ttype>& MATmatrice)
 {
 	if (!fFlux.good()) {//Si le flux a un probleme
 		Cexception EXCerror;

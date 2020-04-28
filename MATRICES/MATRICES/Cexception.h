@@ -24,8 +24,8 @@ lors de la levée d'exception dans votre programme.
 
 #include <iostream>
 
-// Définition de la valeur initiale d'une exception
-#define FAUX 0
+// Definition des code erreurs des exceptions:
+#define FAUX 0		// Erreur par default
 #define ERREUR_DIMENSIONS 1 //Les deimensions ne sont pas valide(plus petit que 1)
 #define HORS_DIMENSIONS 2 //Indices plus grand que le nombre de colonnes ou de lignes
 #define DIVISION_PAR_0 3 //Division par 0
@@ -34,6 +34,7 @@ lors de la levée d'exception dans votre programme.
 #define FIN_FICHIER 6 //Fin du fichier atteinte
 #define ERREUR_FLUX 7 //Probleme au niveau d'un flux
 #define ERREUR_TYPE 8 //Probleme de type(matrice)
+#define ARGUMENT_INVALIDE 9 //Argument en entree invalide
 
 class Cexception
 {
@@ -61,7 +62,7 @@ class Cexception
 	nécessite : néant
 	S : néant
 	entraîne : l'exception est détruite*/
-   void EXCmodifier_valeur(unsigned int);
+   void EXCmodifier_valeur(unsigned int uiEXCvaleur);
    /* Cette fonction permet de modifier la valeur de l'exception
 	E : nouvelle valeur
 	nécessite : néant
@@ -79,6 +80,7 @@ class Cexception
 	nécessite : néant
 	S : néant
 	entraîne : la valeur de l'exception est affichee*/
+   
 };
 
 /**************************************************************

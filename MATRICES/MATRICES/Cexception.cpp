@@ -26,7 +26,6 @@ lors de la levée d'exception dans votre programme.
 	Attributs : uiEXCvaleur, entier, contient la valeur de l'exception
 	Structure : Cette classe contient une méthode de modification et une méthode
 			de consultation de la valeur de l'exception
-	Méthode : néant
 	Modules internes :*/
 		#include <fstream>
 		#include "Cexception.h"
@@ -60,38 +59,45 @@ Nécessite : néant
 Sortie : rien
 Entraîne : L'exception est modifiée
 ***************************************************************/
-void Cexception::EXCmodifier_valeur(unsigned int val)
+void Cexception::EXCmodifier_valeur(unsigned int uiEXCparam)
 {
- uiEXCvaleur = val;
+ uiEXCvaleur = uiEXCparam;
  //l'exception est modifiée
 }
 
 void Cexception::EXCafficher_erreur()
 {
 	switch (uiEXCvaleur) {
-	case 1:
+	case ERREUR_DIMENSIONS:
 		std::cout << "Erreur : Dimensions non conformes\n";
 		break;
-	case 2:
+	case HORS_DIMENSIONS:
 		std::cout << "Erreur : Indices hors dimension\n";
 		break;
-	case 3:
+	case DIVISION_PAR_0:
 		std::cout << "Erreur : Division par 0\n";
 		break;
-	case 4:
-		std::cout << "Erreur : Fichier inutilisable\n";
+	case ERREUR_FICHIER:
+		std::cout << "Erreur : Fichier inutilisable ou inexistant\n";
 		break;
-	case 5:
+	case ERREUR_LECTURE:
 		std::cout << "Erreur : Lecture impossible\n";
 		break;
-	case 6:
+	case FIN_FICHIER:
 		std::cout << "Erreur : Fin du fichier\n";
 		break;
-	case 7:
-		std::cout << "Erreur : Problème flux d'affichage\n";
+	case ERREUR_FLUX:
+		std::cout << "Erreur : Probleme flux d'affichage\n";
 		break;
-	case 8:
+	case ERREUR_TYPE:
 		std::cout << "Erreur : Pour les fichiers, seul le type double est accepte\n";
 		break;
+	case ARGUMENT_INVALIDE:
+		std::cout << "Erreur : Argument invalide passe en parametre\n";
+		break;
+	default:
+		std::cout << "Erreur : Erreur non repertorie\n";
 	}
 }
+
+

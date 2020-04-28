@@ -6,7 +6,8 @@
  * \date 22 avril 2020
  */
 #pragma once
-
+ /*
+ Modules internes : */
 #include <iostream> 
 #include <fstream>
 
@@ -30,7 +31,7 @@ public:
 	 * \param pcChemin chaine de caractères representant le chemin vers le fichier a manipuler
 	 * Ouvre et prepare le fichier a etre manipulé
 	 */
-	Cfichier(const char* pcChemin); 
+	Cfichier(const char* pcChemin);
 
 	/**
 	 * \fn FICprochain_separateur(char sep)

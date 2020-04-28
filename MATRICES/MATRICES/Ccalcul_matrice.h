@@ -6,14 +6,15 @@
  * \date 22 avril 2020
  */
 #pragma once
-
-#include "CMatrice.h"
+/*
+Modules internes : */
+#include "Cmatrice.h"
 
  /** 
   * \class Ccalcul_matrice
   * \brief Classe de gestion d'operations de calculs complexes sur Matrices
   * 
-  *	Permet d'effectuer des operations complexes sur des objets Cmatrice
+  *	Permet d'effectuer des operations complexes sur des objets d'origine Cmatrice
   */
 template <class Ttype> class Ccalcul_matrice : public Cmatrice<Ttype>
 {
@@ -125,6 +126,8 @@ public:
 
 };
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**
  * \fn operator*(const double dScalaire, const Ccalcul_matrice<Ttype>& MATparam)
  * \brief surcharge de l'operateur * (Multiplication par un scalaire)
@@ -154,6 +157,9 @@ Ccalcul_matrice<Ttype> operator*(const double dScalaire, const Ccalcul_matrice<T
 
 	return CCMresult;
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 template<class Ttype>
 Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator*(const double dScalaire)//Justifier choix multiplication
