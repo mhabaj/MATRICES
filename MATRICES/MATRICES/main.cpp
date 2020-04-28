@@ -1,4 +1,15 @@
 #include "Ccalcul_matrice.h"
+
+/**
+*	Fonction principale main
+*   Binome: ALHABAJ Mahmod / BELDA Tom
+*	Projet: Matrices
+*	Polytech: Tours DI3GR1
+*	Professeur Referent: V. T'kindt
+*
+*/
+
+
 int main(unsigned int argc, char* argv[])
 {
 	unsigned int uiBoucle_arguments, uiNombre_matrice;
@@ -29,10 +40,11 @@ int main(unsigned int argc, char* argv[])
 			std::cout << CCMMatrices[uiBoucle_arguments] << "\n";
 		}
 
-		std::cout << "Rentrer une valeur :\n";
+		std::cout << "Rentrer la valeur du scalaire :\n";
 		
 			if (std::cin >> dValeur) {
-
+				
+				std::cout << "Valeur Scalaire Rentree: " << dValeur << std::endl;
 				for (uiBoucle_arguments = 0; uiBoucle_arguments < uiNombre_matrice; uiBoucle_arguments++) {
 					std::cout << "Matrice " << uiBoucle_arguments + 1 << " * " << dValeur << " = " << CCMMatrices[uiBoucle_arguments] * dValeur << "\n";
 				}
@@ -82,7 +94,7 @@ int main(unsigned int argc, char* argv[])
 					}
 				}
 
-				std::cout << "Resultat du calcul M1-M2+M3.... : " << CMMCalcul << "\n";
+				std::cout << "Resultat du calcul M1-M2+M3....(Seulement matrices valides) : " << CMMCalcul << "\n";
 
 				std::cout << "--------------------------------------\n";
 

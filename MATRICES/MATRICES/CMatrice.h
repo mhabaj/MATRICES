@@ -380,7 +380,8 @@ Cmatrice<Ttype>& Cmatrice<Ttype>::operator=(const Cmatrice& MATparam)
 
 	return *this;
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**
  * \fn operator<<(std::ostream& fFlux, Cmatrice<Ttype> const& MATmatrice)
  * \brief surcharge de l'operateur <<
@@ -425,7 +426,8 @@ std::ostream& operator<<(std::ostream& fFlux, const Cmatrice<Ttype>& MATmatrice)
 		return fFlux;
 	}
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 template<class Ttype>
 Cmatrice<Ttype>::~Cmatrice()
 {
@@ -697,7 +699,7 @@ void Cmatrice<Ttype>::MATsupprimer_colonne(unsigned int uiIndice)
 		throw error;
 	}
 	else {
-		unsigned int uiBoucle_initialisation, uiBoucle_ligne, uiBoucle_colonne, uiBoucle_lecture;
+		unsigned int uiBoucle_initialisation, uiBoucle_colonne, uiBoucle_lecture;
 		unsigned int uiNombre_colonnes_temporaire = uiMATnombre_colonnes - 1;
 
 		Ttype** ppTMatrice_temporaire;

@@ -29,13 +29,6 @@
     <ClInclude Include="Cmatrice.h" />
     <ClInclude Include="Cfichier.h" />
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="MATRICES.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{54E7BF6A-D532-4691-8423-75191A771801}</ProjectGuid>

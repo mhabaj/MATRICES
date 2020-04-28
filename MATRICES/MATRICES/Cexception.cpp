@@ -69,34 +69,34 @@ void Cexception::EXCafficher_erreur()
 {
 	switch (uiEXCvaleur) {
 	case ERREUR_DIMENSIONS:
-		std::cout << "Erreur : Dimensions non conformes\n";
+		std::cout << "EXCEPTION Erreur : Dimensions non conformes\n";
 		break;
 	case HORS_DIMENSIONS:
-		std::cout << "Erreur : Indices hors dimension\n";
+		std::cout << "EXCEPTION Erreur : Indices hors dimension\n";
 		break;
 	case DIVISION_PAR_0:
-		std::cout << "Erreur : Division par 0\n";
+		std::cout << "EXCEPTION Erreur : Division par 0\n";
 		break;
 	case ERREUR_FICHIER:
-		std::cout << "Erreur : Fichier inutilisable ou inexistant\n";
+		std::cout << "EXCEPTION Erreur : Fichier inutilisable ou inexistant\n";
 		break;
 	case ERREUR_LECTURE:
-		std::cout << "Erreur : Lecture impossible\n";
+		std::cout << "EXCEPTION Erreur : Lecture impossible\n";
 		break;
 	case FIN_FICHIER:
-		std::cout << "Erreur : Fin du fichier\n";
+		std::cout << "EXCEPTION Erreur : Fin du fichier\n";
 		break;
 	case ERREUR_FLUX:
-		std::cout << "Erreur : Probleme flux d'affichage\n";
+		std::cout << "EXCEPTION Erreur : Probleme flux d'affichage\n";
 		break;
 	case ERREUR_TYPE:
-		std::cout << "Erreur : Pour les fichiers, seul le type double est accepte\n";
+		std::cout << "EXCEPTION Erreur : Pour les fichiers, seul le type double est accepte\n";
 		break;
 	case ARGUMENT_INVALIDE:
-		std::cout << "Erreur : Argument invalide passe en parametre\n";
+		std::cout << "EXCEPTION Erreur : Argument invalide passe en parametre\n";
 		break;
 	default:
-		std::cout << "Erreur : Erreur non repertorie\n";
+		std::cout << "Erreur: Exception non repertorie\n";
 	}
 }
 

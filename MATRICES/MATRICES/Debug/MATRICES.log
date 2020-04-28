@@ -2,7 +2,6 @@
   Cfichier.cpp
   main.cpp
   Génération de code en cours...
-  LINK : D:\User\Documents\Code\git\MATRICES\MATRICES\Debug\MATRICES.exe introuvable ou non généré par la dernière édition de liens incrémentielle ; édition de liens complète en cours
   
   Début de la passe 1
   /DEFAULTLIB:msvcprtd traité
@@ -22,7 +21,7 @@
       Recherche en cours C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\uuid.lib :
       Recherche en cours C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\odbc32.lib :
       Recherche en cours C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\odbccp32.lib :
-      Recherche en cours D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\msvcprtd.lib :
+      Recherche en cours C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\msvcprtd.lib :
         "bool __cdecl std::uncaught_exception(void)" (?uncaught_exception@std@@YA_NXZ) trouvé
           Référencé dans Cexception.obj
           Référencé dans main.obj
@@ -240,16 +239,28 @@
         "__declspec(dllimport) public: __thiscall std::ios_base::operator bool(void)const " (__imp_??Bios_base@std@@QBE_NXZ) trouvé
           Référencé dans main.obj
           Chargé msvcprtd.lib(MSVCP140D.dll)
+        "__declspec(dllimport) public: char __thiscall std::basic_ios<char,struct std::char_traits<char> >::widen(char)const " (__imp_?widen@?$basic_ios@DU?$char_traits@D@std@@@std@@QBEDD@Z) trouvé
+          Référencé dans main.obj
+          Chargé msvcprtd.lib(MSVCP140D.dll)
+        "__declspec(dllimport) public: class std::basic_ostream<char,struct std::char_traits<char> > & __thiscall std::basic_ostream<char,struct std::char_traits<char> >::operator<<(class std::basic_ostream<char,struct std::char_traits<char> > & (__cdecl*)(class std::basic_ostream<char,struct std::char_traits<char> > &))" (__imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@P6AAAV01@AAV01@@Z@Z) trouvé
+          Référencé dans main.obj
+          Chargé msvcprtd.lib(MSVCP140D.dll)
         "__declspec(dllimport) public: class std::basic_ostream<char,struct std::char_traits<char> > & __thiscall std::basic_ostream<char,struct std::char_traits<char> >::operator<<(unsigned int)" (__imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@I@Z) trouvé
           Référencé dans main.obj
           Chargé msvcprtd.lib(MSVCP140D.dll)
         "__declspec(dllimport) public: class std::basic_ostream<char,struct std::char_traits<char> > & __thiscall std::basic_ostream<char,struct std::char_traits<char> >::operator<<(double)" (__imp_??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV01@N@Z) trouvé
           Référencé dans main.obj
           Chargé msvcprtd.lib(MSVCP140D.dll)
+        "__declspec(dllimport) public: class std::basic_ostream<char,struct std::char_traits<char> > & __thiscall std::basic_ostream<char,struct std::char_traits<char> >::put(char)" (__imp_?put@?$basic_ostream@DU?$char_traits@D@std@@@std@@QAEAAV12@D@Z) trouvé
+          Référencé dans main.obj
+          Chargé msvcprtd.lib(MSVCP140D.dll)
         "__declspec(dllimport) class std::basic_istream<char,struct std::char_traits<char> > std::cin" (__imp_?cin@std@@3V?$basic_istream@DU?$char_traits@D@std@@@1@A) trouvé
           Référencé dans main.obj
           Chargé msvcprtd.lib(MSVCP140D.dll)
         __IMPORT_DESCRIPTOR_MSVCP140D trouvé
+          Référencé dans msvcprtd.lib(MSVCP140D.dll)
+          Référencé dans msvcprtd.lib(MSVCP140D.dll)
+          Référencé dans msvcprtd.lib(MSVCP140D.dll)
           Référencé dans msvcprtd.lib(MSVCP140D.dll)
           Référencé dans msvcprtd.lib(MSVCP140D.dll)
           Référencé dans msvcprtd.lib(MSVCP140D.dll)
@@ -328,7 +339,7 @@
         MSVCP140D_NULL_THUNK_DATA trouvé
           Référencé dans msvcprtd.lib(MSVCP140D.dll)
           Chargé msvcprtd.lib(MSVCP140D.dll)
-      Recherche en cours D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\MSVCRTD.lib :
+      Recherche en cours C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\MSVCRTD.lib :
         @_RTC_CheckStackVars@8 trouvé
           Référencé dans Cexception.obj
           Référencé dans Cfichier.obj
@@ -505,8 +516,8 @@
         __except_handler4_noexcept trouvé
           Référencé dans MSVCRTD.lib(error.obj)
           Chargé MSVCRTD.lib(chandler4_noexcept.obj)
-      Recherche en cours D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\OLDNAMES.lib :
-      Recherche en cours D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\vcruntimed.lib :
+      Recherche en cours C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\OLDNAMES.lib :
+      Recherche en cours C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\vcruntimed.lib :
         ___CxxFrameHandler3 trouvé
           Référencé dans Cexception.obj
           Référencé dans Cfichier.obj
@@ -920,10 +931,10 @@
       Recherche en cours C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\uuid.lib :
       Recherche en cours C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\odbc32.lib :
       Recherche en cours C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\odbccp32.lib :
-      Recherche en cours D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\msvcprtd.lib :
-      Recherche en cours D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\MSVCRTD.lib :
-      Recherche en cours D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\OLDNAMES.lib :
-      Recherche en cours D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\vcruntimed.lib :
+      Recherche en cours C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\msvcprtd.lib :
+      Recherche en cours C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\MSVCRTD.lib :
+      Recherche en cours C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\OLDNAMES.lib :
+      Recherche en cours C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\vcruntimed.lib :
       Recherche en cours C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\ucrt\x86\ucrtd.lib :
   
   Fin de la recherche des bibliothèques
@@ -941,12 +952,12 @@
       Recherche en cours C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\uuid.lib :
       Recherche en cours C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\odbc32.lib :
       Recherche en cours C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\odbccp32.lib :
-      Recherche en cours D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\msvcprtd.lib :
-      Recherche en cours D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\MSVCRTD.lib :
+      Recherche en cours C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\msvcprtd.lib :
+      Recherche en cours C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\MSVCRTD.lib :
         ___scrt_stub_for_acrt_initialize trouvé
           Chargé MSVCRTD.lib(ucrt_stubs.obj)
-      Recherche en cours D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\OLDNAMES.lib :
-      Recherche en cours D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\vcruntimed.lib :
+      Recherche en cours C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\OLDNAMES.lib :
+      Recherche en cours C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\vcruntimed.lib :
       Recherche en cours C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\ucrt\x86\ucrtd.lib :
   
   Fin de la recherche des bibliothèques
@@ -968,8 +979,8 @@
       Recherche en cours C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\uuid.lib :
       Recherche en cours C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\odbc32.lib :
       Recherche en cours C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\odbccp32.lib :
-      Recherche en cours D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\msvcprtd.lib :
-      Recherche en cours D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\MSVCRTD.lib :
+      Recherche en cours C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\msvcprtd.lib :
+      Recherche en cours C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\MSVCRTD.lib :
         __load_config_used trouvé
           Chargé MSVCRTD.lib(loadcfg.obj)
   
@@ -979,27 +990,26 @@
    /v
    /x
    /fo
-   "C:\Users\BELDA_~1\AppData\Local\Temp\lnk{54068F4F-E4AF-4422-AFA7-6F7464E850E2}.tmp"
-   "C:\Users\BELDA_~1\AppData\Local\Temp\lnk{531B2437-09AF-4784-ACBF-853B6D005385}.tmp"
+   "C:\Users\mhaba\AppData\Local\Temp\lnk{BCBE6143-EA0E-441F-BC10-260495FBFB7B}.tmp"
+   "C:\Users\mhaba\AppData\Local\Temp\lnk{C9C254E7-616A-4B4E-B137-E2C72ECAFB7A}.tmp"
   Microsoft (R) Windows (R) Resource Compiler Version 10.0.10011.16384
   
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
   
-  Creating C:\Users\BELDA_~1\AppData\Local\Temp\lnk{54068F4F-E4AF-4422-AFA7-6F7464E850E2}.tmp
+  Creating C:\Users\mhaba\AppData\Local\Temp\lnk{BCBE6143-EA0E-441F-BC10-260495FBFB7B}.tmp
   
   Using codepage 1252 as default
   
-  C:\Users\BELDA_~1\AppData\Local\Temp\lnk{531B2437-09AF-4784-ACBF-853B6D005385}.tmp.
+  C:\Users\mhaba\AppData\Local\Temp\lnk{C9C254E7-616A-4B4E-B137-E2C72ECAFB7A}.tmp.
   Writing 24:1,	lang:0x409,	size 381
   
   Appel de cvtres.exe :
    /machine:x86
    /verbose
-   /out:"C:\Users\BELDA_~1\AppData\Local\Temp\lnk{7E2CB286-60E6-4EA2-9919-162CAED606CF}.tmp"
+   /out:"C:\Users\mhaba\AppData\Local\Temp\lnk{EA817DD1-90EB-4C68-A202-1DEE3117AB78}.tmp"
    /readonly
-   "Debug\MATRICES.res"
-   "C:\Users\BELDA_~1\AppData\Local\Temp\lnk{54068F4F-E4AF-4422-AFA7-6F7464E850E2}.tmp"
+   "C:\Users\mhaba\AppData\Local\Temp\lnk{BCBE6143-EA0E-441F-BC10-260495FBFB7B}.tmp"
   Microsoft (R) Windows Resource To Object Converter Version 14.16.27038.0
   Copyright (C) Microsoft Corporation. Tous droits rÚservÚs.
   
@@ -1018,10 +1028,10 @@
     C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\uuid.lib
     C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\odbc32.lib
     C:\Program Files (x86)\Windows Kits\10\lib\10.0.18362.0\um\x86\odbccp32.lib
-    D:\Programmes\VisualStudio17\VC\Tools\MSVC\14.16.27023\lib\x86\OLDNAMES.lib
+    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86\OLDNAMES.lib
   
   Début de la passe 2
-       MATRICES.res
+       * linker generated manifest res *
        main.obj
        Cfichier.obj
        Cexception.obj
@@ -1050,6 +1060,9 @@
        kernel32.lib(KERNEL32.dll)
        kernel32.lib(KERNEL32.dll)
        kernel32.lib(KERNEL32.dll)
+       msvcprtd.lib(MSVCP140D.dll)
+       msvcprtd.lib(MSVCP140D.dll)
+       msvcprtd.lib(MSVCP140D.dll)
        msvcprtd.lib(MSVCP140D.dll)
        msvcprtd.lib(MSVCP140D.dll)
        msvcprtd.lib(MSVCP140D.dll)
@@ -1244,4 +1257,4 @@
        ucrtd.lib(ucrtbased.dll)
        ucrtd.lib(ucrtbased.dll)
   Fin de la passe 2
-  MATRICES.vcxproj -> D:\User\Documents\Code\git\MATRICES\MATRICES\Debug\MATRICES.exe
+  MATRICES.vcxproj -> D:\mega\MEGAsync\BACKKKKKKUPPP\backup USB 2Go noir\FAC\3eme année Polytech\2eme semestre\C++\PROJET C++\MATRICES\MATRICES\Debug\MATRICES.exe
