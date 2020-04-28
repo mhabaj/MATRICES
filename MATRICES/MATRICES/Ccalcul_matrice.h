@@ -66,6 +66,7 @@ public:
 	 */
 	Ccalcul_matrice(const Cmatrice<Ttype>& MATparam) : Cmatrice<Ttype>(MATparam) {}
 
+
 	/**
 	 * \fn CCMtranspose(Cmatrice<Ttype> mat)
 	 * \brief Calculer la transpose de la matrice
@@ -279,6 +280,7 @@ Ccalcul_matrice<Ttype> Ccalcul_matrice<Ttype>::operator*(const Ccalcul_matrice<T
 		return CCMresult;
 	}
 }
+
 
 
 template<class Ttype>

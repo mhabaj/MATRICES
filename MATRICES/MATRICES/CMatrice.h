@@ -224,7 +224,6 @@ Cmatrice<double>::Cmatrice(const char* pcChemin)
 			throw EXCerror;
 		}
 		else {
-
 			f.FICprochain_separateur('=');
 			uiNombre_ligne = f.FIClire_int();
 

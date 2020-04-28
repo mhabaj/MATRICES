@@ -8,13 +8,6 @@ Date	: 10/07/2006
 Lecteur : V. T'kindt     
 Date	: 11/07/2006
 ***********************************************************
-Auteur	: 
-Version	:
-Date	:
--------------------------
-Lecteur : 
-Date	: 
-***********************************************************
 Interface de la classe Cexception.
 Cette classe permet de créer des objets qui sont remontés 
 lors de la levée d'exception dans votre programme.
